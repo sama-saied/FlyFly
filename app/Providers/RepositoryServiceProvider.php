@@ -24,4 +24,6 @@ class RepositoryServiceProvider extends ServiceProvider
             $this->app->bind($interface, $implementation);
         }
     }
+
+    
 }

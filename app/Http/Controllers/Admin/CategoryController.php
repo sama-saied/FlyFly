@@ -47,7 +47,7 @@ public function create()
     return view('admin.categories.create', compact('categories'));
 }
 
- /**
+/**
  * @param Request $request
  * @return \Illuminate\Http\RedirectResponse
  * @throws \Illuminate\Validation\ValidationException
@@ -56,7 +56,7 @@ public function store(Request $request)
 {
     $this->validate($request, [
         'name'      =>  'required|max:191',
-       // 'parent_id' =>  'required|not_in:0',
+        'parent_id' =>  'required|not_in:0',
         'image'     =>  'mimes:jpg,jpeg,png|max:1000'
     ]);
 
@@ -92,7 +92,7 @@ public function update(Request $request)
 {
     $this->validate($request, [
         'name'      =>  'required|max:191',
-       // 'parent_id' =>  'required|not_in:0',
+        'parent_id' =>  'required|not_in:0',
         'image'     =>  'mimes:jpg,jpeg,png|max:1000'
     ]);
 

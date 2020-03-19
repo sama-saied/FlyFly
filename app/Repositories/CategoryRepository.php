@@ -70,6 +70,7 @@ public function createCategory(array $params)
             $image = $this->uploadOne($params['image'], 'categories');
         }
 
+
         $merge = $collection->merge(compact( 'image'));
 
         $category = new Category($merge->all());
@@ -102,6 +103,7 @@ public function updateCategory(array $params)
         $image = $this->uploadOne($params['image'], 'categories');
     }
 
+
     $merge = $collection->merge(compact( 'image'));
 
     $category->update($merge->all());
@@ -113,7 +115,6 @@ public function updateCategory(array $params)
  * @param $id
  * @return bool|mixed
  */
-
 public function deleteCategory($id)
 {
     $category = $this->findCategoryById($id);

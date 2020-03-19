@@ -8,32 +8,29 @@ class Category extends Model
 {
     protected $table = 'categories';
 
-    public $timestamps = false;
-    
     protected $fillable = [
-        'name' /*, 'parent_id' */ , 'image'
+        'name',  'parent_id',  'image'
     ];
 
-  /* 
-   protected $casts = [
+    protected $casts = [
         'parent_id' =>  'integer'
     ];
-*/
+
     public function setNameAttribute($value)
-    {
-        $this->attributes['name'] = $value;
-    }
+{
+    $this->attributes['name'] = $value;
+    
+}
 
-  /* 
-   public function parent()
-    {
-        return $this->belongsTo(Category::class, 'parent_id');
-    }
+public function parent()
+{
+    return $this->belongsTo(Category::class, 'parent_id');
+}
 
-    public function children()
+public function children()
 {
     return $this->hasMany(Category::class, 'parent_id');
 }
 
-*/
+
 }

@@ -11,8 +11,7 @@
         <div class="col-md-8 mx-auto">
             <div class="tile">
                 <h3 class="tile-title">{{ $subTitle }}</h3>
-
-               <form action="{{ route('admin.categories.update') }}" method="POST" role="form" enctype="multipart/form-data">
+                <form action="{{ route('admin.categories.update') }}" method="POST" role="form" enctype="multipart/form-data">
                     @csrf
                     <div class="tile-body">
                         <div class="form-group">
@@ -21,8 +20,7 @@
                             <input type="hidden" name="id" value="{{ $targetCategory->id }}">
                             @error('name') {{ $message }} @enderror
                         </div>
-                    
-                     <!--   <div class="form-group">
+                        <div class="form-group">
                             <label for="parent">Parent Category <span class="m-l-5 text-danger"> *</span></label>
                             <select id=parent class="form-control custom-select mt-15 @error('parent_id') is-invalid @enderror" name="parent_id">
                                 <option value="0">Select a parent category</option>
@@ -36,9 +34,7 @@
                             </select>
                             @error('parent_id') {{ $message }} @enderror
                         </div>
-                    -->
-                        
-                        
+                       
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">
