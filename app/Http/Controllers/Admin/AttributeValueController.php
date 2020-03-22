@@ -25,4 +25,15 @@ class AttributeValueController extends Controller
 
     return response()->json($values);
 }
+
+public function addValues(Request $request)
+{
+    $value = new AttributeValue();
+    $value->attribute_id = $request->input('id');
+    $value->value = $request->input('value');
+    $value->price = $request->input('price');
+    $value->save();
+
+    return response()->json($value);
+}
 }
