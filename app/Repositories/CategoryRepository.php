@@ -104,7 +104,7 @@ public function updateCategory(array $params)
     }
 
 
-    $merge = $collection->merge(compact( 'image'));
+    $merge = $collection->merge(compact('image'));
 
     $category->update($merge->all());
 
