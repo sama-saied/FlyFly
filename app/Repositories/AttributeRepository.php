@@ -6,6 +6,7 @@ use App\Contracts\AttributeContract;
 use Illuminate\Database\QueryException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Doctrine\Instantiator\Exception\InvalidArgumentException;
+use Illuminate\Http\Request;
 
 class AttributeRepository extends BaseRepository implements AttributeContract
 {
@@ -104,4 +105,13 @@ class AttributeRepository extends BaseRepository implements AttributeContract
 
         return $attribute;
     }
+    public function getValues(Request $request)
+{
+    $attributeId = $request->input('id');
+    $attribute = $this->attributeRepository->findAttributeById($attributeId);
+
+    $values = $attribute->values;
+
+    return response()->json($values);
+}
 }
