@@ -47,6 +47,7 @@ import VueSwal from 'vue-swal';
 Vue.use(VueSwal);
 
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
 Vue.component('attribute-values', require('./components/AttributeValues.vue').default);
 
 /**
