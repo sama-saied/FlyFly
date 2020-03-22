@@ -15,4 +15,14 @@ class AttributeValueController extends Controller
     {
         $this->attributeRepository = $attributeRepository;
     }
+
+    public function getValues(Request $request)
+{
+    $attributeId = $request->input('id');
+    $attribute = $this->attributeRepository->findAttributeById($attributeId);
+
+    $values = $attribute->values;
+
+    return response()->json($values);
+}
 }

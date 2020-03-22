@@ -105,13 +105,5 @@ class AttributeRepository extends BaseRepository implements AttributeContract
 
         return $attribute;
     }
-    public function getValues(Request $request)
-{
-    $attributeId = $request->input('id');
-    $attribute = $this->attributeRepository->findAttributeById($attributeId);
-
-    $values = $attribute->values;
-
-    return response()->json($values);
-}
+    
 }
