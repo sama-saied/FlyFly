@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\BaseController;
-
+use App\Models\Setting;
 use UploadAble;
+use Illuminate\Http\UploadedFile;
 
 class SettingController extends BaseController
 {
