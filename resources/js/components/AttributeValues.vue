@@ -108,60 +108,60 @@
                 });
             },
             saveValue() {
-    if (this.value === '') {
-        this.$swal("Error, Value for attribute is required.", {
-           icon: "error",
-        });
-    } else {
-        let attributeId = this.attributeid;
-        let _this = this;
-        axios.post('/admin/attributes/add-values', {
-            id: attributeId,
-            value: _this.value,
-            price: _this.price,
-        }).then (function(response){
-            _this.values.push(response.data);
-            _this.resetValue();
-            _this.$swal("Success! Value added successfully!", {
-                icon: "success",
-            });
-        }).catch(function (error) {
-            console.log(error);
-        });
-    }
-},
+                if (this.value === '') {
+                    this.$swal("Error, Value for attribute is required.", {
+                       icon: "error",
+                    });
+                } else {
+                    let attributeId = this.attributeid;
+                    let _this = this;
+                    axios.post('/admin/attributes/add-values', {
+                        id: attributeId,
+                        value: _this.value,
+                        price: _this.price,
+                    }).then (function(response){
+                        _this.values.push(response.data);
+                        _this.resetValue();
+                        _this.$swal("Success! Value added successfully!", {
+                            icon: "success",
+                        });
+                    }).catch(function (error) {
+                        console.log(error);
+                    });
+                }
+            },
             editAttributeValue(value) {
-    this.addValue = false;
-    this.value = value.value;
-    this.price = value.price;
-    this.currentId = value.id;
-    this.key = this.values.indexOf(value);
+                this.addValue = false;
+                this.value = value.value;
+                this.price = value.price;
+                this.currentId = value.id;
+                this.key = this.values.indexOf(value);
             },
             updateValue() {
-    if (this.value === '') {
-        this.$swal("Error, Value for attribute is required.", {
-            icon: "error",
-        });
-    } else {
-        let attributeId = this.attributeid;
-        let _this = this;
-        axios.post('/admin/attributes/update-values', {
-            id: attributeId,
-            value: _this.value,
-            price: _this.price,
-            valueId: _this.currentId
-        }).then (function(response){
-            _this.values.splice(_this.key, 1);
-            _this.resetValue();
-            _this.values.push(response.data);
-            _this.$swal("Success! Value updated successfully!", {
-                icon: "success",
-            });
-        }).catch(function (error) {
-            console.log(error);
-        });
-    }
-},
+                if (this.value === '') {
+                    this.$swal("Error, Value for attribute is required.", {
+                        icon: "error",
+                    });
+                } else {
+                    let attributeId = this.attributeid;
+                    let _this = this;
+                    axios.post('/admin/attributes/update-values', {
+                        id: attributeId,
+                        value: _this.value,
+                        price: _this.price,
+                        valueId: _this.currentId
+                    }).then (function(response){
+                        _this.values.splice(_this.key, 1);
+                        _this.resetValue();
+                        _this.values.push(response.data);
+                        _this.$swal("Success! Value updated successfully!", {
+                            icon: "success",
+                        });
+                    }).catch(function (error) {
+                        console.log(error);
+                    });
+                }
+            },
             deleteAttributeValue(value) {
                 this.$swal({
                     title: "Are you sure?",
