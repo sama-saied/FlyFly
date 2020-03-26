@@ -7,7 +7,7 @@ $factory->define(Category::class, function (Faker $faker) {
     return [
         'name'          =>  $faker->name,
        
-        'parent_id'     =>  1,
+        //'parent_id'     =>  1,
        
     ];
 });

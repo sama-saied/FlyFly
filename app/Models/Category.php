@@ -8,12 +8,9 @@ class Category extends Model
 {
     protected $table = 'categories';
 
-    protected $fillable = [
-        'name',  'parent_id',  'image'
-    ];
 
-    protected $casts = [
-        'parent_id' =>  'integer'
+    protected $fillable = [
+        'name',   'image'
     ];
 
     public function setNameAttribute($value)
@@ -22,7 +19,7 @@ class Category extends Model
     
 }
 
-public function parent()
+/*public function parent()
 {
     return $this->belongsTo(Category::class, 'parent_id');
 }
@@ -31,7 +28,7 @@ public function children()
 {
     return $this->hasMany(Category::class, 'parent_id');
 }
-
+*/
 /**
  * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
  */

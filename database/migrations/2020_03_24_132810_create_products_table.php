@@ -22,10 +22,9 @@ class CreateProductsTable extends Migration
            
             $table->text('description')->nullable();
             $table->unsignedInteger('quantity');
-            $table->decimal('weight', 8, 2)->nullable();
             $table->decimal('price', 8, 2)->nullable();
             $table->decimal('sale_price', 8, 2)->nullable();
-
+            $table->boolean('status')->default(1);
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
 
             $table->timestamps();

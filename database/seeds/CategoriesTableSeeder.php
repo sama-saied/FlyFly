@@ -13,11 +13,10 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         Category::create([
-            'name'          =>  'Electronics',
-          
-            'parent_id'     =>  null,
+            'name'          =>  'Mobiles-Electronics',
            
         ]);
+
 
     }
 }
