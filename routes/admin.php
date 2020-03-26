@@ -19,6 +19,8 @@ Route::group(['middleware' => ['auth:admin']], function () {
 
 Route::get('/settings', 'Admin\SettingController@index')->name('admin.settings');
 Route::post('/settings', 'Admin\SettingController@update')->name('admin.settings.update');
+Route::get('/follow', 'Admin\SettingFollower@follow')->name('admin.settings.follow'); 
+
 
 Route::group(['prefix'  =>   'categories'], function() {
 

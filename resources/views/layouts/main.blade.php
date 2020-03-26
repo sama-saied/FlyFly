@@ -63,7 +63,7 @@
 							<div class="up-item">
 								<div class="shopping-card">
 									<i class="flaticon-bag"></i>
-									<span>0</span>
+									
 								</div>
 								<a href="#">Shopping Cart</a>
 							</div>
@@ -76,7 +76,7 @@
 			<div class="container">
 				<!-- menu -->
 				<ul class="main-menu">
-					<li><a href="#">Home</a></li>
+					<li><a href="/">Home</a></li>
                     <li><a href="#">Electronics</a>
                     <ul class="sub-menu">
 							<li><a href="#">Sneakers</a></li>
@@ -214,13 +214,14 @@
 		<div class="social-links-warp">
 			<div class="container">
 				<div class="social-links">
-					<a href="" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
-					<a href="" class="google-plus"><i class="fa fa-google-plus"></i><span>g+plus</span></a>
-					<a href="" class="pinterest"><i class="fa fa-pinterest"></i><span>pinterest</span></a>
-					<a href="config('settings.social_facebook)" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
-					<a href="" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
-					<a href="" class="youtube"><i class="fa fa-youtube"></i><span>youtube</span></a>
-					<a href="" class="tumblr"><i class="fa fa-tumblr-square"></i><span>tumblr</span></a>
+                
+					<a href="" class="instagram"><i class="fa fa-instagram" id="" ></i><span>instagram</span></a>
+					<a href="" class="google-plus"><i class="fa fa-google-plus" id=""></i><span>g+plus</span></a>
+					<a href="" class="pinterest"><i class="fa fa-pinterest" id=""></i><span>pinterest</span></a>
+					<a href="{{ route('admin.settings.follow') }}" class="facebook" id=""><i class="fa fa-facebook"></i><span>facebook</span></a>
+					<a href="" class="twitter"><i class="fa fa-twitter" id=" "></i><span>twitter</span></a>
+					<a href="" class="youtube"><i class="fa fa-youtube" id=""></i><span>youtube</span></a>
+					<a href="" class="tumblr"><i class="fa fa-tumblr-square" id=""></i><span>tumblr</span></a>
 				</div>
 
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> 
