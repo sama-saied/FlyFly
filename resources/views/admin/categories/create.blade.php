@@ -21,17 +21,6 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="parent">Parent Category <span class="m-l-5 text-danger"> *</span></label>
-                            <select id=parent class="form-control custom-select mt-15 @error('parent_id') is-invalid @enderror" name="parent_id">
-                                <option value="0">Select a parent category</option>
-                                @foreach($categories as $category)
-                                    <option value="{{ $category->id }}"> {{ $category->name }} </option>
-                                @endforeach
-                            </select>
-                            @error('parent_id') {{ $message }} @enderror
-                        </div>
-                        
-                        <div class="form-group">
                             <label class="control-label">Category Image</label>
                             <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image"/>
                             @error('image') {{ $message }} @enderror
