@@ -58,3 +58,6 @@ const app = new Vue({
     el: '#app'
 });
 
+Vue.component('product-attributes', require('./components/ProductAttributes').default);
+
+
