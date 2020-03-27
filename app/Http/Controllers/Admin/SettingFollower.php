@@ -17,8 +17,8 @@ class SettingFollower extends Controller
      $url = DB::table('settings')->select('value')->where('id', 11)->get();
 
      //('https://www.facebook.com/sama.rocket');
-    //return redirect()->away($url);
-    return  new RedirectResponse($url); 
+    return redirect()->away($url);
+    //return  new RedirectResponse($url); 
 }
 
 }

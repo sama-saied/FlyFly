@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Repositories;
 
 use App\Models\Product;
@@ -65,9 +66,10 @@ class ProductRepository extends BaseRepository implements ProductContract
         try {
             $collection = collect($params);
 
+            $featured = $collection->has('featured') ? 1 : 0;
             $status = $collection->has('status') ? 1 : 0;
 
-            $merge = $collection->merge(compact('status'));
+            $merge = $collection->merge(compact('status', 'featured'));
 
             $product = new Product($merge->all());
 
@@ -93,9 +95,10 @@ class ProductRepository extends BaseRepository implements ProductContract
 
         $collection = collect($params)->except('_token');
 
+        $featured = $collection->has('featured') ? 1 : 0;
         $status = $collection->has('status') ? 1 : 0;
 
-        $merge = $collection->merge(compact('status'));
+        $merge = $collection->merge(compact('status', 'featured'));
 
         $product->update($merge->all());
 
@@ -115,6 +118,17 @@ class ProductRepository extends BaseRepository implements ProductContract
         $product = $this->findProductById($id);
 
         $product->delete();
+
+        return $product;
+    }
+
+    /**
+     * @param $slug
+     * @return mixed
+     */
+    public function findProductBySlug($slug)
+    {
+        $product = Product::where('slug', $slug)->first();
 
         return $product;
     }

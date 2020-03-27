@@ -21,6 +21,8 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "dropzone": "^5.7.0",
+        "react-dropzone": "^10.2.2",
         "vue-swal": "^0.1.0"
     }
 }

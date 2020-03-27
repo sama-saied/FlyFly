@@ -14,7 +14,7 @@ class ProductImage extends Model
     /**
      * @var array
      */
-    protected $fillable = ['product_id'];
+    protected $fillable = ['product_id', 'thumbnail', 'full'];
 
     /**
      * @var array
