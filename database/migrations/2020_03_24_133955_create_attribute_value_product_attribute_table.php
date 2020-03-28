@@ -17,7 +17,7 @@ class CreateAttributeValueProductAttributeTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('attribute_value_id');
             $table->foreign('attribute_value_id')->references('id')->on('attribute_values');
-            $table->unsignedInteger('product_attribute_id');
+            $table->unsignedBigInteger('product_attribute_id');
             $table->foreign('product_attribute_id')->references('id')->on('product_attributes');
         });
     }

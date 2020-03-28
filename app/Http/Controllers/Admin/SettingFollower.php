@@ -6,19 +6,44 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
+use App\Models\Setting;
+
+use Illuminate\Support\Facades\URL;
 
 class SettingFollower extends Controller
 {
-    public function follow()
+    public function facebook()
 {
+    $key = 'social_facebook';
+$li=setting::get($key);
     
-     //= DB::table('settings')->select('value')->where('id', 11)->get();
-     
-     $url = DB::table('settings')->select('value')->where('id', 11)->get();
-
-     //('https://www.facebook.com/sama.rocket');
-    return redirect()->away($url);
-    //return  new RedirectResponse($url); 
+    return redirect()->away($li);    
 }
+
+public function twitter()
+{
+    $key = 'social_twitter';
+$li=setting::get($key);
+    
+    return redirect()->away($li);    
+}
+
+public function insta()
+{
+    $key = 'social_instagram';
+$li=setting::get($key);
+    
+    return redirect()->away($li);    
+}
+
+public function linkedin()
+{
+    $key = 'social_linkedin';
+$li=setting::get($key);
+    
+    return redirect()->away($li);    
+}
+
+
 
 }

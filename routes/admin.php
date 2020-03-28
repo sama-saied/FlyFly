@@ -19,7 +19,10 @@ Route::group(['middleware' => ['auth:admin']], function () {
 
 Route::get('/settings', 'Admin\SettingController@index')->name('admin.settings');
 Route::post('/settings', 'Admin\SettingController@update')->name('admin.settings.update');
-Route::get('/follow', 'Admin\SettingFollower@follow')->name('admin.settings.follow'); 
+Route::get('/facebook', 'Admin\SettingFollower@facebook')->name('admin.settings.facebook');
+Route::get('/twitter', 'Admin\SettingFollower@twitter')->name('admin.settings.twitter');
+Route::get('/insta', 'Admin\SettingFollower@insta')->name('admin.settings.insta');
+Route::get('/linkedin', 'Admin\SettingFollower@linkedin')->name('admin.settings.linkedin'); 
 
 
 Route::group(['prefix'  =>   'categories'], function() {
@@ -66,7 +69,7 @@ Route::group(['prefix' => 'products'], function () {
     Route::post('/store', 'Admin\ProductController@store')->name('admin.products.store');
     Route::get('/edit/{id}', 'Admin\ProductController@edit')->name('admin.products.edit');
     Route::post('/update', 'Admin\ProductController@update')->name('admin.products.update');
- 
+    Route::get('/delete/{id}', 'Admin\ProductController@delete')->name('admin.products.delete');
     Route::post('images/upload', 'Admin\ProductImageController@upload')->name('admin.products.images.upload');
     Route::get('images/{id}/delete', 'Admin\ProductImageController@delete')->name('admin.products.images.delete');
 

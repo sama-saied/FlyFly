@@ -51,4 +51,5 @@ public static function set($key, $value = null)
     }
     return false;
 }
+
 }

@@ -22,6 +22,9 @@ Route::get('/', function () {
 Route::view('/admin', 'admin.dashboard.index');
 
 
+ 
+
+
 
 
 Auth::routes();

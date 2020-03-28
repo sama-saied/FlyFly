@@ -80,5 +80,15 @@ public function update(StoreProductFormRequest $request)
     return $this->responseRedirect('admin.products.index', 'Product updated successfully' ,'success',false, false);
 }
 
+public function delete($id)
+{
+    $product = $this->productRepository->deleteProduct($id);
+
+    if (!$product) {
+        return $this->responseRedirectBack('Error occurred while deleting product.', 'error', true, true);
+    }
+    return $this->responseRedirect('admin.products.index', 'product deleted successfully' ,'success',false, false);
+}
+
 
 }

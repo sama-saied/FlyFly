@@ -215,11 +215,11 @@
 			<div class="container">
 				<div class="social-links">
                 
-					<a href="" class="instagram"><i class="fa fa-instagram" id="" ></i><span>instagram</span></a>
+					<a href="{{ route('admin.settings.insta')}}" class="instagram"><i class="fa fa-instagram" id="" ></i><span>instagram</span></a>
 					<a href="" class="google-plus"><i class="fa fa-google-plus" id=""></i><span>g+plus</span></a>
 					<a href="" class="pinterest"><i class="fa fa-pinterest" id=""></i><span>pinterest</span></a>
-					<a href="{{ route('admin.settings.follow') }}" class="facebook" id=""><i class="fa fa-facebook"></i><span>facebook</span></a>
-					<a href="" class="twitter"><i class="fa fa-twitter" id=" "></i><span>twitter</span></a>
+					<a href="{{ route('admin.settings.facebook')}}" id="social_facebook" class="facebook" ><i class="fa fa-facebook"></i><span>facebook</span></a>
+					<a href="{{ route('admin.settings.twitter')}}" class="twitter"><i class="fa fa-twitter" id=" "></i><span>twitter</span></a>
 					<a href="" class="youtube"><i class="fa fa-youtube" id=""></i><span>youtube</span></a>
 					<a href="" class="tumblr"><i class="fa fa-tumblr-square" id=""></i><span>tumblr</span></a>
 				</div>
@@ -245,5 +245,8 @@
 	<script src="frontdivi/js/jquery-ui.min.js"></script>
 	<script src="frontdivi/js/main.js"></script>
 
+
+
+	
 	</body>
 </html>
