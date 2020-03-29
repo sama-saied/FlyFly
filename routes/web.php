@@ -15,9 +15,10 @@ use PharIo\Manifest\Url;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+  //  return view('welcome');
+//});
+Route::view('/', 'site.pages.homepage');
 
 Route::view('/admin', 'admin.dashboard.index');
 
@@ -30,3 +31,7 @@ Route::view('/admin', 'admin.dashboard.index');
 Auth::routes();
 
 require 'admin.php';
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
