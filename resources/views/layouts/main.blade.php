@@ -214,14 +214,12 @@
 		<div class="social-links-warp">
 			<div class="container">
 				<div class="social-links">
-                
+                <center>
 					<a href="{{ route('admin.settings.insta')}}" class="instagram"><i class="fa fa-instagram" id="" ></i><span>instagram</span></a>
-					<a href="" class="google-plus"><i class="fa fa-google-plus" id=""></i><span>g+plus</span></a>
-					<a href="" class="pinterest"><i class="fa fa-pinterest" id=""></i><span>pinterest</span></a>
-					<a href="{{ route('admin.settings.facebook')}}" id="social_facebook" class="facebook" ><i class="fa fa-facebook"></i><span>facebook</span></a>
+					<a href="{{ route('admin.settings.facebook')}}" class="facebook" ><i class="fa fa-facebook"></i><span>facebook</span></a>
 					<a href="{{ route('admin.settings.twitter')}}" class="twitter"><i class="fa fa-twitter" id=" "></i><span>twitter</span></a>
-					<a href="" class="youtube"><i class="fa fa-youtube" id=""></i><span>youtube</span></a>
-					<a href="" class="tumblr"><i class="fa fa-tumblr-square" id=""></i><span>tumblr</span></a>
+					<a href="{{ route('admin.settings.youtube')}}" class="youtube"><i class="fa fa-youtube" id=""></i><span>youtube</span></a>
+                </center>
 				</div>
 
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> 

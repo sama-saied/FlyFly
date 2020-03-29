@@ -22,7 +22,7 @@ Route::post('/settings', 'Admin\SettingController@update')->name('admin.settings
 Route::get('/facebook', 'Admin\SettingFollower@facebook')->name('admin.settings.facebook');
 Route::get('/twitter', 'Admin\SettingFollower@twitter')->name('admin.settings.twitter');
 Route::get('/insta', 'Admin\SettingFollower@insta')->name('admin.settings.insta');
-Route::get('/linkedin', 'Admin\SettingFollower@linkedin')->name('admin.settings.linkedin'); 
+Route::get('/youtube', 'Admin\SettingFollower@youtube')->name('admin.settings.youtube'); 
 
 
 Route::group(['prefix'  =>   'categories'], function() {
@@ -73,16 +73,16 @@ Route::group(['prefix' => 'products'], function () {
     Route::post('images/upload', 'Admin\ProductImageController@upload')->name('admin.products.images.upload');
     Route::get('images/{id}/delete', 'Admin\ProductImageController@delete')->name('admin.products.images.delete');
 
-    // Load attributes on the page load
-    Route::get('attributes/load', 'Admin\ProductAttributeController@loadAttributes');
-// Load product attributes on the page load
-    Route::post('attributes', 'Admin\ProductAttributeController@productAttributes');
-// Load option values for a attribute
-    Route::post('attributes/values', 'Admin\ProductAttributeController@loadValues');
-// Add product attribute to the current product
-    Route::post('attributes/add', 'Admin\ProductAttributeController@addAttribute');
-// Delete product attribute from the current product
-    Route::post('attributes/delete', 'Admin\ProductAttributeController@deleteAttribute');
+  // Load attributes on the page load
+  Route::get('attributes/load', 'Admin\ProductAttributeController@loadAttributes');
+  // Load product attributes on the page load
+      Route::post('attributes', 'Admin\ProductAttributeController@productAttributes');
+  // Load option values for a attribute
+      Route::post('attributes/values', 'Admin\ProductAttributeController@loadValues');
+  // Add product attribute to the current product
+      Route::post('attributes/add', 'Admin\ProductAttributeController@addAttribute');
+  // Delete product attribute from the current product
+      Route::post('attributes/delete', 'Admin\ProductAttributeController@deleteAttribute');
  });
 
 

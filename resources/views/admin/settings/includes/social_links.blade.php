@@ -38,14 +38,14 @@
                 />
             </div>
             <div class="form-group">
-                <label class="control-label" for="social_linkedin">LinkedIn Profile</label>
+                <label class="control-label" for="social_youtube">Youtube Channel</label>
                 <input
                     class="form-control"
                     type="text"
-                    placeholder="Enter linkedin profile link"
-                    id="social_linkedin"
-                    name="social_linkedin"
-                    value="{{ config('settings.social_linkedin') }}"
+                    placeholder="Enter youtube channel link"
+                    id="social_youtube"
+                    name="social_youtube"
+                    value="{{ config('settings.social_youtube') }}"
                 />
             </div>
         </div>

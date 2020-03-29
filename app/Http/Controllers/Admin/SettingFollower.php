@@ -36,9 +36,9 @@ $li=setting::get($key);
     return redirect()->away($li);    
 }
 
-public function linkedin()
+public function youtube()
 {
-    $key = 'social_linkedin';
+    $key = 'social_youtube';
 $li=setting::get($key);
     
     return redirect()->away($li);    
