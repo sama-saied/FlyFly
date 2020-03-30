@@ -105,9 +105,15 @@
 								<a href="{{ route('login') }}">Sign In</a> or <a href="{{ route('register') }}">Create Account</a>
                             </div>
                             @else
+<<<<<<< HEAD
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="main-menu" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+=======
+                            <div class="up-item">
+								<i class="flaticon-profile"></i>
+                                    <a id="navbarDropdown"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+>>>>>>> 63864da6e2b6f5e651fe8c68318703c1675b0d59
                                         {{ Auth::user()->full_name }} <span class="caret"></span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
