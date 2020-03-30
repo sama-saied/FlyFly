@@ -35,3 +35,5 @@ require 'admin.php';
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/category/{slug}', 'Site\CategoryController@show')->name('category.show');

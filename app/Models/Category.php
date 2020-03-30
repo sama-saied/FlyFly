@@ -3,32 +3,35 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Str;
+
+use TypiCMS\NestableTrait;
+
 
 class Category extends Model
 {
+    use NestableTrait;
+
     protected $table = 'categories';
 
 
     protected $fillable = [
-        'name',   'image'
+        'name', 'slug', 'menu', 'image'
     ];
 
+    protected $casts = [
+     
+        'menu'      =>  'boolean'
+    ];
+
+
     public function setNameAttribute($value)
-{
-    $this->attributes['name'] = $value;
-    
-}
+    {
+        $this->attributes['name'] = $value;
+        $this->attributes['slug'] = str::slug($value);
+    }
 
-/*public function parent()
-{
-    return $this->belongsTo(Category::class, 'parent_id');
-}
-
-public function children()
-{
-    return $this->hasMany(Category::class, 'parent_id');
-}
-*/
+   
 /**
  * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
  */

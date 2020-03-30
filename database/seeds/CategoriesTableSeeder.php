@@ -13,10 +13,12 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         Category::create([
-            'name'          =>  'Mobiles-Electronics',
-           
+            'name'          =>  'Mobie-Electronics',
+         
+            'menu'          =>  1,
         ]);
 
-
+        factory('App\Models\Category', 5)->create();
     }
+
 }

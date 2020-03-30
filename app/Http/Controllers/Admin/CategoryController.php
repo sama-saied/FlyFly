@@ -41,7 +41,8 @@ class CategoryController extends BaseController
  */
 public function create()
 {
-    $categories = $this->categoryRepository->listCategories('id', 'asc');
+  //  $categories = $this->categoryRepository->listCategories('id', 'asc');
+    $categories = $this->categoryRepository->treeList();
 
     $this->setPageTitle('Categories', 'Create Category');
     return view('admin.categories.create', compact('categories'));
@@ -77,7 +78,8 @@ public function store(Request $request)
 public function edit($id)
 {
     $targetCategory = $this->categoryRepository->findCategoryById($id);
-    $categories = $this->categoryRepository->listCategories();
+   // $categories = $this->categoryRepository->listCategories();
+    $categories = $this->categoryRepository->treeList();
 
     $this->setPageTitle('Categories', 'Edit Category : '.$targetCategory->name);
     return view('admin.categories.edit', compact('categories', 'targetCategory'));
@@ -92,7 +94,7 @@ public function update(Request $request)
 {
     $this->validate($request, [
         'name'      =>  'required|max:191',
-       // 'parent_id' =>  'required|not_in:0',
+      //  'parent_id' =>  'required|not_in:0',
         'image'     =>  'mimes:jpg,jpeg,png|max:1000'
     ]);
 
@@ -103,8 +105,7 @@ public function update(Request $request)
     if (!$category) {
         return $this->responseRedirectBack('Error occurred while updating category.', 'error', true, true);
     }
-   // return $this->responseRedirectBack('Category updated successfully' ,'success',false, false);
-    return $this->responseRedirect('admin.categories.index', 'Category updated successfully' ,'success',false, false);
+    return $this->responseRedirectBack('Category updated successfully' ,'success',false, false);
 }
 
 /**
