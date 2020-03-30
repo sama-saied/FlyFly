@@ -1,77 +1,99 @@
 <!-- ========================= FOOTER ========================= -->
-<footer class="section-footer bg-dark white">
-    <div class="container">
-        <section class="footer-top padding-top">
-            <div class="row">
-                <aside class="col-sm-3 col-md-3 white">
-                    <h5 class="title">Customer Services</h5>
-                    <ul class="list-unstyled">
-                        <li> <a href="#">Help center</a></li>
-                        <li> <a href="#">Money refund</a></li>
-                        <li> <a href="#">Terms and Policy</a></li>
-                        <li> <a href="#">Open dispute</a></li>
-                    </ul>
-                </aside>
-                <aside class="col-sm-3  col-md-3 white">
-                    <h5 class="title">My Account</h5>
-                    <ul class="list-unstyled">
-                        <li> <a href="#"> User Login </a></li>
-                        <li> <a href="#"> User register </a></li>
-                        <li> <a href="#"> Account Setting </a></li>
-                        <li> <a href="#"> My Orders </a></li>
-                        <li> <a href="#"> My Wishlist </a></li>
-                    </ul>
-                </aside>
-                <aside class="col-sm-3  col-md-3 white">
-                    <h5 class="title">About</h5>
-                    <ul class="list-unstyled">
-                        <li> <a href="#"> Our history </a></li>
-                        <li> <a href="#"> How to buy </a></li>
-                        <li> <a href="#"> Delivery and payment </a></li>
-                        <li> <a href="#"> Advertice </a></li>
-                        <li> <a href="#"> Partnership </a></li>
-                    </ul>
-                </aside>
-                <aside class="col-sm-3">
-                    <article class="white">
-                        <h5 class="title">Contacts</h5>
-                        <p>
-                            <strong>Phone: </strong> +123456789
-                            <br>
-                            <strong>Fax:</strong> +123456789
-                        </p>
+<section class="footer-section">
+		<div class="container">
+			<div class="footer-logo text-center">
+				<a href="index.html"><img src="./img/logo-light.png" alt=""></a>
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-sm-6">
+					<div class="footer-widget about-widget">
+						<h2>About</h2>
+						<p>Donec vitae purus nunc. Morbi faucibus erat sit amet congue mattis. Nullam frin-gilla faucibus urna, id dapibus erat iaculis ut. Integer ac sem.</p>
+						<img src="img/cards.png" alt="">
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="footer-widget about-widget">
+						<h2>Questions</h2>
+						<ul>
+							<li><a href="">About Us</a></li>
+							<li><a href="">Track Orders</a></li>
+							<li><a href="">Returns</a></li>
+							<li><a href="">Jobs</a></li>
+							<li><a href="">Shipping</a></li>
+							<li><a href="">Blog</a></li>
+						</ul>
+						<ul>
+							<li><a href="">Partners</a></li>
+							<li><a href="">Bloggers</a></li>
+							<li><a href="">Support</a></li>
+							<li><a href="">Terms of Use</a></li>
+							<li><a href="">Press</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="footer-widget about-widget">
+						<h2>Questions</h2>
+						<div class="fw-latest-post-widget">
+							<div class="lp-item">
+								<div class="lp-thumb set-bg" data-setbg="img/blog-thumbs/1.jpg"></div>
+								<div class="lp-content">
+									<h6>what shoes to wear</h6>
+									<span>Oct 21, 2018</span>
+									<a href="#" class="readmore">Read More</a>
+								</div>
+							</div>
+							<div class="lp-item">
+								<div class="lp-thumb set-bg" data-setbg="img/blog-thumbs/2.jpg"></div>
+								<div class="lp-content">
+									<h6>trends this year</h6>
+									<span>Oct 21, 2018</span>
+									<a href="#" class="readmore">Read More</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="footer-widget contact-widget">
+						<h2>Questions</h2>
+						<div class="con-info">
+							<span>C.</span>
+							<p>Your Company Ltd </p>
+						</div>
+						<div class="con-info">
+							<span>B.</span>
+							<p>1481 Creekside Lane  Avila Beach, CA 93424, P.O. BOX 68 </p>
+						</div>
+						<div class="con-info">
+							<span>T.</span>
+							<p>+53 345 7953 32453</p>
+						</div>
+						<div class="con-info">
+							<span>E.</span>
+							<p>office@youremail.com</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="social-links-warp">
+			<div class="container">
+				<div class="social-links">
+                <center>
+					<a href="{{ route('admin.settings.insta')}}" class="instagram"><i class="fa fa-instagram" id="" ></i><span>instagram</span></a>
+					<a href="{{ route('admin.settings.facebook')}}" class="facebook" ><i class="fa fa-facebook"></i><span>facebook</span></a>
+					<a href="{{ route('admin.settings.twitter')}}" class="twitter"><i class="fa fa-twitter" id=" "></i><span>twitter</span></a>
+					<a href="{{ route('admin.settings.youtube')}}" class="youtube"><i class="fa fa-youtube" id=""></i><span>youtube</span></a>
+                </center>
+				</div>
 
-                        <div class="btn-group white">
-                            <a class="btn btn-facebook" title="Facebook" target="_blank" href="#"><i
-                                    class="fab fa-facebook-f  fa-fw"></i></a>
-                            <a class="btn btn-instagram" title="Instagram" target="_blank" href="#"><i
-                                    class="fab fa-instagram  fa-fw"></i></a>
-                            <a class="btn btn-youtube" title="Youtube" target="_blank" href="#"><i
-                                    class="fab fa-youtube  fa-fw"></i></a>
-                            <a class="btn btn-twitter" title="Twitter" target="_blank" href="#"><i
-                                    class="fab fa-twitter  fa-fw"></i></a>
-                        </div>
-                    </article>
-                </aside>
-            </div>
-            <!-- row.// -->
-            <br>
-        </section>
-        <section class="footer-bottom row border-top-white">
-            <div class="col-sm-6">
-                <p class="text-white-50"> Made with
-                    <3 <br> by Vosidiy M.</p>
-            </div>
-            <div class="col-sm-6">
-                <p class="text-md-right text-white-50">
-                    Copyright &copy
-                    <br>
-                    <a href="http://bootstrap-ecommerce.com" class="text-white-50">Bootstrap-ecommerce UI kit</a>
-                </p>
-            </div>
-        </section>
-        <!-- //footer-top -->
-    </div>
-    <!-- //container -->
-</footer>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> 
+<!--<p class="text-white text-center mt-5">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>-->
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+			</div>
+		</div>
+	</section>
 <!-- ========================= FOOTER END // ========================= -->

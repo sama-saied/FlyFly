@@ -1,3 +1,14 @@
+<<!--script src="frontdivi/js/jquery-3.2.1.min.js"></script>-->
+	<script src="frontdivi/js/bootstrap.min.js"></script>
+	<script src="frontdivi/js/jquery.slicknav.min.js"></script>
+	<script src="frontdivi/js/owl.carousel.min.js"></script>
+	<script src="frontdivi/js/jquery.nicescroll.min.js"></script>
+	<script src="frontdivi/js/jquery.zoom.min.js"></script>
+	<script src="frontdivi/js/jquery-ui.min.js"></script>
+	<script src="frontdivi/js/main.js"></script>
+
+
+
 <script src="{{ asset('frontend/js/jquery-2.0.0.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('frontend/plugins/fancybox/fancybox.min.js') }}" type="text/javascript"></script>
