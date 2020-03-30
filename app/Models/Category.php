@@ -1,26 +1,28 @@
 <?php
 
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Str;
-
+//use Str;
+use Illuminate\Support\Str;
 use TypiCMS\NestableTrait;
+
 
 
 class Category extends Model
 {
-    use NestableTrait;
+   use NestableTrait;
 
     protected $table = 'categories';
 
 
     protected $fillable = [
-        'name', 'slug', 'menu', 'image'
+        'name', 'slug','parent_id', 'menu', 'image'
     ];
 
     protected $casts = [
-     
+        'parent_id' =>  'integer',
         'menu'      =>  'boolean'
     ];
 
@@ -31,6 +33,15 @@ class Category extends Model
         $this->attributes['slug'] = str::slug($value);
     }
 
+    public function parent()
+{
+    return $this->belongsTo(Category::class, 'parent_id');
+}
+
+public function children()
+{
+    return $this->hasMany(Category::class, 'parent_id');
+}
    
 /**
  * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

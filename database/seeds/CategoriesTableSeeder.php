@@ -13,12 +13,11 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         Category::create([
-            'name'          =>  'Mobie-Electronics',
-         
+            'name'          =>  'All-Categories',
+            'parent_id'     =>  null,
             'menu'          =>  1,
+
         ]);
-
-        factory('App\Models\Category', 5)->create();
-    }
-
+        factory('App\Models\Category', 4)->create();
+}
 }

@@ -132,6 +132,9 @@ public function deleteCategory($id)
     return $category;
 }
 
+/**
+ * @return mixed
+ */
 public function treeList()
 {
     return Category::orderByRaw('-name ASC')

@@ -17,15 +17,15 @@ class CreateCategoriesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('slug')->unique();
-          
-  
            
+            $table->unsignedInteger('parent_id')->default(1)->nullable();
+          
             $table->boolean('menu')->default(1);
             $table->string('image')->nullable();
             $table->timestamps();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *
