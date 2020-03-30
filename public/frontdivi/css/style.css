@@ -338,6 +338,8 @@ ol {
 }
 
 .site-logo {
+	margin-right: 7px;
+	max-height: 3px;
 	display: inline-block;
 }
 
