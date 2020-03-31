@@ -70,8 +70,10 @@ public function createCategory(array $params)
             $image = $this->uploadOne($params['image'], 'categories');
         }
 
+       
+        $menu = $collection->has('menu') ? 1 : 0;
 
-        $merge = $collection->merge(compact( 'image'));
+        $merge = $collection->merge(compact('menu', 'image'));
 
         $category = new Category($merge->all());
 
@@ -103,8 +105,10 @@ public function updateCategory(array $params)
         $image = $this->uploadOne($params['image'], 'categories');
     }
 
+    
+    $menu = $collection->has('menu') ? 1 : 0;
 
-    $merge = $collection->merge(compact('image'));
+    $merge = $collection->merge(compact('menu', 'image'));
 
     $category->update($merge->all());
 
@@ -128,6 +132,23 @@ public function deleteCategory($id)
     return $category;
 }
 
+/**
+ * @return mixed
+ */
+public function treeList()
+{
+    return Category::orderByRaw('-name ASC')
+        ->get()
+        ->nest()
+        ->listsFlattened('name');
+}
 
+public function findBySlug($slug)
+{
+    return Category::with('products')
+        ->where('slug', $slug)
+        ->where('menu', 1)
+        ->first();
+}
 
 }

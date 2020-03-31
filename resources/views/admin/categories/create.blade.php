@@ -19,7 +19,25 @@
                             <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" id="name" value="{{ old('name') }}"/>
                             @error('name') {{ $message }} @enderror
                         </div>
-                        
+                       
+                        <div class="form-group">
+                            <label for="parent">Parent Category <span class="m-l-5 text-danger"> *</span></label>
+                            <select id=parent class="form-control custom-select mt-15 @error('parent_id') is-invalid @enderror" name="parent_id">
+                                <option value="0">Select a parent category</option>
+                                @foreach($categories as $key => $category)
+                                    <option value="{{ $key }}"> {{ $category }} </option>
+                                @endforeach
+                            </select>
+                            @error('parent_id') {{ $message }} @enderror
+                        </div>
+                       
+                        <div class="form-group">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" id="menu" name="menu"/>Show in Menu
+                                </label>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="control-label">Category Image</label>
                             <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image"/>
