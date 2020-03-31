@@ -1,11 +1,11 @@
 <!--script src="frontdivi/js/jquery-3.2.1.min.js"></script>-->
-	<script src="frontdivi/js/bootstrap.min.js"></script>
-	<script src="frontdivi/js/jquery.slicknav.min.js"></script>
-	<script src="frontdivi/js/owl.carousel.min.js"></script>
-	<script src="frontdivi/js/jquery.nicescroll.min.js"></script>
-	<script src="frontdivi/js/jquery.zoom.min.js"></script>
-	<script src="frontdivi/js/jquery-ui.min.js"></script>
-	<script src="frontdivi/js/main.js"></script>
+	<script src="{{asset('frontdivi/js/bootstrap.min.js')}}"></script>
+	<script src="{{asset('frontdivi/js/jquery.slicknav.min.js')}}"></script>
+	<script src="{{asset('frontdivi/js/owl.carousel.min.js')}}"></script>
+	<script src="{{asset('frontdivi/js/jquery.nicescroll.min.js')}}"></script>
+	<script src="{{asset('frontdivi/js/jquery.zoom.min.js')}}"></script>
+	<script src="{{asset('frontdivi/js/jquery-ui.min.js')}}"></script>
+	<script src="{{asset('frontdivi/js/main.js')}}"></script>
 
 
 

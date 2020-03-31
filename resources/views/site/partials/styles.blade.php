@@ -6,11 +6,11 @@
 <link href="{{ asset('frontend/plugins/owlcarousel/assets/owl.theme.default.css') }}" rel="stylesheet">
 <link href="{{ asset('frontend/css/ui.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('frontend/css/responsive.css') }}" rel="stylesheet" media="only screen and (max-width: 1200px)" />
-<link rel="stylesheet" href="frontdivi/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="frontdivi/css/font-awesome.min.css"/>
-	<link rel="stylesheet" href="frontdivi/css/flaticon.css"/>
-	<link rel="stylesheet" href="frontdivi/css/slicknav.min.css"/>
-	<link rel="stylesheet" href="frontdivi/css/jquery-ui.min.css"/>
-	<link rel="stylesheet" href="frontdivi/css/owl.carousel.min.css"/>
-	<link rel="stylesheet" href="frontdivi/css/animate.css"/>
-	<link rel="stylesheet" href="frontdivi/css/style.css"/>
+<link rel="stylesheet" href="{{asset('frontdivi/css/bootstrap.min.css')}}"/>
+	<link rel="stylesheet" href="{{asset('frontdivi/css/font-awesome.min.css')}}"/>
+	<link rel="stylesheet" href="{{asset('frontdivi/css/flaticon.css')}}"/>
+	<link rel="stylesheet" href="{{asset('frontdivi/css/slicknav.min.css')}}"/>
+	<link rel="stylesheet" href="{{asset('frontdivi/css/jquery-ui.min.css')}}"/>
+	<link rel="stylesheet" href="{{asset('frontdivi/css/owl.carousel.min.css')}}"/>
+	<link rel="stylesheet" href="{{asset('frontdivi/css/animate.css')}}"/>
+	<link rel="stylesheet" href="{{asset('frontdivi/css/style.css')}}"/>

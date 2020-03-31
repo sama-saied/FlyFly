@@ -1,6 +1,7 @@
-@extends('site.app')
+@extends('site.app')                
+@include('site.partials.styles')       
 @section('title', $category->name)
-@section('content')
+@section('cat')
 <section class="section-pagetop bg-dark">
     <div class="container clearfix">
         <h2 class="title-page">{{ $category->name }}</h2>
@@ -43,4 +44,4 @@
         </div>
     </div>
 </section>
-@stop
+@endsection
