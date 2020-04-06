@@ -15,3 +15,4 @@
 <script src="{{ asset('frontend/plugins/owlcarousel/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('frontend/js/script.js') }}" type="text/javascript"></script>
 @stack('scripts')
+
