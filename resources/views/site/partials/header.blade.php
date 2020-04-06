@@ -19,9 +19,9 @@
                         <div class="up-item">
 								<div class="shopping-card">
 									<i class="flaticon-bag"></i>
-									<span>0</span>
+									<span>{{ $cartCount }}</span>
 								</div>
-								<a href="#">Shopping Cart</a>
+								<a href="{{ route('checkout.cart) }}">Shopping Cart</a>
                             </div>
                         @guest
 							<div class="up-item">
