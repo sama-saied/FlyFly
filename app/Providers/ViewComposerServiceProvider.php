@@ -8,6 +8,7 @@ use Illuminate\Support\ServiceProvider;
 use Darryldecode\Cart\Facades\CartFacade;
 use Darryldecode\Cart\CartServiceProvider;
 use Darryldecode\Cart\CartCondition;
+
 use Cart;
 
 class ViewComposerServiceProvider extends ServiceProvider
