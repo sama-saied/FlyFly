@@ -21,7 +21,7 @@
 									<i class="flaticon-bag"></i>
 									<span>{{ $cartCount }}</span>
 								</div>
-								<a href="{{ route('checkout.cart) }}">Shopping Cart</a>
+								<a href="{{ route('checkout.cart') }}">Shopping Cart</a>
                             </div>
                         @guest
 							<div class="up-item">
