@@ -1,6 +1,6 @@
 @extends('site.app')
 @section('title', 'Shopping Cart')
-@section('content')
+@section('cart')
     <section class="section-pagetop bg-dark">
         <div class="container clearfix">
             <h2 class="title-page">Cart</h2>

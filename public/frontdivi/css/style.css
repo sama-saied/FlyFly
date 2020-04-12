@@ -441,7 +441,7 @@ ol {
 	top: -8px;
 	font-size: 10px;
 	font-weight: 700;
-	color: #fff;
+	color: #28a745;
 	background: #28a745;
 	line-height: 1;
 	text-transform: uppercase;
@@ -471,7 +471,7 @@ ol {
 	visibility: hidden;
 	opacity: 0;
 	margin-top: 50px;
-	background: #fff;
+	background: #282828;
 	z-index: 99;
 	-webkit-transition: all 0.4s;
 	-o-transition: all 0.4s;

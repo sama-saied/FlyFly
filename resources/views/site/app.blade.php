@@ -17,6 +17,8 @@
 
 @include('site.partials.header')
 @yield('cat')
+@yield('cart')
+@yield('pro')
 @yield('content')
 @include('site.partials.footer')
 @include('site.partials.scripts')
