@@ -41,6 +41,7 @@
 		<div class="container">
 				<!-- menu -->
 			<ul class="main-menu">
+            <li><a href="/">Home</a></li>
                 @foreach($categories as $cat)
                     @foreach($cat->items as $category)
                         @if ($category->items->count() > 0)

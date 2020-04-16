@@ -62,7 +62,7 @@ class SettingsTableSeeder extends Seeder
             'value'                     =>  '',
         ],
         [
-            'key'                       =>  'social_linkedin',
+            'key'                       =>  'social_youtube',
             'value'                     =>  '',
         ],
         [

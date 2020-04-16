@@ -2,46 +2,192 @@
 @include('site.partials.styles')       
 @section('title', $category->name)
 @section('cat')
-<section class="section-pagetop bg-dark">
-    <div class="container clearfix">
-        <h2 class="title-page">{{ $category->name }}</h2>
-    </div>
-</section>
-<section class="section-content bg padding-y">
-    <div class="container">
-        <div id="code_prod_complex">
-            <div class="row">
-                @forelse($category->products as $product)
-                    <div class="col-md-4">
-                        <figure class="card card-product">
-                            @if ($product->images->count() > 0)
-                                <div class="img-wrap padding-y"><img src="{{ asset('storage/'.$product->images->first()->full) }}" alt=""></div>
-                            @else
+<!DOCTYPE html>
+<body>
+	<!-- Page info -->
+	<div class="page-top-info">
+		<div class="container">
+			<h4>{{ $category->name }}</h4>
+			<div class="site-pagination">
+				<a href="/">Home</a> /
+			</div>
+		</div>
+	</div>
+	<!-- Page info end -->
+
+
+	<!-- Category section -->
+	<section class="category-section spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 order-2 order-lg-1">
+					<div class="filter-widget">
+						<h2 class="fw-title">Categories</h2>
+						<ul class="category-menu">
+						@foreach($categories as $cat)
+                       @foreach($cat->items as $category)
+                        @if ($category->items->count() > 0)
+							<li><a href="{{ route('category.show', $category->slug) }}" id="{{ $category->slug }}">
+							{{ $category->name }}</a>
+								<ul class="sub-menu">
+								@foreach($category->items as $item)
+                                        <a href="{{ route('category.show', $item->slug) }}">{{ $item->name }}</a>
+                                    @endforeach
+								</ul>
+							</li>
+							@else
+                            <li>
+                                <ul class="sub-menu">
+                                <a href="{{ route('category.show', $category->slug) }}">{{ $category->name }}</a>
+                                </ul>
+                            </li>
+                        @endif
+                    @endforeach
+                @endforeach
+						</ul>
+					</div>
+					<div class="filter-widget mb-0">
+						<h2 class="fw-title">refine by</h2>
+						<div class="price-range-wrap">
+							<h4>Price</h4>
+                            <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" data-min="10" data-max="270">
+								<div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 100%;"></div>
+								<span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;">
+								</span>
+								<span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 100%;">
+								</span>
+							</div>
+							<div class="range-slider">
+                                <div class="price-input">
+                                    <input type="text" id="minamount">
+                                    <input type="text" id="maxamount">
+                                </div>
+                            </div>
+                        </div>
+					</div>
+					<div class="filter-widget mb-0">
+						<h2 class="fw-title">color by</h2>
+						<div class="fw-color-choose">
+							<div class="cs-item">
+								<input type="radio" name="cs" id="gray-color">
+								<label class="cs-gray" for="gray-color">
+									<span>(3)</span>
+								</label>
+							</div>
+							<div class="cs-item">
+								<input type="radio" name="cs" id="orange-color">
+								<label class="cs-orange" for="orange-color">
+									<span>(25)</span>
+								</label>
+							</div>
+							<div class="cs-item">
+								<input type="radio" name="cs" id="yollow-color">
+								<label class="cs-yollow" for="yollow-color">
+									<span>(112)</span>
+								</label>
+							</div>
+							<div class="cs-item">
+								<input type="radio" name="cs" id="green-color">
+								<label class="cs-green" for="green-color">
+									<span>(75)</span>
+								</label>
+							</div>
+							<div class="cs-item">
+								<input type="radio" name="cs" id="purple-color">
+								<label class="cs-purple" for="purple-color">
+									<span>(9)</span>
+								</label>
+							</div>
+							<div class="cs-item">
+								<input type="radio" name="cs" id="blue-color" checked="">
+								<label class="cs-blue" for="blue-color">
+									<span>(29)</span>
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="filter-widget mb-0">
+						<h2 class="fw-title">Size</h2>
+						<div class="fw-size-choose">
+							<div class="sc-item">
+								<input type="radio" name="sc" id="xs-size">
+								<label for="xs-size">XS</label>
+							</div>
+							<div class="sc-item">
+								<input type="radio" name="sc" id="s-size">
+								<label for="s-size">S</label>
+							</div>
+							<div class="sc-item">
+								<input type="radio" name="sc" id="m-size"  checked="">
+								<label for="m-size">M</label>
+							</div>
+							<div class="sc-item">
+								<input type="radio" name="sc" id="l-size">
+								<label for="l-size">L</label>
+							</div>
+							<div class="sc-item">
+								<input type="radio" name="sc" id="xl-size">
+								<label for="xl-size">XL</label>
+							</div>
+							<div class="sc-item">
+								<input type="radio" name="sc" id="xxl-size">
+								<label for="xxl-size">XXL</label>
+							</div>
+						</div>
+					</div>
+					<div class="filter-widget">
+						<h2 class="fw-title">Brand</h2>
+						<ul class="category-menu">
+							<li><a href="#">Abercrombie & Fitch <span>(2)</span></a></li>
+							<li><a href="#">Asos<span>(56)</span></a></li>
+							<li><a href="#">Bershka<span>(36)</span></a></li>
+							<li><a href="#">Missguided<span>(27)</span></a></li>
+							<li><a href="#">Zara<span>(19)</span></a></li>
+						</ul>
+					</div>
+                    </div>
+				<div class="col-lg-9  order-1 order-lg-2 mb-5 mb-lg-0">
+					<div class="row">
+                    @forelse($category->products as $product)
+						<div class="col-lg-4 col-sm-6">
+							<div class="product-item">                          
+								<div class="pi-pic">
+                                    @if ($product->images->count() > 0)
+                                    <img src="{{ asset('storage/'.$product->images->first()->full) }}" alt="">
+                                    @else
                                 <div class="img-wrap padding-y"><img src="https://via.placeholder.com/176" alt=""></div>
-                            @endif
-                            <figcaption class="info-wrap">
-                                <h4 class="title"><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></h4>
-                            </figcaption>
-                            <div class="bottom-wrap">
-                                <a href="" class="btn btn-sm btn-success float-right"><i class="fa fa-cart-arrow-down"></i> Buy Now</a>
+                                    @endif
+									<div class="pi-links">
+										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+										<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+									</div>
+                                </div>
+                                <div class="pi-text">
                                 @if ($product->sale_price != 0)
-                                    <div class="price-wrap h5">
+                                <div class="tag-sale">ON SALE</div>
+                                <div class="price-wrap h5">
                                         <span class="price"> {{ config('settings.currency_symbol').$product->sale_price }} </span>
                                         <del class="price-old"> {{ config('settings.currency_symbol').$product->price }}</del>
                                     </div>
                                 @else
                                     <div class="price-wrap h5">
-                                        <span class="price"> {{ config('settings.currency_symbol').$product->price }} </span>
+                                    <h6> {{ config('settings.currency_symbol').$product->price }} </h6>
                                     </div>
                                 @endif
-                            </div>
-                        </figure>
-                    </div>
-                @empty
+									<p><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></p>
+								</div>
+							</div>
+						</div>
+                        @empty
                     <p>No Products found in {{ $category->name }}.</p>
                 @endforelse
-            </div>
+				</div>
+			</div>
         </div>
-    </div>
-</section>
+	</div>
+	</section>
+	<!-- Category section end -->	
+	</body>
+</html>
 @endsection
+

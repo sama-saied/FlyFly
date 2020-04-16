@@ -19,6 +19,7 @@ Route::group(['middleware' => ['auth:admin']], function () {
 
 Route::get('/settings', 'Admin\SettingController@index')->name('admin.settings');
 Route::post('/settings', 'Admin\SettingController@update')->name('admin.settings.update');
+
 Route::get('/facebook', 'Admin\SettingFollower@facebook')->name('admin.settings.facebook');
 Route::get('/twitter', 'Admin\SettingFollower@twitter')->name('admin.settings.twitter');
 Route::get('/insta', 'Admin\SettingFollower@insta')->name('admin.settings.insta');

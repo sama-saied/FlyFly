@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\BaseController;
 use App\Models\Setting;
-use UploadAble;
+use App\Traits\UploadAble;
 
 use Illuminate\Http\UploadedFile;
 
 class SettingController extends BaseController
 {
+    use UploadAble;
+
     /**
  * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
  */
@@ -32,7 +34,7 @@ public function update(Request $request)
             $this->deleteOne(config('settings.site_logo'));
         }
 
-        $logo = $this->uploadOne($request->file('site_logo'), 'img');
+        $logo = $this->UploadOne($request->file('site_logo'), 'img');
         Setting::set('site_logo', $logo);
     }
         /*
