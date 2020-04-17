@@ -1,11 +1,7 @@
 @extends('site.app')
 @section('title', 'Register')
 @section('content')
-    <section class="section-pagetop bg-dark">
-        <div class="container clearfix">
-            <h2 class="title-page">Register</h2>
-        </div>
-    </section>
+    
     <section class="section-content bg padding-y">
         <div class="container">
             <div class="col-md-6 mx-auto">
@@ -76,9 +72,10 @@
                                     <label for="country">Country</label>
                                     <select id="country" class="form-control" name="country">
                                         <option> Choose...</option>
-                                        <option value="United Kingdom">United Kingdom</option>
-                                        <option value="France">France</option>
-                                        <option value="United States" selected="">United States</option>
+                                        <option value="Egypt">Egypt</option>
+                                        <option value="Saudi Arabia">Saudi Arabia</option>
+                                        <option value="United Emarats">United Emarats</option>                              
+                                        <option value="Egypt" selected="">Egypt</option>
                                     </select>
                                 </div>
                             </div>

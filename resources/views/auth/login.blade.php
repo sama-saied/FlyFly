@@ -1,11 +1,7 @@
 @extends('site.app')
 @section('title', 'Login')
 @section('content')
-    <section class="section-pagetop bg-dark">
-        <div class="container clearfix">
-            <h2 class="title-page">Login</h2>
-        </div>
-    </section>
+   
     <section class="section-content bg padding-y">
         <div class="container">
             <div class="col-md-6 mx-auto">
