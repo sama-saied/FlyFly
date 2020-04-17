@@ -97,6 +97,14 @@ class SettingsTableSeeder extends Seeder
             'key'                       =>  'paypal_secret_id',
             'value'                     =>  '',
         ],
+        [
+            'key'                       =>  'hero_first',
+            'value'                     =>  '',
+        ],
+        [
+            'key'                       =>  'hero_second',
+            'value'                     =>  '',
+        ],
     ];
     
     /**

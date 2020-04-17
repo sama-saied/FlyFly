@@ -21,6 +21,6 @@ class CategoryController extends Controller
      //   dd($category);
         return view('site.pages.category', compact('category'));
     }
-
+    
    
 }

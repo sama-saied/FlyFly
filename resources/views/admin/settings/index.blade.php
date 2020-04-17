@@ -19,6 +19,7 @@
                     <li class="nav-item"><a class="nav-link" href="#social-links" data-toggle="tab">Social Links</a></li>
                     <li class="nav-item"><a class="nav-link" href="#analytics" data-toggle="tab">Analytics</a></li>
                     <li class="nav-item"><a class="nav-link" href="#payments" data-toggle="tab">Payments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#home" data-toggle="tab">Home</a></li>
                 </ul>
             </div>
         </div>
@@ -41,6 +42,9 @@
                 </div>
                 <div class="tab-pane fade" id="payments">
                     @include('admin.settings.includes.payments')
+                </div>
+                <div class="tab-pane fade" id="home">
+                    @include('admin.settings.includes.home')
                 </div>
             </div>
         </div>

@@ -28,14 +28,6 @@
                         <img class="product-big-img" src="{{ asset('storage/'.$product->images->first()->full) }}" alt="">
                     </a>
 					</div>
-					<div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
-						<div class="product-thumbs-track">
-							<div class="pt active" data-imgbigurl="img/single-product/1.jpg"><img src="{{ asset('storage/'.$product->images->first()->full) }}" alt=""></div>
-							<div class="pt" data-imgbigurl="img/single-product/2.jpg"><img src="img/single-product/thumb-2.jpg" alt=""></div>
-							<div class="pt" data-imgbigurl="img/single-product/3.jpg"><img src="img/single-product/thumb-3.jpg" alt=""></div>
-							<div class="pt" data-imgbigurl="img/single-product/4.jpg"><img src="img/single-product/thumb-4.jpg" alt=""></div>
-						</div>
-                    </div>
                     @else
                    <div class="img-big-wrap">
                         <div>
@@ -43,6 +35,16 @@
                         </div>
                     </div>
                     @endif
+				
+				@if ($product->images->count() > 0)
+				<div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
+				@foreach($product->images as $image)
+						<div class="product-thumbs-track">
+							<div class="pt active" ><img src="{{ asset('storage/'.$image->full) }}" alt=""></div>
+						</div>
+				@endforeach
+					</div>
+				@endif
 				</div>
 				<div class="col-lg-6 product-details">
                     <h2 class="p-title">{{ $product->name }}</h2>
@@ -81,11 +83,12 @@
                                                    
                                                     @foreach($attributes as $attribute)
                                                         @php $attributeCheck = in_array($attribute->id, $product->attributes->pluck('attribute_id')->toArray()) @endphp
-                                                        <table>
+                                                        
                                                             <tr><td>
                                                         @if ($attributeCheck) 
-                                                            <dt>{{ $attribute->name }}: </td></tr></dt>
-                                                        </table>
+															<dt>{{ $attribute->name }}: </td></tr></dt>
+											
+                                                        
                                                             <dd>
                                                                 <select class="form-control form-control-sm option" style="width:180px;" name="{{ strtolower($attribute->name ) }}">
                                                                     <option data-price="0" value="0"> Select a {{ $attribute->name }}</option>
@@ -98,7 +101,10 @@
                                                                         @endif
                                                                     @endforeach
                                                                 </select>
-                                                            </dd>
+															</dd>
+															@else
+														<dt>            </td></tr></dt>
+														
                                                         @endif
                                                     @endforeach
                                                 </dl>
@@ -151,11 +157,11 @@
 						</div>
 					</div>
 					<div class="social-sharing">
-						<a href=""><i class="fa fa-google-plus"></i></a>
-						<a href=""><i class="fa fa-pinterest"></i></a>
-						<a href=""><i class="fa fa-facebook"></i></a>
-						<a href=""><i class="fa fa-twitter"></i></a>
-						<a href=""><i class="fa fa-youtube"></i></a>
+						
+						<a href="{{ route('admin.settings.insta')}}"><i class="fa fa-instagram"></i></a>
+						<a href="{{ route('admin.settings.facebook')}}"><i class="fa fa-facebook"></i></a>
+						<a href="{{ route('admin.settings.twitter')}}"><i class="fa fa-twitter"></i></a>
+						<a href="{{ route('admin.settings.youtube')}}"><i class="fa fa-youtube"></i></a>
 					</div>
 				</div>
 			</div>

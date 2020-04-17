@@ -23,7 +23,8 @@ Route::post('/settings', 'Admin\SettingController@update')->name('admin.settings
 Route::get('/facebook', 'Admin\SettingFollower@facebook')->name('admin.settings.facebook');
 Route::get('/twitter', 'Admin\SettingFollower@twitter')->name('admin.settings.twitter');
 Route::get('/insta', 'Admin\SettingFollower@insta')->name('admin.settings.insta');
-Route::get('/youtube', 'Admin\SettingFollower@youtube')->name('admin.settings.youtube'); 
+Route::get('/youtube', 'Admin\SettingFollower@youtube')->name('admin.settings.youtube');
+ 
 
 
 Route::group(['prefix'  =>   'categories'], function() {

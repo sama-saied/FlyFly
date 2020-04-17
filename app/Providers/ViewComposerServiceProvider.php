@@ -24,6 +24,14 @@ class ViewComposerServiceProvider extends ServiceProvider
             $view->with('categories', Category::orderByRaw('-name ASC')->get()->nest());
         });
 
+        View::composer('site.partials.sidebar', function ($view) {
+            $view->with('categories', Category::orderByRaw('-name ASC')->get()->nest());
+        });
+
+        //View::composer('site.pages.homepage', function ($view) {
+       //     $view->with('li', Setting::orderByRaw('-name ASC')->get();
+        //});
+
         View::composer('site.partials.header', function ($view) {
             $view->with('cartCount', Cart::getContent()->count());
         });

@@ -62,6 +62,26 @@ If yes, delete it and then upload the logo using uploadOne() method defined
   the Setting facade.Same thing we are doing for the site_favicon
     */
 
+    elseif ($request->has('hero_first') && ($request->file('hero_first') instanceof UploadedFile)) {
+
+        if (config('settings.hero_first') != null) {
+            $this->deleteOne(config('settings.hero_first'));
+        }
+        $herofirst = $this->uploadOne($request->file('hero_first'), 'img');
+        Setting::set('hero_first', $herofirst);
+
+    } 
+
+    elseif ($request->has('hero_second') && ($request->file('hero_second') instanceof UploadedFile)) {
+
+        if (config('settings.hero_second') != null) {
+            $this->deleteOne(config('settings.hero_second'));
+        }
+        $herosecond = $this->uploadOne($request->file('hero_second'), 'img');
+        Setting::set('hero_second', $herosecond);
+
+    } 
+
     else 
     {
 

@@ -15,11 +15,8 @@ use PharIo\Manifest\Url;
 |
 */
 
-//Route::get('/', function () {
-  //  return view('welcome');
-//});
-Route::view('/', 'site.pages.homepage');
 
+Route::get('/', 'Homee@show');
 Route::view('/admin', 'admin.dashboard.index');
 
 
@@ -33,6 +30,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/category/{slug}', 'Site\CategoryController@show')->name('category.show');
+
+
 
 Route::get('/product/{slug}', 'Site\ProductController@show')->name('product.show');
 Route::post('/product/add/cart', 'Site\ProductController@addToCart')->name('product.add.cart');
