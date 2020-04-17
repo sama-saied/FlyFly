@@ -19,6 +19,9 @@ use PharIo\Manifest\Url;
 Route::get('/', 'Homee@show');
 Route::view('/admin', 'admin.dashboard.index');
 
+Route::get('/firstproduct', 'Homee@firstproduct')->name('firstproductlink');
+Route::get('/secondproduct', 'Homee@secondproduct')->name('secondproductlink');
+
 
 
 Auth::routes();

@@ -35,13 +35,44 @@
                 </div>
             </div>
         </div>
-        <div class="tile-footer">
+       
+<hr>
+<hr>
+        <h3 class="tile-title">Product Link</h3>
+        <hr>
+        <div class="tile-body">
+            <div class="form-group">
+                <label class="control-label" for="firsttpro_link"> First Product link</label>
+                <input
+                    class="form-control"
+                    type="text"
+                    placeholder="Enter the first prodct link"
+                    id="firstpro_link"
+                    name="firstpro_link"
+                    value="{{ config('settings.firstpro_link') }}"
+                />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="secondpro_link">Second Product link</label>
+                <input
+                    class="form-control"
+                    type="text"
+                    placeholder="Enter the second prodct link"
+                    id="secondpro_link"
+                    name="secondpro_link"
+                    value="{{ config('settings.secondpro_link') }}"
+                />
+            </div>
+
+            <div class="tile-footer">
             <div class="row d-print-none mt-2">
                 <div class="col-12 text-right">
                     <button class="btn btn-success" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Update Settings</button>
                 </div>
             </div>
         </div>
+
     </form>
 </div>
 @push('scripts')

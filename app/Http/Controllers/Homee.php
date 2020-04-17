@@ -22,4 +22,21 @@ class Homee extends Controller
     
     return view('/site.pages.homepage')->with(compact('fi','se'));
 }
+
+public function firstproduct()
+{
+    $key = 'firstpro_link';
+    $li=setting::get($key);
+    
+    return redirect()->away($li);    
+}
+
+public function secondproduct()
+{
+    $key = 'secondpro_link';
+    $li=setting::get($key);
+    
+    return redirect()->away($li);    
+}
+
 }
