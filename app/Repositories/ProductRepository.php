@@ -67,9 +67,11 @@ class ProductRepository extends BaseRepository implements ProductContract
             $collection = collect($params);
 
             $featured = $collection->has('featured') ? 1 : 0;
+
             $status = $collection->has('status') ? 1 : 0;
 
             $merge = $collection->merge(compact('status', 'featured'));
+
 
             $product = new Product($merge->all());
 
@@ -96,9 +98,11 @@ class ProductRepository extends BaseRepository implements ProductContract
         $collection = collect($params)->except('_token');
 
         $featured = $collection->has('featured') ? 1 : 0;
+
         $status = $collection->has('status') ? 1 : 0;
 
         $merge = $collection->merge(compact('status', 'featured'));
+
 
         $product->update($merge->all());
 

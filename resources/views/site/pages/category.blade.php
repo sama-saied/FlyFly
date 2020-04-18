@@ -36,6 +36,7 @@
 									</div>
                                 </div>
                                 <div class="pi-text">
+								<p><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></p>
                                 @if ($product->sale_price != 0)
                                 <div class="tag-sale">ON SALE</div>
                                 <div class="price-wrap h5">
@@ -44,10 +45,10 @@
                                     </div>
                                 @else
                                     <div class="price-wrap h5">
-                                    <h6> {{ config('settings.currency_symbol').$product->price }} </h6>
+                                    <p> {{ config('settings.currency_symbol').$product->price }} </p>
                                     </div>
                                 @endif
-									<p><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></p>
+									
 								</div>
 							</div>
 						</div>

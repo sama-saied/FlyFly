@@ -61,9 +61,14 @@
                     </h3>
                     @endif
                     @if ($product->status == 1)
-                    <h4 class="p-stock">Available: <span>In Stock</span></h4>
+                    <h3 class="p-stock">Available:
+						@if($product->quantity <= 5)
+						 <span>In Stock with {{ $product->quantity }} left</span>
+						 @else
+						 <span>In Stock</span>
+						 @endif</h3>
                     @else
-                    <h4 class="p-stock">Available: <span>Out of stock</span></h4>
+                    <h3 class="p-stock">Available: <span>Out of stock</span></h3>
                     @endif
 					<div class="p-rating">
 						<i class="fa fa-star-o"></i>

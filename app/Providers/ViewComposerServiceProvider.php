@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Darryldecode\Cart\Facades\CartFacade;
@@ -27,6 +28,10 @@ class ViewComposerServiceProvider extends ServiceProvider
         View::composer('site.partials.sidebar', function ($view) {
             $view->with('categories', Category::orderByRaw('-name ASC')->get()->nest());
         });
+
+      //  View::composer('site.pages.homepage', function ($view) {
+        //    $view->with('products', Product::orderByRaw('-name ASC')->get());
+        //});
 
         //View::composer('site.pages.homepage', function ($view) {
        //     $view->with('li', Setting::orderByRaw('-name ASC')->get();

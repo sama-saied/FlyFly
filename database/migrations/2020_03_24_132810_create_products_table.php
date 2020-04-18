@@ -26,6 +26,7 @@ class CreateProductsTable extends Migration
             $table->unsignedDouble('price', 8, 2)->nullable();
             $table->unsignedDouble('sale_price', 8, 2)->nullable();
             $table->boolean('status')->default(1);
+            $table->boolean('featured')->default(0);
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
 
             $table->timestamps();

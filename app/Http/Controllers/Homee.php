@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
-
+use App\Models\Product;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
@@ -14,14 +14,19 @@ class Homee extends Controller
 {
     public function show()
 {
+
+    $product = Product::all();
+   
+
     $first = 'hero_first';
     $fi=setting::get($first);
     
     $second = 'hero_second';
     $se=setting::get($second);
     
-    return view('/site.pages.homepage')->with(compact('fi','se'));
+    return view('/site.pages.homepage')->with(compact('fi','se','product'));
 }
+
 
 public function firstproduct()
 {

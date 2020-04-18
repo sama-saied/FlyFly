@@ -4,9 +4,14 @@ namespace App\Models;
 
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use willvincent\Rateable\Rateable;
+
 
 class Product extends Model
 {
+  //  use Rateable;
+
+
     /**
      * @var string
      */
@@ -17,7 +22,7 @@ class Product extends Model
      */
     protected $fillable = [
         'brand_id',  'name',  'slug','description', 'quantity',
-         'price', 'sale_price' , 'status',
+         'price', 'sale_price' , 'status','featured',
     ];
 
     /**
@@ -26,7 +31,9 @@ class Product extends Model
     protected $casts = [
         'quantity'  =>  'integer',
         'brand_id'  =>  'integer',
-        'status'    =>  'boolean'
+        'status'    =>  'boolean',
+        'featured'  =>  'boolean'
+
     ];
 
      /**
@@ -70,5 +77,13 @@ public function categories()
 {
     return $this->belongsToMany(Category::class, 'product_categories', 'product_id', 'category_id');
 }
-
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+  
+   /* public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }*/
 }
