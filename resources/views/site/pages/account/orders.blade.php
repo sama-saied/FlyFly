@@ -18,7 +18,7 @@
                                 <th scope="col">Order No.</th>
                                 <th scope="col">First Name</th>
                                 <th scope="col">Last Name</th>
-                                <th scope="col">Order Amount</th>
+                                <th scope="col">Order Price</th>
                                 <th scope="col">Qty.</th>
                                 <th scope="col">Status</th>
                             </tr>

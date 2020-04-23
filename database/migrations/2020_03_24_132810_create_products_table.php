@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
            
             $table->text('description')->nullable();
+            $table->text('shipping')->nullable();
             $table->unsignedInteger('quantity');
             $table->string('slug');
             $table->unsignedDouble('price', 8, 2)->nullable();

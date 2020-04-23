@@ -123,6 +123,10 @@
                                     <textarea name="description" id="description" rows="8" class="form-control"></textarea>
                                 </div>
                                 <div class="form-group">
+                                    <label class="control-label" for="shipping">Shipping & Returns</label>
+                                    <textarea name="shipping" id="shipping" rows="8" class="form-control"></textarea>
+                                </div>
+                                <div class="form-group">
                                     <div class="form-check">
                                         <label class="form-check-label">
                                             <input class="form-check-input"

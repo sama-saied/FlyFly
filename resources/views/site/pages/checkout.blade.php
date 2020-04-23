@@ -1,97 +1,94 @@
 @extends('site.app')
 @section('title', 'Checkout')
 @section('content')
-    <section class="section-pagetop bg-dark">
-        <div class="container clearfix">
-            <h2 class="title-page">Checkout</h2>
-        </div>
-    </section>
-    <section class="section-content bg padding-y">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    @if (Session::has('error'))
+   <!-- Page info -->
+	<div class="page-top-info">
+		<div class="container">
+			<h4>Check Out</h4>
+			<div class="site-pagination">
+				<a href="/">Home</a> 
+			</div>
+		</div>
+	</div>
+	<!-- Page info end -->
+
+
+	<!-- checkout section  -->
+	<section class="checkout-section spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 order-2 order-lg-1">
+                @if (Session::has('error'))
                         <p class="alert alert-danger">{{ Session::get('error') }}</p>
                     @endif
-                </div>
-            </div>
-            <form action="{{ route('checkout.place.order') }}" method="POST" role="form">
+                    <form class="checkout-form" action="{{ route('checkout.place.order') }}" method="POST" role="form">
                 @csrf
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="card">
-                            <header class="card-header">
-                                <h4 class="card-title mt-2">Billing Details</h4>
-                            </header>
-                            <article class="card-body">
-                                <div class="form-row">
-                                    <div class="col form-group">
-                                        <label>First name</label>
-                                        <input type="text" class="form-control" name="first_name">
-                                    </div>
-                                    <div class="col form-group">
-                                        <label>Last name</label>
-                                        <input type="text" class="form-control" name="last_name">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Address</label>
-                                    <input type="text" class="form-control" name="address">
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label>City</label>
-                                        <input type="text" class="form-control" name="city">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label>Country</label>
-                                        <input type="text" class="form-control" name="country">
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group  col-md-6">
-                                        <label>Post Code</label>
-                                        <input type="text" class="form-control" name="post_code">
-                                    </div>
-                                    <div class="form-group  col-md-6">
-                                        <label>Phone Number</label>
-                                        <input type="text" class="form-control" name="phone_number">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Email Address</label>
-                                    <input type="email" class="form-control" name="email" value="{{ auth()->user()->email }}" disabled>
-                                    <small class="form-text text-muted">We'll never share your email with anyone else.</small>
-                                </div>
-                                <div class="form-group">
-                                    <label>Order Notes</label>
-                                    <textarea class="form-control" name="notes" rows="6"></textarea>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="row">
+						<div class="cf-title">Billing Information</div>
+						<div class="row address-inputs">
+                            <div class="col-md-6">
+								<input type="text" placeholder="First name"  name="first_name">
+							</div>
+							<div class="col-md-6">
+								<input type="text" placeholder="Last name"  name="last_name">
+							</div>
+							<div class="col-md-12">
+								<input type="text" placeholder="Address" name="address">
+                            </div>
+                            <div class="col-md-6">
+                            <input type="text" placeholder="Country" name="country">
+                            </div>
+                            <div class="col-md-6">
+                            <input type="text" placeholder="City" name="city">
+                            </div>
+							<div class="col-md-6">
+								<input type="text" placeholder="Zip code"  name="post_code">
+							</div>
+							<div class="col-md-6">
+								<input type="text" placeholder="Phone no." name="phone_number">
+                            </div>
                             <div class="col-md-12">
-                                <div class="card">
-                                    <header class="card-header">
-                                        <h4 class="card-title mt-2">Your Order</h4>
-                                    </header>
-                                    <article class="card-body">
-                                        <dl class="dlist-align">
-                                            <dt>Total cost: </dt>
-                                            <dd class="text-right h5 b"> {{ config('settings.currency_symbol') }}{{ \Cart::getSubTotal() }} </dd>
-                                        </dl>
-                                    </article>
+                                    
+                                    <input type="email" placeholder="Email address" name="email" value="{{ auth()->user()->email }}" enabled>
+                                   
+                            </div>
+                                <div class="col-lg-4 order-1 order-lg-2">
+                                   
+                                    <textarea type="textarea" placeholder="Order Notes"  name="notes" rows="6"></textarea>
                                 </div>
-                            </div>
-                            <div class="col-md-12 mt-4">
-                                <button type="submit" class="subscribe btn btn-success btn-lg btn-block">Place Order</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </section>
+						</div>
+						<div class="cf-title">Payment</div>
+						<ul class="payment-list">
+							<li>Paypal<a href="#"><img src="img/paypal.png" alt=""></a></li>
+							<li>Credit / Debit card<a href="#"><img src="img/mastercart.png" alt=""></a></li>
+							<li>Pay when you get the package</li>
+						</ul>
+						<button  type="submit" class="site-btn submit-order-btn">Place Order</button>
+					</form>
+				</div>
+				<div class="col-lg-4 order-1 order-lg-2">
+					<div class="checkout-cart">
+						<h3>Your Cart</h3>
+						<ul class="product-list">
+							<li>
+								<div class="pl-thumb"><img src="img/cart/1.jpg" alt=""></div>
+								<h6>Animal Print Dress</h6>
+								<p>$45.90</p>
+							</li>
+							<li>
+								<div class="pl-thumb"><img src="img/cart/2.jpg" alt=""></div>
+								<h6>Animal Print Dress</h6>
+								<p>$45.90</p>
+							</li>
+						</ul>
+						<ul class="price-list">
+							<li>Total<span>$99.90</span></li>
+							<li>Shipping<span>free</span></li>
+							<li class="total">Total<span>{{ config('settings.currency_symbol') }}{{ \Cart::getSubTotal() }}</span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- checkout section end -->
 @stop

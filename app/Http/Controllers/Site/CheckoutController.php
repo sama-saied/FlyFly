@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Contracts\OrderContract;
 use App\Http\Controllers\Controller;
 use App\Services\PayPalService;
+use Order;
 
 class CheckoutController extends Controller
 {

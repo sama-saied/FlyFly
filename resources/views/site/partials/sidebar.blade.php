@@ -27,6 +27,16 @@
 					</div>
 					<div class="filter-widget mb-0">
 						<h2 class="fw-title">refine by</h2>
+						<div class="filter-widget">
+						<h2 class="fw-title">Brand</h2>
+						<ul class="category-menu">
+							<li><a href="#">Abercrombie & Fitch <span>(2)</span></a></li>
+							<li><a href="#">Asos<span>(56)</span></a></li>
+							<li><a href="#">Bershka<span>(36)</span></a></li>
+							<li><a href="#">Missguided<span>(27)</span></a></li>
+							<li><a href="#">Zara<span>(19)</span></a></li>
+						</ul>
+					</div>
 						<div class="price-range-wrap">
 							<h4>Price</h4>
                             <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" data-min="10" data-max="270">
@@ -114,16 +124,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="filter-widget">
-						<h2 class="fw-title">Brand</h2>
-						<ul class="category-menu">
-							<li><a href="#">Abercrombie & Fitch <span>(2)</span></a></li>
-							<li><a href="#">Asos<span>(56)</span></a></li>
-							<li><a href="#">Bershka<span>(36)</span></a></li>
-							<li><a href="#">Missguided<span>(27)</span></a></li>
-							<li><a href="#">Zara<span>(19)</span></a></li>
-						</ul>
-					</div>
+					
 					</div>
 					
 	
