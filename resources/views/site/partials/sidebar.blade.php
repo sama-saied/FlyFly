@@ -3,7 +3,7 @@
 						<h2 class="fw-title">Categories</h2>
 						<ul class="category-menu">
 						@foreach($categories as $cat)
-                       @foreach($cat->items as $category)
+                        @foreach($cat->items as $category)
                         @if ($category->items->count() > 0) 
 							<li><a href="{{ route('category.show', $category->slug) }}" id="{{ $category->slug }}"  
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -30,11 +30,11 @@
 						<div class="filter-widget">
 						<h2 class="fw-title">Brand</h2>
 						<ul class="category-menu">
-							<li><a href="#">Abercrombie & Fitch <span>(2)</span></a></li>
-							<li><a href="#">Asos<span>(56)</span></a></li>
-							<li><a href="#">Bershka<span>(36)</span></a></li>
-							<li><a href="#">Missguided<span>(27)</span></a></li>
-							<li><a href="#">Zara<span>(19)</span></a></li>
+						@foreach($brands as $category)
+                         
+							<li><a href="{{ route('brand.show', $category->id) }}">{{ $category->name }}<span>{{$category->count()}}</span></a></li>
+							
+                @endforeach
 						</ul>
 					</div>
 						<div class="price-range-wrap">

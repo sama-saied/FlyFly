@@ -50,14 +50,18 @@
                     <h2 class="p-title">{{ $product->name }}</h2>
                     @if ($product->sale_price > 0)
                     <h3 class="p-price">
-                          <span class="currency">{{ config('settings.currency_symbol') }}</span><span class="num" id="productPrice">{{ $product->sale_price }}</span>
-                          <del class="price-old"> {{ config('settings.currency_symbol') }}{{ $product->price }}</del>
+                          
+                          <span class="num" id="productPrice">{{ $product->sale_price }}</span>
+                          <samll><span class="currency">{{ config('settings.currency_symbol') }}</span></samll>
+                           <small><del class="price-old"> {{ $product->price }} {{ config('settings.currency_symbol') }}</del></small>      
                     </h3>
+                   
                     @else
 
 					<h3 class="p-price">
-                    <span class="currency">{{ config('settings.currency_symbol') }}</span>
+                    
                     <span class="num" id="productPrice">{{ $product->price }}</span>
+                    <span class="currency">{{ config('settings.currency_symbol') }}</span>
                     </h3>
                     @endif
                     @if ($product->quantity > 0)

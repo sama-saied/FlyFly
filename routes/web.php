@@ -33,6 +33,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/category/{slug}', 'Site\CategoryController@show')->name('category.show');
+Route::get('/brand/{id}', 'Site\BrandController@show')->name('brand.show');
 
 
 

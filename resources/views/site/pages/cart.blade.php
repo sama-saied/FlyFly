@@ -20,10 +20,10 @@
 				<div class="col-lg-8">
 					<div class="cart-table">
 						<h3>Your Cart</h3>
-						<div class="cart-table-warp">
-				@if (\Cart::isEmpty())
-                        <p class="alert alert-warning">Your shopping cart is empty.</p>
+						@if (\Cart::isEmpty())
+                        <p>Your shopping cart is empty.</p>
                     @else
+						<div class="cart-table-warp">
 							<table>
 							<thead>
 								<tr>
