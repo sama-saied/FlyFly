@@ -15,7 +15,7 @@ class Homee extends Controller
     public function show()
 {
 
-    $product = Product::all();
+    $products = Product::all();
    
 
     $first = 'hero_first';
@@ -24,7 +24,7 @@ class Homee extends Controller
     $second = 'hero_second';
     $se=setting::get($second);
     
-    return view('/site.pages.homepage')->with(compact('fi','se','product'));
+    return view('/site.pages.homepage')->with(compact('fi','se','products'));
 }
 
 
