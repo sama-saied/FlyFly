@@ -12,49 +12,27 @@
 						<img src="frontdivi/img/cards.png" alt="">
 					</div>
 				</div>
+				<div >
+					
+				</div>
 				<div class="col-lg-3 col-sm-6">
 					<div class="footer-widget about-widget">
 						<h2>Questions</h2>
 						<ul>
 							<li><a href="">About Us</a></li>
-							<li><a href="">Track Orders</a></li>
 							<li><a href="">Returns</a></li>
 							<li><a href="">Jobs</a></li>
 							<li><a href="">Shipping</a></li>
-							<li><a href="">Blog</a></li>
 						</ul>
 						<ul>
 							<li><a href="">Partners</a></li>
-							<li><a href="">Bloggers</a></li>
 							<li><a href="">Support</a></li>
 							<li><a href="">Terms of Use</a></li>
 							<li><a href="">Press</a></li>
 						</ul>
 					</div>
 				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="footer-widget about-widget">
-						<h2>Questions</h2>
-						<div class="fw-latest-post-widget">
-							<div class="lp-item">
-								<div class="lp-thumb set-bg" data-setbg="img/blog-thumbs/1.jpg"></div>
-								<div class="lp-content">
-									<h6>what shoes to wear</h6>
-									<span>Oct 21, 2018</span>
-									<a href="#" class="readmore">Read More</a>
-								</div>
-							</div>
-							<div class="lp-item">
-								<div class="lp-thumb set-bg" data-setbg="img/blog-thumbs/2.jpg"></div>
-								<div class="lp-content">
-									<h6>trends this year</h6>
-									<span>Oct 21, 2018</span>
-									<a href="#" class="readmore">Read More</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				
 				<div class="col-lg-3 col-sm-6">
 					<div class="footer-widget contact-widget">
 						<h2>Questions</h2>

@@ -6,6 +6,9 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use willvincent\Rateable\Rateable;
 
+use App\Filters\ProductFilter;
+
+use Illuminate\Database\Eloquent\Builder;
 
 class Product extends Model
 {
@@ -86,4 +89,9 @@ public function categories()
     {
         return $this->hasMany(Comment::class);
     }*/
+
+    public function scopeFilter(Builder $builder, $request)
+    {
+        return (new ProductFilter($request))->filter($builder);
+    }
 }

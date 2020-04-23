@@ -38,6 +38,7 @@ Route::get('/brand/{id}', 'Site\BrandController@show')->name('brand.show');
 
 
 Route::get('/product/{slug}', 'Site\ProductController@show')->name('product.show');
+Route::get('/products/{price}', 'ProductController@index')->name('products');
 Route::post('/product/add/cart', 'Site\ProductController@addToCart')->name('product.add.cart');
 
 Route::get('/cart', 'Site\CartController@getCart')->name('checkout.cart');
