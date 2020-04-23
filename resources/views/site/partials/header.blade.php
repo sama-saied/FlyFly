@@ -16,7 +16,7 @@
                     </div>
 					<div class="col-xl-4 col-lg-5">
 						<div class="user-panel">
-                        <div class="up-item">
+						<div class="up-item">
 								<div class="shopping-card">
 									<i class="flaticon-bag"></i>
 									<span>{{ $cartCount }}</span>
@@ -50,11 +50,12 @@
                                     </div>
                                 </li>
                             </ul>
-                        @endguest
+						@endguest
 						</div>
+						
 					</div>
 				</div>
 			</div>
         </div>
-        @include('site.partials.nav')
 </header>
+@include('site.partials.nav')
