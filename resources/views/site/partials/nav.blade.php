@@ -51,7 +51,7 @@
                             <ul class="sub-menu">
                                 <div  aria-labelledby="{{ $category->slug }}">
                                     @foreach($category->items as $item)
-                                        <a href="{{ route('category.show', $item->slug) }}">{{ $item->name }}</a>
+                                     <li>   <a href="{{ route('category.show', $item->slug) }}">{{ $item->name }}</a></li>
                                     @endforeach
                                 </div>
                             </ul>

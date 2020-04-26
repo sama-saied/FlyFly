@@ -38,22 +38,22 @@
 							@foreach(\Cart::getContent() as $item)
 								<tr>
 									<td class="product-col">
-									<div class="product-pic-zoom">
-								
-									<a href="{{ asset('storage/'.$item->image) }}" data-fancybox="">
-										<img src="{{ asset('storage/'.$item->image) }}" alt="">
-									</a>
-									</div>
+									
+                                       <a href="{{ asset('storage/'.$item->productImg) }}" data-fancybox="">
+                                          <img class="product-big-img" src="{{ asset('storage/'.$item->productImg) }}" alt="">
+                                       </a>
 									
 										<div class="pc-title">
 											<h4>{{ Str::words($item->name,20) }}</h4>
 											@foreach($item->attributes as $key  => $value)
+											
                                                         <dl class="dlist-inline small">
                                                             <dt>{{ ucwords($key) }}: </dt>
                                                             <dd>{{ ucwords($value) }}</dd>
-                                                        </dl>
+														</dl>
+														
                                                     @endforeach
-											<p>{{ config('settings.currency_symbol'). $item->price }}</p>
+											
 										</div>
 									</td>
 									<td class="quy-col">
@@ -64,7 +64,7 @@
                     					</div>
 									</td>
 									
-									<td class="size-col"><h4>{{ config('settings.currency_symbol'). $item->price }}</h4>
+									<td class="size-col"><h4>{{ $item->price }} {{config('settings.currency_symbol')}}</h4>
 									<small class="text-muted">each</small></td>
 									<td class="total-col">
                                             <a href="{{ route('checkout.cart.remove', $item->id) }}" class="btn btn-outline-danger"><i class="fa fa-times"></i> </a>
@@ -76,14 +76,15 @@
 						</div>
 						@endif
 						<div class="total-cost">
-							<h6>Total <span>{{ config('settings.currency_symbol') }}{{ \Cart::getSubTotal() }}</span></h6>
+							<h6>Total <span>{{ \Cart::getSubTotal() }} {{ config('settings.currency_symbol') }}</span></h6>
 						</div>
+						
 					</div>
 				</div>
 				<div class="col-lg-4 card-right">
-				<a href="{{ route('checkout.cart.clear') }}" class="site-btn">Clear Cart</a>
-					<a href="{{ route('checkout.index') }}" class="site-btn">Proceed to checkout</a>
-					<a href="/" class="site-btn sb-dark">Continue shopping</a>
+			    	<a href="{{ route('checkout.cart.clear') }}" class="site-btn">Clear Cart</a>
+					<a href="/" class="site-btn">Continue shopping</a>
+					<a href="{{ route('checkout.index') }}" class="site-btn sb-dark">Proceed to checkout</a>
 				</div>
 			</div>
 		</div>

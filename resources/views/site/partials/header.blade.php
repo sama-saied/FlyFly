@@ -5,12 +5,12 @@
 					<div class="col-lg-2 text-center text-lg-left">
 						<!-- logo -->
 						<a href="{{ url('/') }}" class="logo">
-							<img src="{{ asset('frontdivi/img/logo.png') }}" alt="logo">
+							<img src="{{ asset('storage/'.config('settings.site_logo')) }}" alt="logo">
 						</a>
 					</div>
 					<div class="col-xl-6 col-lg-5">
 						<form class="header-search-form">
-							<input type="text" placeholder="Search on divisima ...."/>
+							<input type="text" placeholder="Search on fly ...."/>
 							<button><i class="flaticon-search"></i></button>
 						</form>
                     </div>

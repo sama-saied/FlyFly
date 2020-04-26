@@ -1,5 +1,6 @@
 <div class="col-lg-3 order-2 order-lg-1">
 					<div class="filter-widget">
+					<h2 class="fw-title">shop by</h2>
 						<h2 class="fw-title">Categories</h2>
 						<ul class="category-menu">
 						@foreach($categories as $cat)
@@ -26,7 +27,7 @@
 						</ul>
 					</div>
 					<div class="filter-widget mb-0">
-						<h2 class="fw-title">refine by</h2>
+						
 						<div class="filter-widget">
 						<h2 class="fw-title">Brand</h2>
 						<ul class="category-menu">
@@ -38,6 +39,7 @@
 						</ul>
 					</div>
 						<div class="price-range-wrap">
+						<h2 class="fw-title">refine by</h2>
 							<h4>Price</h4>
                             <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" data-min="10" data-max="270">
 								<div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 100%;"></div>

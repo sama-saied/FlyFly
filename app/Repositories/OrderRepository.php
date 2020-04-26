@@ -1,7 +1,7 @@
 <?php
 namespace App\Repositories;
 
-use Cart;
+use darryldecode\Cart\Cart;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\OrderItem;

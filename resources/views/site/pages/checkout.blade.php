@@ -14,42 +14,84 @@
 
 
 	<!-- checkout section  -->
+	
 	<section class="checkout-section spad">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 order-2 order-lg-1">
                 @if (Session::has('error'))
                         <p class="alert alert-danger">{{ Session::get('error') }}</p>
-                    @endif
+					@endif
+					
                     <form class="checkout-form" action="{{ route('checkout.place.order') }}" method="POST" role="form">
                 @csrf
 						<div class="cf-title">Billing Information</div>
 						<div class="row address-inputs">
                             <div class="col-md-6">
-								<input type="text" placeholder="First name"  name="first_name">
+							
+								<input type="text" placeholder="First name" class="form-control @error('first_name') is-invalid @enderror" name="first_name" id="first_name" value="{{ auth()->user()->first_name }}" enabled>
+								@error('first_name')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+									@enderror
 							</div>
 							<div class="col-md-6">
-								<input type="text" placeholder="Last name"  name="last_name">
+								<input type="text" placeholder="Last name" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ auth()->user()->last_name }}" enabled>
+							    @error('last_name')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 							</div>
 							<div class="col-md-12">
-								<input type="text" placeholder="Address" name="address">
+								<input type="text" placeholder="Address" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ auth()->user()->address }}" enabled>
+								@error('address')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="col-md-6">
-                            <input type="text" placeholder="Country" name="country">
+							<input type="text" placeholder="Country" class="form-control @error('country') is-invalid @enderror" name="country" value="{{ auth()->user()->country }}" enabled>
+							@error('country')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="col-md-6">
-                            <input type="text" placeholder="City" name="city">
+							<input type="text" placeholder="City" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ auth()->user()->city }}" enabled>
+							@error('city')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
 							<div class="col-md-6">
-								<input type="text" placeholder="Zip code"  name="post_code">
+								<input type="text" placeholder="Zip code" class="form-control @error('post_code') is-invalid @enderror" name="post_code">
+								@error('post_code')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 							</div>
 							<div class="col-md-6">
-								<input type="text" placeholder="Phone no." name="phone_number">
+								<input type="text" placeholder="Phone no." class="form-control @error('phone_number') is-invalid @enderror" name="phone_number">
+								@error('phone_number')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="col-md-12">
                                     
-                                    <input type="email" placeholder="Email address" name="email" value="{{ auth()->user()->email }}" enabled>
-                                   
+                                    <input type="email" placeholder="Email address" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ auth()->user()->email }}" enabled>
+                                    @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                                 <div class="col-lg-4 order-1 order-lg-2">
                                    
@@ -57,34 +99,52 @@
                                 </div>
 						</div>
 						<div class="cf-title">Payment</div>
-						<ul class="payment-list">
-							<li>Paypal<a href="#"><img src="img/paypal.png" alt=""></a></li>
-							<li>Credit / Debit card<a href="#"><img src="img/mastercart.png" alt=""></a></li>
-							<li>Pay when you get the package</li>
-						</ul>
+					<ul class="payment-list">
+						<div class="row">							
+							<div class="col-md-5">
+								<div class="cf-radio-btns address-rb">
+									<div class="cfr-item">
+										<input type="radio" name="pm" id="one">
+										<label for="one">Online payment</label>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-5">
+						    	<div class="cf-radio-btns address-rb">
+						        	<div class="cfr-item">
+										<input type="radio" name="pm" id="two">
+										<label for="two">Pay on delivery</label>
+									</div>
+							    </div>
+							</div>
+					    </div>
+		     		</ul>
 						<button  type="submit" class="site-btn submit-order-btn">Place Order</button>
 					</form>
 				</div>
 				<div class="col-lg-4 order-1 order-lg-2">
 					<div class="checkout-cart">
 						<h3>Your Cart</h3>
+						@foreach(\Cart::getContent() as $item)
 						<ul class="product-list">
 							<li>
-								<div class="pl-thumb"><img src="img/cart/1.jpg" alt=""></div>
-								<h6>Animal Print Dress</h6>
-								<p>$45.90</p>
+								<div class="pl-thumb">
+									<a href="{{ asset('storage/'.$item->productImg) }}" data-fancybox="">
+                                          <img class="product-big-img" src="{{ asset('storage/'.$item->productImg) }}" alt="">
+									   </a>
+								</div>
+								<h6>{{ Str::words($item->name,20) }}</h6>
+								<p>{{ $item->price }} {{config('settings.currency_symbol')}}</p>
 							</li>
-							<li>
-								<div class="pl-thumb"><img src="img/cart/2.jpg" alt=""></div>
-								<h6>Animal Print Dress</h6>
-								<p>$45.90</p>
-							</li>
+							
 						</ul>
-						<ul class="price-list">
-							<li>Total<span>$99.90</span></li>
-							<li>Shipping<span>free</span></li>
-							<li class="total">Total<span>{{ config('settings.currency_symbol') }}{{ \Cart::getSubTotal() }}</span></li>
-						</ul>
+						@endforeach
+                           <article class="card-body">
+                                     <dl class="dlist-align">
+                                         <dt class="total"><h5>Total :</h5>  </dt>
+                                         <dd class="text-right h5 b" class="total"> {{ \Cart::getSubTotal() }} {{ config('settings.currency_symbol') }}</dd>
+                                     </dl>
+                            </article>
 					</div>
 				</div>
 			</div>

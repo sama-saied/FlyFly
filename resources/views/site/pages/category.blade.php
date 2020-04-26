@@ -1,5 +1,4 @@
-@extends('site.app')                
-@include('site.partials.styles')       
+@extends('site.app')                  
 @section('title', $category->name)
 @section('cat')
 	<!-- Page info -->

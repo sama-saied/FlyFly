@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Contracts\OrderContract;
 use App\Http\Controllers\Controller;
 use App\Services\PayPalService;
-use Order;
+use App\Models\Order;
+use Darryldecode\Cart\Facades\CartFacade;
+use  darryldecode\Cart\Cart;
 
 class CheckoutController extends Controller
 {
@@ -21,13 +23,32 @@ class CheckoutController extends Controller
 
     public function getCheckout()
     {
-        return view('site.pages.checkout');
+        if (\Cart::isEmpty()){
+            return redirect()->back()->with('message', 'Cart Is Empty.');
+        }
+        
+        else
+        {
+        return view('site.pages.checkout');}
     }
+    
 
     public function placeOrder(Request $request)
 {
     // Before storing the order we should implement the
     // request validation which I leave it to you
+
+    $this->validate($request, [
+        'first_name'   => ['required', 'string', 'max:255'],
+        'last_name' => ['required', 'string', 'max:255'],
+        'address' => 'required',
+        'country' => 'required',
+        'city' => 'required',
+        'post_code' => 'required',
+        'phone_number' => ['required','max:11','min:11'],
+        'email' => ['required', 'string', 'email', 'max:255','unique:users'],
+    ]);
+
     $order = $this->orderRepository->storeOrderDetails($request->all());
 
     // You can add more control here to handle if the order

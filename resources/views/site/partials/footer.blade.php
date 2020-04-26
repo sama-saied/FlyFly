@@ -1,5 +1,5 @@
 <!-- ========================= FOOTER ========================= -->
-<section class="footer-section">
+<!--<section class="footer-section">
 		<div class="container">
 			<div class="footer-logo text-center">
 				<a href="index.html"><img src="./img/logo-light.png" alt=""></a>
@@ -55,7 +55,140 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>-->
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========================= FOOTER ========================= -->
+<footer class="section-footer">
+    <div class="container">
+	<div class="footer-logo text-center">
+				<a href="/"><img src="{{ asset('storage/'.config('settings.site_favicon')) }}" /></a>
+			</div>
+        <section class="footer-top padding-top">
+            <div class="row">
+
+			<aside class="col-sm-3 col-md-3 white">
+			
+					<div class="footer-widget about-widget">
+						<h2>About</h2>
+						<p>{{ config('settings.footer_copyright_text') }}</p>
+						
+					</div>
+				
+			</aside>
+
+                <div class="col-sm-3  col-md-3 white">
+				<div class="footer-widget about-widget">
+
+                    <h2 >Customer Services</h2>
+                    <ul >
+                        <li> <a href="#">Help center</a></li>
+                        <li> <a href="#">Money refund</a></li>
+                        <li> <a href="#">Terms and Policy</a></li>
+                      
+					</ul>
+
+					<ul>
+                        <li> <a href="#"> Our history </a></li>
+                        <li> <a href="#"> How to buy </a></li>
+                        <li> <a href="#"> Delivery and payment </a></li>
+                        
+					</ul>
+					</div>
+</div>
+			
+                <aside class="col-sm-3  col-md-3 white">
+				<div class="footer-widget about-widget">
+
+					<h2 class="">My Account</h2>
+					@guest
+                    <ul class="">
+                        <li> <a href="{{ route('login') }}"> User Login </a></li>
+						<li> <a href="{{ route('register') }}"> User register </a></li>
+						
+					</ul>
+					@else
+					<ul class="">
+						<li> <a href="{{ route('logout') }}"
+						onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form> 
+                        <li> <a href="#"> Account Setting </a></li>
+                        <li> <a href="{{ route('account.orders') }}"> My Orders </a></li>
+                        
+					</ul>
+					@endguest
+					</div>
+				</aside>
+            
+              
+                <aside class="col-sm-3">
+				<div class="footer-widget contact-widget">
+                    <article class="">
+                        <h2 class="">Contacts</h2>
+                        <p>
+						    <div class="con-info">
+							<span>ph.</span>
+							<p> +123456789</p>
+							</div>
+                            
+
+							<div class="con-info">
+							<span>F.</span>
+							<p> +123456789 </p>
+							</div>
+							
+
+							<div class="con-info">
+							<span>E.</span>
+							<p>office@youremail.com</p>
+						</div>
+                        </p>
+						</article>
+</div>
+                        <div class="btn-group white">
+                            <a class="btn btn-facebook" title="Facebook" target="_blank" href="#"><i
+                                    class="fab fa-facebook-f  fa-fw"></i></a>
+                            <a class="btn btn-instagram" title="Instagram" target="_blank" href="#"><i
+                                    class="fab fa-instagram  fa-fw"></i></a>
+                            <a class="btn btn-youtube" title="Youtube" target="_blank" href="#"><i
+                                    class="fab fa-youtube  fa-fw"></i></a>
+                            <a class="btn btn-twitter" title="Twitter" target="_blank" href="#"><i
+                                    class="fab fa-twitter  fa-fw"></i></a>
+                        </div>
+                    
+                </aside>
+            </div>
+            <!-- row.// -->
+            <br>
+        </section>
+        
+        <!-- //footer-top -->
+    </div>
+    <!-- //container -->
+
+
+
+
+
+
+
+
+
+
 		<div class="social-links-warp">
 			<div class="container">
 				<div class="social-links">
@@ -73,5 +206,5 @@
 
 			</div>
 		</div>
-	</section>
+		</footer>
 <!-- ========================= FOOTER END // ========================= -->

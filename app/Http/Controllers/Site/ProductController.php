@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Contracts\AttributeContract;
 use Cart;
 use App\Models\Product;
+use App\Models\ProductImage;
+
 
 class ProductController extends Controller
 {
@@ -37,9 +39,10 @@ class ProductController extends Controller
 public function addToCart(Request $request)
 {
     $product = $this->productRepository->findProductById($request->input('productId'));
-    $options = $request->except('_token', 'productId', 'price', 'qty');
-
-    Cart::add(uniqid(), $product->name, $request->input('price'), $request->input('qty'), $options);
+    $options =  $request->except('_token', 'productId', 'price', 'qty','productImg');
+    
+    Cart::add(uniqid(), $product->name, $request->input('price'), 
+    $request->input('qty'),$request->input('productImg') ,$options);
 
     return redirect()->back()->with('message', 'Item added to cart successfully.');
 }

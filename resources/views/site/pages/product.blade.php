@@ -64,7 +64,7 @@
                     <span class="currency">{{ config('settings.currency_symbol') }}</span>
                     </h3>
                     @endif
-                    @if ($product->quantity > 0)
+                    @if ($product->quantity > 0 && $product->status )
                     <h3 class="p-stock">Available:
 						@if($product->quantity <= 5)
 						 <span>In Stock with {{ $product->quantity }} left</span>
@@ -126,6 +126,7 @@
                                                     <dd>
                                                         <input class="quantity" type="number" min="1" value="1" max="{{ $product->quantity }}" name="qty" style="width:70px;">
                                                         <input type="hidden" name="productId" value="{{ $product->id }}">
+                                                        <input type="hidden" name="productImg" value="{{ $product->images->first()->full }}">
                                                         <input type="hidden" name="price" id="finalPrice" value="{{ $product->sale_price != '' ? $product->sale_price : $product->price }}">
                                                     </dd>
                                                 </dl>
