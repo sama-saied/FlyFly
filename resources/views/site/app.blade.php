@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <script src="{{asset('frontdivi/js/jquery-3.2.1.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('web/js/bootstrap-3.1.1.min.js')}}"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@yield('title') - {{ config('app.name') }}</title>
