@@ -65,6 +65,42 @@
                 />
             </div>
 
+            <div class="form-group">
+                <label class="control-label" for="e-mail">Email</label>
+                <input
+                    class="form-control"
+                    type="text"
+                    placeholder="Enter your Email"
+                    id="e-mail"
+                    name="e-mail"
+                    value="{{ config('settings.e-mail') }}"
+                />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="fax">Fax</label>
+                <input
+                    class="form-control"
+                    type="text"
+                    placeholder="Enter your fax"
+                    id="fax"
+                    name="fax"
+                    value="{{ config('settings.fax') }}"
+                />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="phone_num">Phone number</label>
+                <input
+                    class="form-control"
+                    type="text"
+                    placeholder="Enter your phone number"
+                    id="phone_num"
+                    name="phone_num"
+                    value="{{ config('settings.phone_num') }}"
+                />
+            </div>
+
             <div class="tile-footer">
             <div class="row d-print-none mt-2">
                 <div class="col-12 text-right">

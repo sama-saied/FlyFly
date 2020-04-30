@@ -61,13 +61,15 @@
 					<div class="pi-text">
 					<p><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></p>
 					    @if ($product->sale_price != 0)
-                                <div class="tag-sale">ON SALE</div>
+						<div class="tag-sale">ON SALE</div>
                                 <div class="price-wrap h5">
-                                        <span class="price"> {{ config('settings.currency_symbol').$product->sale_price }} </span>
-                                        <del class="price-old"> {{ config('settings.currency_symbol').$product->price }}</del>
+                                        <span class="price"> {{ $product->sale_price }} {{ config('settings.currency_symbol')}} </span>
+									</div>
+									<del class="price-old"> {{ $product->price }} {{ config('settings.currency_symbol')}}</del>
+									@else
+                                    <div class="price-wrap h5">
+                                    <p> {{ $product->price }} {{ config('settings.currency_symbol')}} </p>
                                     </div>
-                                @else
-						<h6>{{ config('settings.currency_symbol').$product->price }}</h6>
 						@endif
 					</div>
 					@endif
@@ -112,11 +114,11 @@
 					    @if ($product->sale_price != 0)
                                 <div class="tag-sale">ON SALE</div>
                                 <div class="price-wrap h5">
-                                        <span class="price"> {{ config('settings.currency_symbol').$product->sale_price }} </span>
-                                        <del class="price-old"> {{ config('settings.currency_symbol').$product->price }}</del>
+                                        <span class="price"> {{ $product->sale_price }} {{ config('settings.currency_symbol')}} </span>
+                                        <del class="price-old"> {{ $product->price }} {{ config('settings.currency_symbol')}}</del>
                                     </div>
                                 @else
-						<h6>{{ config('settings.currency_symbol').$product->price }}</h6>
+						<h6>{{ $product->price }} {{ config('settings.currency_symbol') }}</h6>
 						@endif
 					</div>
 					@endif

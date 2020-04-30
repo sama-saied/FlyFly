@@ -142,19 +142,22 @@
                         <p>
 						    <div class="con-info">
 							<span>ph.</span>
-							<p> +123456789</p>
+							<p>{{ config('settings.phone_num') }}
+								</p>
 							</div>
                             
 
 							<div class="con-info">
 							<span>F.</span>
-							<p> +123456789 </p>
+							<p>{{ config('settings.fax') }}
+								  </p>
 							</div>
 							
 
 							<div class="con-info">
 							<span>E.</span>
-							<p>office@youremail.com</p>
+							<p>{{ config('settings.e-mail') }}
+								</p>
 						</div>
                         </p>
 						</article>
