@@ -81,7 +81,7 @@
 	</section>
 	<!-- letest product section end -->
 
-
+@include('site.partials.herosection')
 	<!-- letest product section -->
 	<section class="top-letest-product-section">
 		<div class="container">
