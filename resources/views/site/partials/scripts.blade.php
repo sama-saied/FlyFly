@@ -8,7 +8,7 @@
 	<script src="{{asset('frontdivi/js/main.js')}}"></script>
 
 
-
+<!--
 <script src="{{ asset('frontend/js/jquery-2.0.0.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('frontend/plugins/fancybox/fancybox.min.js') }}" type="text/javascript"></script>
@@ -16,7 +16,7 @@
 <script src="{{ asset('frontend/js/script.js') }}" type="text/javascript"></script>
 
 <script src="{{asset('web/js/jquery.min.js')}}"></script>
-<link rel="stylesheet" href="{{asset('web/css/jquery.countdown.css')}}" /> <!-- countdown --> 
-<!-- //js -->  
+
+js -->  
 @stack('scripts')
 

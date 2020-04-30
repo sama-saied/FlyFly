@@ -1,10 +1,12 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="zxx">
 <head>
 <script src="{{asset('frontdivi/js/jquery-3.2.1.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('web/js/bootstrap-3.1.1.min.js')}}"></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta charset="UTF-8">
+	<meta name="description" content=" Divisima | eCommerce Template">
+	<meta name="keywords" content="divisima, eCommerce, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
     <title>@yield('title') - {{ config('app.name') }}</title>
     @include('site.partials.styles')
 </head>
