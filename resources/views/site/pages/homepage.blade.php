@@ -131,7 +131,18 @@
 	<!-- letest product section end -->
 
 
-
+<!-- Banner section -->
+<section class="banner-section">
+		<div class="container">
+			<div class="banner set-bg" data-setbg="{{asset('frontdivi/img/banner-bg.jpg')}}">
+				<div class="tag-new">NEW</div>
+				<span>New Arrivals</span>
+				<h2>STRIPED SHIRTS</h2>
+				<a href="#" class="site-btn">SHOP NOW</a>
+			</div>
+		</div>
+	</section>
+	<!-- Banner section end  -->
 
 
 
