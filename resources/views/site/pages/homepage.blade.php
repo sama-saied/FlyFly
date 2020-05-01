@@ -143,17 +143,6 @@
 		</div>
 	</section>
 	<!-- Banner section end  -->
-
-
-
-
-
-
-
-
-
-
-
 	
 </body>
 

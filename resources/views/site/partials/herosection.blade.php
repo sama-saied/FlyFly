@@ -6,8 +6,6 @@
 		<div class="container">
         <div class="col-md-7 wthree_banner_bottom_right">
         <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-       
-			
 					<ul id="myTab" class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active"><a href="{{ route('category.show', $category->slug) }}" id="{{ $category->slug }}" 
                              role="tab" data-toggle="tab" aria-controls="home">{{ $category->name }}</a></li>
@@ -47,3 +45,58 @@
 @endif
   @endforeach
     @endforeach
+
+    <div class="banner-bottom">
+		<div class="container">
+			<div class="col-md-5 wthree_banner_bottom_left">
+				<div class="video-img">
+					<a class="play-icon popup-with-zoom-anim" href="#small-dialog">
+						<span class="glyphicon glyphicon-expand" aria-hidden="true"></span>
+					</a>
+				</div> 
+					<!-- pop-up-box -->     
+					
+					<!--//pop-up-box -->
+					<div id="small-dialog" class="mfp-hide">
+						<iframe src="https://www.youtube.com/embed/ZQa6GUVnbNM"></iframe>
+					</div>
+					
+            </div>
+            <div class="banner-bottom1">
+		<div class="agileinfo_banner_bottom1_grids">
+        <div class="col-md-7 agileinfo_banner_bottom1_grid_right">
+            <h4>hot deal</h4>
+				<div class="timer_wrap">
+					<div id="counter"> </div>
+				</div>
+			
+            </div>
+            <div class="clearfix"> </div>
+            </div>
+         </div>
+     </div>
+    </div>
+    
+
+     @push('scripts')
+     <script src="{{asset('web/js/jquery.magnific-popup.js')}}" type="text/javascript"></script>
+     <script src="{{asset('web/js/jquery.countdown.js')}}"></script>
+                <script src="{{asset('web/js/script.js')}}"></script>
+                
+     <script>
+						$(document).ready(function() {
+						$('.popup-with-zoom-anim').magnificPopup({
+							type: 'inline',
+							fixedContentPos: false,
+							fixedBgPos: true,
+							overflowY: 'auto',
+							closeBtnInside: true,
+							preloader: false,
+							midClick: true,
+							removalDelay: 300,
+							mainClass: 'my-mfp-zoom-in'
+						});
+																						
+						});
+					</script>
+     @endpush

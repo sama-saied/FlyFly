@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="{{asset('frontdivi/css/animate.css')}}"/>
 	<link rel="stylesheet" href="{{asset('frontdivi/css/style.css')}}"/>
 
-	<link href="{{asset('web/css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
+	
 <link href="{{asset('web/css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
 <link href="{{asset('web/css/fasthover.css')}}" rel="stylesheet" type="text/css" media="all" />
 <link href="{{asset('web/css/popuo-box.css')}}" rel="stylesheet" type="text/css" media="all" />
