@@ -52,7 +52,7 @@ protected function validator(array $data)
     return Validator::make($data, [
         'first_name' => ['required', 'string', 'max:255'],
         'last_name' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'string', 'email', 'max:255','unique:users'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         'password' => ['required', 'string', 'min:8', 'confirmed'],
     ]);
 }
@@ -71,6 +71,7 @@ protected function create(array $data)
         'email' => $data['email'],
         'password' => Hash::make($data['password']),
         'address' => $data['address'],
+        'phone_number' => $data['phone_number'],
         'city' => $data['city'],
         'country' => $data['country'],
     ]);

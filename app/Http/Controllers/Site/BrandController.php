@@ -15,9 +15,10 @@ class BrandController extends Controller
         $this->BrandRepository = $BrandRepository;
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        $brand = $this->BrandRepository->findBrandById($id);
+        $brand  = $this->BrandRepository->findBySlug($slug);
+       // $brand = $this->BrandRepository->findBrandById($id);
      //   dd($category);
         return view('site.pages.brand', compact('brand'));
     }

@@ -64,27 +64,28 @@
                     <span class="currency">{{ config('settings.currency_symbol') }}</span>
                     </h3>
                     @endif
-                    @if ($product->quantity > 0 && $product->status )
+                    @if ($product->quantity > 0)
                     <h3 class="p-stock">Available:
 						@if($product->quantity <= 5)
 						 <span>In Stock with {{ $product->quantity }} left</span>
 						 @else
 						 <span>In Stock</span>
 						 @endif</h3>
-                    @else
-                    <h3 class="p-stock">Available: <span>Out of stock</span></h3>
-                    @endif
-					<div class="p-rating">
-						<i class="fa fa-star-o"></i>
-						<i class="fa fa-star-o"></i>
-						<i class="fa fa-star-o"></i>
-						<i class="fa fa-star-o"></i>
-						<i class="fa fa-star-o"></i>
-					</div>
-					<div class="p-review">
-						<a href="">3 reviews</a>|<a href="">Add your review</a>
-					</div>
+                         @else
+                         <h3 class="p-stock">Available: <span>Out of stock</span></h3>
+                         @endif
+                         <div class="p-rating">
+                             <i class="fa fa-star-o"></i>
+                             <i class="fa fa-star-o"></i>
+                             <i class="fa fa-star-o"></i>
+                             <i class="fa fa-star-o"></i>
+                             <i class="fa fa-star-o"></i>
+                         </div>
+                         <div class="p-review">
+                             <a href="">3 reviews</a>|<a href="">Add your review</a>
+                         </div>
                     <form action="{{ route('product.add.cart') }}" method="POST" role="form" id="addToCart">
+                   <!-- <form action="{/{route('cartt.store' ,  $product->id) }}" method="POST" role="form" id="addToCart">-->
                                         @csrf
                                         <div class="row">
                                             <div class="col-sm-12">
@@ -124,14 +125,16 @@
 					                        	<dl class="dlist-inline">
                                                     <dt>Quantity: </dt>
                                                     <dd>
-                                                        <input class="quantity" type="number" min="1" value="1" max="{{ $product->quantity }}" name="qty" style="width:70px;">
+                                                        <input class="quantity" type="number" min="0" value="0" max="{{ $product->quantity }}" name="qty" style="width:70px;">
                                                         <input type="hidden" name="productId" value="{{ $product->id }}">
-                                                        <input type="hidden" name="productImg" value="{{ $product->images->first()->full }}">
                                                         <input type="hidden" name="price" id="finalPrice" value="{{ $product->sale_price != '' ? $product->sale_price : $product->price }}">
                                                     </dd>
                                                 </dl>
                                          </div>  </div>
-                    <button type="submit" class="site-btn"><span>ADD TO CART</span></button>
+                                        
+                    <button type="submit" class="site-btn"><span>ADD TO CART</span></button><br><br>
+                   
+                                        
                     </form>
 					<div id="accordion" class="accordion-area">
 						<div class="panel">
@@ -154,7 +157,29 @@
 									<p>{!! $product->shipping !!}</p>
 								</div>
 							</div>
-						</div>
+                        </div>
+                        
+                        <div>
+                            <h4>Display Comments</h4>
+                              
+                            @include('site.pages.commentsDisplay', ['comments' => $product->comments, 'product_id' => $product->id])
+                            
+                            <div>
+                            <hr />
+                            <h4>Add comment</h4>
+                            <form method="post" action="{{ route('comments.store' ,  $product->id) }}" role="form" id="addComment">
+                                {{ csrf_field() }}
+                                @csrf
+                                <div class="form-group">
+                                <textarea class="form-control" name="body" ></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success btn-block" value="Add Comment"> Add Comment</button>
+                                </div>
+                            </form>
+                            </div>
+                            </div>
+
 					</div>
 					<div class="social-sharing">
 						
@@ -165,7 +190,7 @@
 					</div>
 				</div>
 			</div>
-		</div> 
+        </div> 
 	</section>
     <!-- product section end -->
 @stop
@@ -189,4 +214,14 @@
             });
         });
     </script>
+
+<script type="text/javascript">
+    $("#input-id").rating();
+</script>
+
+
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/js/star-rating.min.js"></script>
 @endpush

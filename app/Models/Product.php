@@ -10,9 +10,12 @@ use App\Filters\ProductFilter;
 
 use Illuminate\Database\Eloquent\Builder;
 
-class Product extends Model
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
+
+class Product extends Model implements Searchable
 {
-  //  use Rateable;
+    use Rateable;
 
 
     /**
@@ -93,5 +96,20 @@ public function categories()
     public function scopeFilter(Builder $builder, $request)
     {
         return (new ProductFilter($request))->filter($builder);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function getSearchResult(): SearchResult
+    {
+        $url = route('product.show', $this->name);
+        return new SearchResult(
+            $this,
+            $this->name,
+            $url
+        );
     }
 }

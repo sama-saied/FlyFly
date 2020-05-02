@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
-
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 /**
  * Class Brand
  * @package App\Models
  */
-class Brand extends Model
+class Brand extends Model implements Searchable
 {
     /**
      * @var string
@@ -19,7 +20,7 @@ class Brand extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name', 'logo'];
+    protected $fillable = ['name','slug', 'logo'];
 
     /**
      * @param $value
@@ -27,6 +28,7 @@ class Brand extends Model
     public function setNameAttribute($value)
     {
         $this->attributes['name'] = $value;
+        $this->attributes['slug'] = str::slug($value);
     }
 
     /**
@@ -35,6 +37,16 @@ class Brand extends Model
 public function products()
 {
     return $this->hasMany(Product::class);
+}
+
+public function getSearchResult(): SearchResult
+{
+    $url = route('brand.show', $this->name);
+    return new SearchResult(
+        $this,
+        $this->name,
+        $url
+    );
 }
 
 }

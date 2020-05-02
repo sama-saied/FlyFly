@@ -38,4 +38,6 @@ interface BrandContract
      * @return bool
      */
     public function deleteBrand($id);
+
+    public function findBySlug($slug);
 }

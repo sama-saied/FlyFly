@@ -105,6 +105,34 @@ class SettingsTableSeeder extends Seeder
             'key'                       =>  'hero_second',
             'value'                     =>  '',
         ],
+        [
+            'key'                       =>  'firstpro_link',
+            'value'                     =>  '',
+        ],
+        [
+            'key'                       =>  'secondpro_link',
+            'value'                     =>  '',
+        ],
+        [
+            'key'                       =>  'phone_num',
+            'value'                     =>  '',
+        ],
+        [
+            'key'                       =>  'fax',
+            'value'                     =>  '',
+        ],
+        [
+            'key'                       =>  'e-mail',
+            'value'                     =>  '',
+        ],
+        [
+            'key'                       =>  'ad_pic',
+            'value'                     =>  '',
+        ],
+        [
+            'key'                       =>  'ad_link',
+            'value'                     =>  '',
+        ],
     ];
     
     /**
