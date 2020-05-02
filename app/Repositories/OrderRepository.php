@@ -1,7 +1,7 @@
 <?php
 namespace App\Repositories;
 
-use darryldecode\Cart\Cart;
+use Cart;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\OrderItem;
@@ -20,10 +20,12 @@ class OrderRepository extends BaseRepository implements OrderContract
     $order = Order::create([
         'order_number'      =>  'ORD-'.strtoupper(uniqid()),
         'user_id'           => auth()->user()->id,
-        'status'            =>  'pending',
+      //  'status'            =>  'pending',
+        'status'            =>  'completed',
         'grand_total'       =>  Cart::getSubTotal(),
         'item_count'        =>  Cart::getTotalQuantity(),
-        'payment_status'    =>  0,
+       // 'payment_status'    =>  0,
+        'payment_status'    =>  1,
         'payment_method'    =>  null,
         'first_name'        =>  $params['first_name'],
         'last_name'         =>  $params['last_name'],
@@ -52,6 +54,9 @@ class OrderRepository extends BaseRepository implements OrderContract
             ]);
 
             $order->items()->save($orderItem);
+            
+            $product->quantity = $product->quantity - $item->quantity ;
+            $product->save();
         }
     }
 

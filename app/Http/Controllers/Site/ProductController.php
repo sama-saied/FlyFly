@@ -7,9 +7,9 @@ use App\Contracts\ProductContract;
 use App\Http\Controllers\Controller;
 use App\Contracts\AttributeContract;
 use Cart;
-use App\Models\Product;
-use App\Models\ProductImage;
 
+use App\Models\Product;
+use Session;
 
 class ProductController extends Controller
 {
@@ -32,18 +32,16 @@ class ProductController extends Controller
 {
     $product = $this->productRepository->findProductBySlug($slug);
     $attributes = $this->attributeRepository->listAttributes();
-
     return view('site.pages.product', compact('product', 'attributes'));
+
+
 }
 
 public function addToCart(Request $request)
 {
     $product = $this->productRepository->findProductById($request->input('productId'));
-    $options =  $request->except('_token', 'productId', 'price', 'qty','productImg');
-    
-    Cart::add(uniqid(), $product->name, $request->input('price'), 
-    $request->input('qty'),$request->input('productImg') ,$options);
-
+    $options = $request->except('_token', 'productId', 'price', 'qty');
+    Cart::add(uniqid(), $product->name, $request->input('price'), $request->input('qty'), $options);
     return redirect()->back()->with('message', 'Item added to cart successfully.');
 }
 

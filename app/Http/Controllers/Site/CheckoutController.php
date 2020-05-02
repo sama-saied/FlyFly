@@ -38,7 +38,7 @@ class CheckoutController extends Controller
     // Before storing the order we should implement the
     // request validation which I leave it to you
 
-    $this->validate($request, [
+  /*  $this->validate($request, [
         'first_name'   => ['required', 'string', 'max:255'],
         'last_name' => ['required', 'string', 'max:255'],
         'address' => 'required',
@@ -58,6 +58,27 @@ class CheckoutController extends Controller
     }
 
     return redirect()->back()->with('message','Order not placed');
+*/
+    // Before storing the order we should implement the
+    // request validation which I leave it to you
+    $order = $this->orderRepository->storeOrderDetails($request->all());
+
+    // You can add more control here to handle if the order
+    // is not stored properly
+   /* if ($order)
+    {
+        $this->payPal->processPayment($order);
+
+    }
+*/
+
+Cart::clear();
+
+
+
+return view('site.pages.success', compact('order'));
+
+//return redirect()->back()->with('message','Order not placed yet');
 }
 
 public function complete(Request $request)

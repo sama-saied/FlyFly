@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password', 'address', 'city', 'country',
+        'first_name', 'last_name', 'email', 'password', 'address', 'city', 'country','phone_number',
     ];
 
     /**
@@ -49,4 +49,19 @@ public function getFullNameAttribute()
 {
     return $this->hasMany(Order::class);
 }
+
+public function comments()
+{
+    return $this->hasMany(Comment::class);
+}
+
+public function profile()
+{
+    return $this->hasOne(Profile::class);
+}
+
+public function cartt()
+    {
+        return $this->hasOne(Cartt::class);
+    }
 }

@@ -13,4 +13,6 @@ class AccountController extends Controller
 
         return view('site.pages.account.orders', compact('orders'));
     }
+
+    
 }

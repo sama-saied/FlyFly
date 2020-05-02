@@ -33,7 +33,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/category/{slug}', 'Site\CategoryController@show')->name('category.show');
-Route::get('/brand/{id}', 'Site\BrandController@show')->name('brand.show');
+Route::get('/brand/{slug}', 'Site\BrandController@show')->name('brand.show');
 
 
 
@@ -45,13 +45,42 @@ Route::get('/cart', 'Site\CartController@getCart')->name('checkout.cart');
 Route::get('/cart/item/{id}/remove', 'Site\CartController@removeItem')->name('checkout.cart.remove');
 Route::get('/cart/clear', 'Site\CartController@clearCart')->name('checkout.cart.clear');
 
+
+
+
 Route::group(['middleware' => ['auth']], function () {
   Route::get('/checkout', 'Site\CheckoutController@getCheckout')->name('checkout.index');
+  Route::get('/order', 'Site\CheckoutController@getOrder')->name('order.index');
   Route::post('/checkout/order', 'Site\CheckoutController@placeOrder')->name('checkout.place.order');
 });
+
+
 
 Route::get('checkout/payment/complete', 'Site\CheckoutController@complete')->name('checkout.payment.complete');
 
 Route::get('account/orders', 'Site\AccountController@getOrders')->name('account.orders');
 
+//Route::get('account/profile', 'Site\AccountController@profile')->name('account.profile');
+//Route::post('account/profile', 'Site\AccountController@update_avatar');
 
+
+
+Route::get('display', 'Site\RatingController@products')->name('products');
+
+Route::post('rating', 'Site\RatingController@productProduct')->name('products.product');
+
+
+Route::post('/product/{slug}', 'Site\ProductController@show')->name('product.show');
+
+Route::post('/comment/{id}', 'CommentController@store')->name('comments.store');
+
+// search routes
+//Route::get('search', 'Site\SearchController@index')->name('search.index');
+Route::get('search-results', 'Site\SearchController@search')->name('search.result');
+
+Route::get('profile', 'ProfileController@index');
+Route::post('profile/{id}', 'ProfileController@update')->name('profile.edit');
+
+
+/*Route::post('/cartt/{id}', 'CarttController@store')->name('cartt.store');
+Route::get('/cart', 'CarttController@getCart')->name('checkout.cart');*/

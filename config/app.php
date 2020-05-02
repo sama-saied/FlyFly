@@ -182,7 +182,8 @@ return [
         App\Providers\RepositoryServiceProvider::class,
         App\Providers\ViewComposerServiceProvider::class,
         Darryldecode\Cart\CartServiceProvider::class,
-
+        willvincent\Rateable\RateableServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -237,6 +238,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+        'Input' => Illuminate\Support\Facades\Input::class,
     ],
 
 ];

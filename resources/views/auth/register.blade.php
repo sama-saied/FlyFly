@@ -59,9 +59,15 @@
                                     </span>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label for="address">Address</label>
-                                <input class="form-control" type="text" name="address" id="address" value="{{ old('address') }}">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="address">Address</label>
+                                    <input class="form-control" type="text" name="address" id="address" value="{{ old('address') }}">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="address">Phone Number</label>
+                                    <input class="form-control" type="text" name="phone_number" id="phone_number" value="{{ old('phone_number') }}">
+                                </div>  
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">

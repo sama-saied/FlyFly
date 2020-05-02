@@ -126,4 +126,11 @@ class BrandRepository extends BaseRepository implements BrandContract
 
         return $brand;
     }
+
+    public function findBySlug($slug)
+{
+    return Brand::with('products')
+        ->where('slug', $slug)
+        ->first();
+}
 }
