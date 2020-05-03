@@ -125,7 +125,7 @@
 					                        	<dl class="dlist-inline">
                                                     <dt>Quantity: </dt>
                                                     <dd>
-                                                        <input class="quantity" type="number" min="1" value="1" max="{{ $product->quantity }}" name="qty" style="width:70px;">
+                                                        <input class="quantity" type="number" min="0" value="0" max="{{ $product->quantity }}" name="qty" style="width:70px;">
                                                         <input type="hidden" name="productId" value="{{ $product->id }}">
                                                         <input type="hidden" name="price" id="finalPrice" value="{{ $product->sale_price != '' ? $product->sale_price : $product->price }}">
                                                     </dd>
@@ -218,11 +218,18 @@
 <script type="text/javascript">
     $("#input-id").rating();
 </script>
+
+
+
 <!--
+
 
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet"> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/js/star-rating.min.js"></script>
+
+
 -->
+
 @endpush

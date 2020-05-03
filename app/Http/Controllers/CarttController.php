@@ -27,6 +27,4 @@ class CarttController extends Controller
     {
         return view('site.pages.CartDisplay');
     }
-
-   
 }
