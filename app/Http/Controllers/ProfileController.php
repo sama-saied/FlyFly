@@ -22,7 +22,7 @@ class ProfileController extends Controller
 
       {
         $user = Auth::user();
-       return view('profiles.index',compact('user',$user));
+       return view('profiles.index',compact('user'));
 
       }
 
