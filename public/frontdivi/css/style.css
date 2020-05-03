@@ -286,6 +286,10 @@ ol {
 	background-color: transparent;
 }
 
+.show {
+	display: block;
+  }
+
 .accordion-area .panel-link,
 .accordion-area .panel-link.active.collapsed {
 	text-align: left;
