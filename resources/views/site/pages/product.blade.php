@@ -64,6 +64,8 @@
                     <span class="currency">{{ config('settings.currency_symbol') }}</span>
                     </h3>
                     @endif
+                    <dl class="dlist-inline"> <dt>brand : {{$product->brand->name}}</dt></dl>
+                    <br>
                     @if ($product->quantity > 0)
                     <h3 class="p-stock">Available:
 						@if($product->quantity <= 5)
@@ -177,38 +179,7 @@
 
 
 
-        <section class="product-section" id="site">
-		<div class="container">
-        <div class="row">
-        <div class="col-md-8">
-            <h4>Display Comments</h4>
-                @include('site.pages.commentsDisplay', ['comments' => $product->comments, 'product_id' => $product->id])
-                            <div>
-                            <hr />
-                            <h4>add comment</h4>
-<br>
-                            <form method="post" action="{{ route('comments.store' ,  $product->id) }}" role="form" id="addComment">
-                                {{ csrf_field() }}
-                                @csrf
-                                <div class="form-group">
-                                
-                                <textarea class="form-control" name="body" ></textarea>
-                                </div>
-                                </div>
-                                <div class="form-group">
-                                    
-                                    <button type="submit" class="site-btn" value="Add Comment"><span> Add Comment</span></button>
-                                </div>
-                            </form>
-                            </div>
-                            
-            </div>
-		</div></section>
-
-
-
-
-
+            @include('site.pages.commentsDisplay', ['comments' => $product->comments, 'product_id' => $product->id])
 	
     <!-- product section end -->
 @stop
