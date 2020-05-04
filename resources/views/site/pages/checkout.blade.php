@@ -77,7 +77,8 @@
                                 @enderror
 							</div>
 							<div class="col-md-6">
-								<input type="text" placeholder="Phone no." class="form-control @error('phone_number') is-invalid @enderror" name="phone_number">
+								<input type="text" placeholder="Phone no."  value="{{$user->phone_number}}"
+								class="form-control @error('phone_number') is-invalid @enderror" name="phone_number">
 								@error('phone_number')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

@@ -64,6 +64,8 @@
                     <span class="currency">{{ config('settings.currency_symbol') }}</span>
                     </h3>
                     @endif
+                    <dl class="dlist-inline"> <dt>brand : {{$product->brand->name}}</dt></dl>
+                    <br>
                     @if ($product->quantity > 0)
                     <h3 class="p-stock">Available:
 						@if($product->quantity <= 5)
@@ -125,7 +127,7 @@
 					                        	<dl class="dlist-inline">
                                                     <dt>Quantity: </dt>
                                                     <dd>
-                                                        <input class="quantity" type="number" min="0" value="0" max="{{ $product->quantity }}" name="qty" style="width:70px;">
+                                                        <input class="quantity" type="number" min="1" value="1" max="{{ $product->quantity }}" name="qty" style="width:70px;">
                                                         <input type="hidden" name="productId" value="{{ $product->id }}">
                                                         <input type="hidden" name="price" id="finalPrice" value="{{ $product->sale_price != '' ? $product->sale_price : $product->price }}">
                                                     </dd>
@@ -159,26 +161,7 @@
 							</div>
                         </div>
                         
-                        <div>
-                            <h4>Display Comments</h4>
-                              
-                            @include('site.pages.commentsDisplay', ['comments' => $product->comments, 'product_id' => $product->id])
-                            
-                            <div>
-                            <hr />
-                            <h4>Add comment</h4>
-                            <form method="post" action="{{ route('comments.store' ,  $product->id) }}" role="form" id="addComment">
-                                {{ csrf_field() }}
-                                @csrf
-                                <div class="form-group">
-                                <textarea class="form-control" name="body" ></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-success btn-block" value="Add Comment"> Add Comment</button>
-                                </div>
-                            </form>
-                            </div>
-                            </div>
+                        
 
 					</div>
 					<div class="social-sharing">
@@ -189,9 +172,15 @@
 						<a href="{{ route('admin.settings.youtube')}}"><i class="fa fa-youtube"></i></a>
 					</div>
 				</div>
-			</div>
-        </div> 
-	</section>
+            </div>
+            </section>
+
+
+
+
+
+            @include('site.pages.commentsDisplay', ['comments' => $product->comments, 'product_id' => $product->id])
+	
     <!-- product section end -->
 @stop
 
@@ -221,15 +210,13 @@
 
 
 
+
 <!--
 
-
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet"> 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css" />-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/js/star-rating.min.js"></script>
 
-
--->
 
 @endpush

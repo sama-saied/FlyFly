@@ -126,7 +126,7 @@
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf
                                         </form> 
-                        <li> <a href="#"> Account Setting </a></li>
+                        <li> <a href="/profile"> Account Setting </a></li>
                         <li> <a href="{{ route('account.orders') }}"> My Orders </a></li>
                         
 					</ul>

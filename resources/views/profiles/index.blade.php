@@ -1,118 +1,108 @@
 @extends('site.app')
 @section('title', 'Profile Information')
 @section('content')
-    <div class="container">
-        <div class="row">
-            @if ($message = Session::get('success'))
 
-                <div class="alert alert-success alert-block">
+<!-- Page info -->
+<div class="page-top-info">
+		<div class="container">
+			<h4>Profile Informatio</h4>
+			<div class="site-pagination">
+				<a href="/">Home</a> 
+			</div>
+		</div>
+	</div>
+    <!-- Page info end -->
 
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-
-                    <strong>{{ $message }}</strong>
-
-                </div>
-
-            @endif
-
-            @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-        </div>
-        <div class="row justify-content-center">
-
-            <div class="profile-header-container">
-                
+    
+        <section class="checkout-section spad">
+		<div class="container">
+			<div class="row">
+            <div class="col-lg-8 order-2 order-lg-1">
+            @if (Session::has('error'))
+                        <p class="alert alert-danger">{{ Session::get('error') }}</p>
+                    @endif
                    
-                    <div class="rank-label-container">
-                     
-                            <header class="card-header">
-                        <h4 class="card-title mt-2" style="text-align:center">Profile Information</h4>
-                    </header>
-                           <article class="card-body">
-                            <form action="{{ route('profile.edit' , $user->id) }}" method="POST" role="form">
-                                @csrf
-                                <div class="form-row">
-                                    <div class="col form-group">
-                                        <label for="first_name">First name</label>
-                                        <input type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" id="first_name" value=" {{$user->first_name}}">
+                            <form class="checkout-form" action="{{ route('profile.edit' , $user->id) }}" method="POST" role="form">
+                            <center>
+                            @csrf
+                                <div class="row address-inputs">
+                                  <div class="col-md-6">
+                                        
+                                        <input type="text" placeholder="First name" class="form-control @error('first_name') is-invalid @enderror" 
+                                        name="first_name" id="first_name" for="first_name" value=" {{$user->first_name}}" enabled>
                                         @error('first_name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
                                     </div>
-                                    <div class="col form-group">
-                                        <label for="last_name">Last name</label>
-                                        <input type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" id="last_name" value="{{$user->last_name}}">
+                                    <div class="col-md-6">
+                                      
+                                        <input type="text" for="last_name" placeholder="Last name"
+                                        class="form-control @error('last_name') is-invalid @enderror" name="last_name" id="last_name" value="{{$user->last_name}}" enabled>
                                         @error('last_name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">E-Mail Address</label>
-                                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" value="{{$user->email}}">
+                                
+                                <div class="col-md-12">
+                                   
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror" for="email"
+                                    name="email" id="email"placeholder="Email address" value="{{$user->email}}" enabled>
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
                                             <strong> Inavlid E-mail </strong>
                                         </span>
                                     @enderror
                                 </div>
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password"  value="{{$user->password}}">
+                                <div class="col-md-12">
+                                   
+                                    <input type="password" for="password" placeholder="password"
+                                     class="form-control @error('password') is-invalid @enderror" name="password" id="password"  value="{{$user->password}}" enabled>
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
-                                <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="address">Address</label>
-                                    <input class="form-control" type="text" name="address" id="address" value="{{$user->address}}">
+                                <div class="col-md-6">
+                                    
+                                    <input class="form-control @error('address') is-invalid @enderror" type="text" name="address" 
+                                    id="address" placeholder="address" value="{{$user->address}}" for="address" enabled>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label for="address">Phone Number</label>
-                                    <input class="form-control" type="text" name="phone_number" id="phone_number" value="{{$user->phone_number}}">
+                                <div class="col-md-6">
+                                    
+                                    <input class="form-control @error('phone_number') is-invalid @enderror" type="text" for="address" placeholder="Ph."
+                                     name="phone_number" id="phone_number" value="{{$user->phone_number}}">
                                 </div>  
-                            </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="city">City</label>
-                                        <input type="text" class="form-control" name="city" id="city" value="{{$user->city}}">
+                            
+                                <div class="col-md-6">
+                                       
+                                        <input type="text" for="city" placeholder="City"
+                                         class="form-control @error('city') is-invalid @enderror" name="city" id="city" value="{{$user->city}}">
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="country">Country</label>
-                                        <select id="country" class="form-control" name="country" value="{{$user->country}}">
-                                            <option> Choose...</option>
-                                            <option value="Egypt" selected>Egypt</option>
-                                            <option value="Saudi Arabia">Saudi Arabia</option>
-                                            <option value="United Emarats">United Emarats</option>                              
-                                            
-                                        </select>
+                                    <div class="col-md-6">
+                                        
+                                    <input type="text" placeholder="Country" class="form-control @error('country') is-invalid @enderror"
+                                     name="country" value="{{ auth()->user()->country }}" enabled>
                                     </div>
+                                    </div>
+                                    <button type="submit" class="site-btn submit-order-btn"> Edit </button>
+                               
+                              
                                 </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-success btn-block"> Edit </button>
-                                </div>
+                                </center>
                             </form>
-                        </article>
+                           
                     </div>
-                
-            </div>
-
-        </div>
+			</div>
+          
+        </section>
        
-    </div>
+
+        
+       
+    
 @endsection
