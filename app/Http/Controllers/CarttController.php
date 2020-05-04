@@ -23,18 +23,16 @@ class CarttController extends Controller
       // $cart->last_name = $request->last_name;
        $cart->last_name =Auth::user()->last_name;
      
-       // $cart->product_name = $request->product_name;
-       // $cart->product_price = $request->product_price;
+        $cart->product_name = $request->product_name;
+        $cart->product_price = $request->product_price;
       
-      // $cart->product_sale_price = $request->product_sale_price;
+       $cart->product_sale_price = $request->product_sale_price;
        
-      // $cart->quantity= $request->quantity;
+      $cart->quantity= $request->quantity;
       
         $cart->save();
       
         return redirect()->back();
-
-
     }
 
 
