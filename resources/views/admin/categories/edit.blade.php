@@ -45,6 +45,31 @@
                                 </label>
                             </div>
                         </div>
+                        
+                        <div class="form-group">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input"
+                                           type="checkbox"
+                                           id="status"
+                                           name="status"
+                                           {{ $targetCategory->status == 1 ? 'checked' : '' }}
+                                        />Status
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input"
+                                           type="checkbox"
+                                           id="featured"
+                                           name="featured"
+                                           {{ $targetCategory->featured == 1 ? 'checked' : '' }}
+                                        />Featured
+                                </label>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">

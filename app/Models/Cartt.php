@@ -13,7 +13,8 @@ class Cartt extends Model
 
 
     protected $fillable = [
-        'product_id', 'user_id'
+        'product_id', 'user_id' , 'first_name' , 'last_name' /*, 'product_name',
+        'product_price' , 'product_sale_price' , 'quantity' */,
     ];
 
     public function  user()
