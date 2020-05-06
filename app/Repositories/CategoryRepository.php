@@ -72,8 +72,10 @@ public function createCategory(array $params)
 
        
         $menu = $collection->has('menu') ? 1 : 0;
+        $featured = $collection->has('featured') ? 1 : 0;
+        $status = $collection->has('status') ? 1 : 0;
 
-        $merge = $collection->merge(compact('menu', 'image'));
+        $merge = $collection->merge(compact('menu', 'image','featured','status'));
 
         $category = new Category($merge->all());
 
@@ -107,8 +109,10 @@ public function updateCategory(array $params)
 
     
     $menu = $collection->has('menu') ? 1 : 0;
+    $featured = $collection->has('featured') ? 1 : 0;
+    $status = $collection->has('status') ? 1 : 0;
 
-    $merge = $collection->merge(compact('menu', 'image'));
+    $merge = $collection->merge(compact('menu', 'image','featured','status'));
 
     $category->update($merge->all());
 

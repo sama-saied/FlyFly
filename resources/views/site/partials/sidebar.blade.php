@@ -6,7 +6,7 @@
 		@foreach($cat->items as $category)
 		@if ($category->items->count() > 0) 
 			<li><a href="{{ route('category.show', $category->slug) }}" id="{{ $category->slug }}"  
-			data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			 aria-haspopup="true" aria-expanded="false">
 			{{ $category->name }}</a>
 				<ul class="sub-menu" aria-labelledby="{{ $category->slug }}">
 				@foreach($category->items as $item)

@@ -76,6 +76,7 @@
                          @else
                          <h3 class="p-stock">Available: <span>Out of stock</span></h3>
                          @endif
+<<<<<<< HEAD
                          <div class="rating">
                          <form action="{{ route('products.product') }}" method="POST">
                          {{ csrf_field() }}
@@ -84,6 +85,16 @@
                               data-max="5" data-step="1" value="{{ $product->userAverageRating }}" data-size="xs" >
                              <input type="hidden" name="id" required="" value="{{ $product->id }}">
                             
+=======
+                         <div class="p-rating">
+                            <label for="input" class="control-label"></label>
+                            <input id="input" name="input" class="rating rating-loading" value="0" data-min="0" data-max="5" data-step="0.5" data-size="xs">
+                             <i class="fa fa-star-o"></i>
+                             <i class="fa fa-star-o"></i>
+                             <i class="fa fa-star-o"></i>
+                             <i class="fa fa-star-o"></i>
+                             <i class="fa fa-star-o"></i>
+>>>>>>> bfa673fd51b1d5bbc854e45456602ae4fe89ba17
                          </div>
                          <div class="p-review">
                              <a href="">3 reviews</a>|<a href="">Add your review</a>
@@ -137,7 +148,7 @@
                                                 </dl>
                                          </div>  </div>
                                         
-                    <button type="submit" class="site-btn"><span>ADD TO CART</span></button><br><br>
+                    <button type="submit" class="site-btn"><span>ADD TO CART</span></button>
                    
                                         
                     </form>
@@ -187,3 +198,47 @@
     <!-- product section end -->
 @stop
 
+<<<<<<< HEAD
+=======
+@push('scripts')
+    <script>
+        $(document).ready(function () {
+            $('#addToCart').submit(function (e) {
+                if ($('.option').val() == 0) {
+                    e.preventDefault();
+                    alert('Please select an option');
+                }
+            });
+            $('.option').change(function () {
+                $('#productPrice').html("{{ $product->sale_price != '' ? $product->sale_price : $product->price }}");
+                let extraPrice = $(this).find(':selected').data('price');
+                let price = parseFloat($('#productPrice').html());
+                let finalPrice = (Number(extraPrice) + price).toFixed(2);
+                $('#finalPrice').val(finalPrice);
+                $('#productPrice').html(finalPrice);
+            });
+        });
+    </script>
+
+<script type="text/javascript">
+    $("#input-id").rating();
+</script>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+
+<!--<link href="http://netdna.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.css" rel="stylesheet">-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/js/star-rating.min.js"></script>
+
+
+@endpush
+>>>>>>> bfa673fd51b1d5bbc854e45456602ae4fe89ba17

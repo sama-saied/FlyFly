@@ -16,6 +16,8 @@ class CategoriesTableSeeder extends Seeder
             'name'          =>  'All-Categories',
             'parent_id'     =>  null,
             'menu'          =>  1,
+            'status'        =>  1,
+            'featured'      =>  0,
 
         ]);
         factory('App\Models\Category', 4)->create();

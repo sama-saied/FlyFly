@@ -20,12 +20,14 @@ class Category extends Model implements Searchable
 
 
     protected $fillable = [
-        'name', 'slug','parent_id', 'menu', 'image'
+        'name', 'slug','parent_id', 'menu', 'image' , 'status','featured',
     ];
 
     protected $casts = [
         'parent_id' =>  'integer',
-        'menu'      =>  'boolean'
+        'menu'      =>  'boolean',
+        'status'    =>  'boolean',
+        'featured'  =>  'boolean'
     ];
 
 

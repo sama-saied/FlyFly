@@ -83,4 +83,17 @@ Route::post('profile/{id}', 'ProfileController@update')->name('profile.edit');
 
 
 /*Route::post('/cartt/{id}', 'CarttController@store')->name('cartt.store');
-Route::get('/cart', 'CarttController@getCart')->name('checkout.cart');*/
+Route::get('/cart', 'CarttController@getCart')->name('checkout.cartt');
+*/
+
+
+/*Route::get('AddToCart/{slug}','Site\ProductController@getAddToCart')->name('product.addToCart');
+
+
+Route::get('/add-to-cart/{product}', 'CartController@add')->name('cart.add')->middleware('auth');
+Route::get('/cartt', 'CartController@index')->name('cart.index')->middleware('auth');
+Route::get('/cart/item/{id}/remove', 'CartController@removeItem')->name('checkout.cart.remove')->middleware('auth');
+//Route::get('/cart/checkout', 'CartController@checkout')->name('cart.checkout')->middleware('auth');
+Route::get('/cart/apply-coupon', 'CartController@applyCoupon')->name('cart.coupon')->middleware('auth');
+
+*/

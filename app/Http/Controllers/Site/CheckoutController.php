@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Services\PayPalService;
 use App\Models\Order;
 use Darryldecode\Cart\Facades\CartFacade;
-use  darryldecode\Cart\Cart;
+use  Cart;
 
 class CheckoutController extends Controller
 {
@@ -33,6 +33,16 @@ class CheckoutController extends Controller
     }
     
 
+    public function getOrder()
+    {
+        if (\Cart::isEmpty()){
+            return redirect()->back()->with('message', 'Cart Is Empty.');
+        }
+        
+        else
+        {
+        return view('site.pages.placeOrder');}
+    }
     public function placeOrder(Request $request)
 {
     // Before storing the order we should implement the

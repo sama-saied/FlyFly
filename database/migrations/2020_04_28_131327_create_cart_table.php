@@ -19,14 +19,14 @@ class CreateCartTable extends Migration
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-          /*  $table->string('session_id');
+           // $table->string('session_id');
 
             $table->string('first_name');
             $table->string('last_name');
             $table->string('product_name');
-            $table->string('product_price');
-            $table->string('product_sale_price');
-            $table->int('quantity');*/
+            $table->unsignedDouble('product_price');
+            $table->unsignedDouble('product_sale_price');
+            $table->unsignedInteger('quantity');
             $table->timestamps();
         });
     }

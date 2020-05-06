@@ -7,7 +7,7 @@ use App\Contracts\ProductContract;
 use App\Http\Controllers\Controller;
 use App\Contracts\AttributeContract;
 use Cart;
-
+//use App\Models\Cart;
 use App\Models\Product;
 use Session;
 
@@ -48,6 +48,38 @@ public function addToCart(Request $request)
 public function index(Request $request)
     {
         return Product::filter($request)->get();
+    }
+
+   /* public function getAddToCart(Request $request , $id)
+    {
+       // $product = Product::find($id);
+        $product = $this->productRepository->findProductById($request->input('productId'));
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($product , $product->id);
+
+        $request->session()->put('cart' , $cart);
+        
+        dd($request->session()->get('cart'));
+       
+       // return redirect()->route('product.show');
+
+    }*/
+
+    public function getAddToCart(Product $product )
+    {
+        if(session()->has('cart'))
+        {
+            $cart = new Cart(session()->get('cart'));
+        }
+        else
+        {
+            $cart = new Cart();
+        }
+        $cart->add($product);
+        dd($cart);
+       // return redirect()->route('product.show');
+
     }
 
 }

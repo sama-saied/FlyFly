@@ -1,1 +1,1 @@
-cart page
+Cart
