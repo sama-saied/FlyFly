@@ -77,15 +77,18 @@
                          <h3 class="p-stock">Available: <span>Out of stock</span></h3>
                          @endif
                          <div class="rating">
-                             <i class="fa fa-star-o"></i>
-                             <i class="fa fa-star-o"></i>
-                             <i class="fa fa-star-o"></i>
-                             <i class="fa fa-star-o"></i>
-                             <i class="fa fa-star-o"></i>
+                         <form action="{{ route('products.product') }}" method="POST">
+                         {{ csrf_field() }}
+                             
+                             <i id="input-1" name="rate" class="fa fa-star-o" data-min="0"
+                              data-max="5" data-step="1" value="{{ $product->userAverageRating }}" data-size="xs" >
+                             <input type="hidden" name="id" required="" value="{{ $product->id }}">
+                            
                          </div>
                          <div class="p-review">
                              <a href="">3 reviews</a>|<a href="">Add your review</a>
                          </div>
+</form>
                     <form action="{{ route('product.add.cart') }}" method="POST" role="form" id="addToCart">
                    <!-- <form action="{/{route('cartt.store' ,  $product->id) }}" method="POST" role="form" id="addToCart">-->
                                         @csrf
