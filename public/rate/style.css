@@ -14,7 +14,7 @@
 	padding: 21px 21px 20px;
 	margin-bottom: 0px;
 	margin-left: 10px;
-  margin-right: 0px;
+  margin-right: 10px;
 	align-self: center;
 	align-content: center;
 	
@@ -23,11 +23,11 @@
 
 .rating {
   display: flex;
-  width: 250px;
+  width: 230px;
   justify-content: center;
   overflow: hidden;
   flex-direction: row-reverse;
-  height: 270px;
+  height: 150px;
   position: relative;
 }
 
@@ -138,6 +138,7 @@
   padding: 30px;
   border-radius: 8px;
   display: flex;
+  height: 360px;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;

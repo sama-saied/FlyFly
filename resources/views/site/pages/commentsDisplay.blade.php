@@ -1,9 +1,9 @@
-
-<div class="col-lg-8">
-
 <div class="comment-top-info">
 		<div class="container">
-        <div class="col-md-6">
+<div class="col-lg-8">
+
+
+        <div class="col-md-9">
             <h4>Customers Comments</h4>
             @foreach($comments as $comment)
     <div class="display-comment" style="margin-left:40px;"><br>
@@ -31,12 +31,9 @@
                        
             
         </div>
-		</div>
+	
+<div class="col-lg-4">
 
-</div>
-<div class="col-lg-4 product-details">
-<div class="rate-top-info">
-  <div class="container">
   <div class="feedback">
     <div class="rating">
       <input type="radio" name="rating" id="rating-5">
@@ -137,7 +134,8 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> <br> 
+  <button type="submit" class="site-btn"><span>Rate</span></button>
 </div>
   
   
