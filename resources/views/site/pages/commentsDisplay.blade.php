@@ -33,19 +33,24 @@
         </div>
 	
 <div class="col-lg-4">
+<form action="{{ route('products.product') }}" method="POST">
+    {{ csrf_field() }}
 
   <div class="feedback">
     <div class="rating">
-      <input type="radio" name="rating" id="rating-5">
+    
+      <input type="radio" name="rate" data-size="xs" data-step="5" id="rating-5" value="5">
       <label for="rating-5"></label>
-      <input type="radio" name="rating" id="rating-4">
+      <input type="radio" name="rate" data-size="xs" data-step="4" id="rating-4" value="4">
       <label for="rating-4"></label>
-      <input type="radio" name="rating" id="rating-3">
+      <input type="radio" name="rate" data-size="xs" data-step="3" id="rating-3" value="3">
       <label for="rating-3"></label>
-      <input type="radio" name="rating" id="rating-2">
+      <input type="radio" name="rate" data-size="xs" data-step="2" id="rating-2" value="2">
       <label for="rating-2"></label>
-      <input type="radio" name="rating" id="rating-1">
+      <input type="radio" name="rate" data-size="xs" data-step="1" id="rating-1" value="1">
       <label for="rating-1"></label>
+      
+      <input type="hidden" name="id" required="" value="{{ $product->id }}">
       <div class="emoji-wrapper">
         <div class="emoji">
           <svg class="rating-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -133,11 +138,14 @@
         </svg>
         </div>
       </div>
+
     </div>
   </div> <br> 
   <button type="submit" class="site-btn"><span>Rate</span></button>
+  <h3><a href="{{route('products.rate')}}">display</a></h3>
+  </form>
 </div>
-  
+
   
 </div>
 </div>

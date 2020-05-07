@@ -65,7 +65,7 @@ Route::get('account/orders', 'Site\AccountController@getOrders')->name('account.
 
 
 
-Route::get('display', 'Site\RatingController@products')->name('products');
+Route::get('display', 'Site\RatingController@products')->name('products.rate');
 
 Route::post('rating', 'Site\RatingController@productProduct')->name('products.product');
 

@@ -172,7 +172,8 @@
                 </div>
 		</div>
             </section>
-@stop
+            
+            @stop
 
 @push('scripts')
     <script>
