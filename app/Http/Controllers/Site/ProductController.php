@@ -30,9 +30,18 @@ class ProductController extends Controller
 */
     public function show($slug)
 {
+   
     $product = $this->productRepository->findProductBySlug($slug);
+    $rate = \willvincent\Rateable\Rating::all();
     $attributes = $this->attributeRepository->listAttributes();
-    return view('site.pages.product', compact('product', 'attributes'));
+
+    $count= 0 ;
+
+    foreach($rate as $rat){
+       if($rat->rateable_id == $product->id)
+         $count ++;
+}
+    return view('site.pages.product', compact('product', 'attributes','count'));
 
 
 }

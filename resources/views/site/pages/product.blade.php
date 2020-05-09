@@ -64,8 +64,22 @@
                     <span class="currency">{{ config('settings.currency_symbol') }}</span>
                     </h3>
                     @endif
-                    <dl class="dlist-inline"> <dt>brand : {{$product->brand->name}}</dt></dl>
+                    <h3 class="p-stock">
+                    <dl class="dlist-inline"> <dt>brand :<span> {{$product->brand->name}}</span></dt></dl>
+                    </h3>
                     <br>
+                     
+                     <div class="p-rating">
+                     <h3 class="p-stock"> average rate :: 
+                     @for ( $r = 0 ; $r < $product->averageRating ; $r++)
+                    <span ><bold><i class="fa fa-star"></i></bold>  </span>
+                       
+                     @endfor
+
+                    <small>({{ $count }})</small> </h3>
+                    </div>
+
+                     
                     @if ($product->quantity > 0)
                     <h3 class="p-stock">Available:
 						@if($product->quantity <= 5)

@@ -32,7 +32,7 @@ class RatingController extends Controller
 
  public function products()
   {
-   $products = Product::all();
+   $products = \willvincent\Rateable\Rating::all();
    return view('site.pages.rateDisplay',compact('products'));
   }
 
@@ -47,8 +47,8 @@ class RatingController extends Controller
    $rating->rating = $request->rate;
    $rating->user_id = auth()->user()->id;
    $product->ratings()->save($rating);
-  // return redirect()->back();
-   return redirect()->route("products");
+   return redirect()->back();
+   //return redirect()->route("products");
   }
 }
 
