@@ -19,6 +19,7 @@
 @yield('cat')
 @yield('cart')
 @yield('pro')
+@yield('rate')
 @yield('content')
 @include('site.partials.footer')
 @include('site.partials.scripts')
