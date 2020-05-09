@@ -12,7 +12,7 @@
                 <i class="icon fa fa-users fa-3x"></i>
                 <div class="info">
                     <h4>Users</h4>
-                    <p><b>5</b></p>
+                    <p><b> {{$users = App\Models\User::count()}}</b></p>
                 </div>
             </div>
         </div>
@@ -26,14 +26,42 @@
             </div>
         </div>
         <div class="col-md-6 col-lg-3">
-            <div class="widget-small warning coloured-icon">
-                <i class="icon fa fa-files-o fa-3x"></i>
+            <div class="widget-small danger coloured-icon">
+                <i class="icon fa fa-briefcase fa-3x " ></i>
                 <div class="info">
-                    <h4>Uploades</h4>
-                    <p><b>10</b></p>
+                    <h4>Products</h4>
+                    <p><b>{{$products = App\Models\Product::count()}}</b></p>
                 </div>
             </div>
         </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small info coloured-icon">
+                <i class="icon fa fa-tags fa-3x"></i>
+                <div class="info">
+                    <h4>Categories</h4>
+                    <p><b>{{$categories = App\Models\Category::count()}}</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small warning coloured-icon">
+                <i class="icon fa fa-briefcase fa-3x"></i>
+                <div class="info">
+                    <h4>Brands</h4>
+                    <p><b>{{$brands = App\Models\Brand::count()}}</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small warning coloured-icon">
+                <i class= "icon fa fa-bar-chart fa-3x"></i>
+                <div class="info">
+                    <h4>Orders</h4>
+                    <p><b>{{$orders = App\Models\Order::count()}}</b></p>
+                </div>
+            </div>
+        </div>
+       
         <div class="col-md-6 col-lg-3">
             <div class="widget-small danger coloured-icon">
                 <i class="icon fa fa-star fa-3x"></i>
