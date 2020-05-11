@@ -1,6 +1,6 @@
 @foreach($categories as $cat)
                     @foreach($cat->items as $category)
-                        @if ($category->items->count() > 0)
+                        @if ($category->items->count() > 0 && $category->featured )
 <div class="banner-bottom">
 
 		<div class="container">

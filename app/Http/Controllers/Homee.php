@@ -23,8 +23,11 @@ class Homee extends Controller
     
     $second = 'hero_second';
     $se=setting::get($second);
+
+    $pic = 'ad_pic';
+    $ad=setting::get($pic);
     
-    return view('/site.pages.homepage')->with(compact('fi','se','products'));
+    return view('/site.pages.homepage')->with(compact('fi','se','products','ad'));
 }
 
 
@@ -39,6 +42,14 @@ public function firstproduct()
 public function secondproduct()
 {
     $key = 'secondpro_link';
+    $li=setting::get($key);
+    
+    return redirect()->away($li);    
+}
+
+public function adlink()
+{
+    $key = 'adv_link';
     $li=setting::get($key);
     
     return redirect()->away($li);    

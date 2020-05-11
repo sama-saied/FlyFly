@@ -64,51 +64,52 @@
                     value="{{ config('settings.secondpro_link') }}"
                 />
             </div>
-
-            <div class="form-group">
-                <label class="control-label" for="e-mail">Email</label>
+        </div>
+           
+<hr>
+<hr>
+<h3 class="tile-title">ad section</h3>
+        <hr>
+        <div class="tile-body">
+        <div class="form-group">
+                <label class="control-label" for="adv_link">adv. link</label>
                 <input
                     class="form-control"
                     type="text"
-                    placeholder="Enter your Email"
-                    id="e-mail"
-                    name="e-mail"
-                    value="{{ config('settings.e-mail') }}"
+                    placeholder="Enter the ad link"
+                    id="adv_link"
+                    name="adv_link"
+                    value="{{ config('settings.adv_link') }}"
                 />
             </div>
-
-            <div class="form-group">
-                <label class="control-label" for="fax">Fax</label>
-                <input
-                    class="form-control"
-                    type="text"
-                    placeholder="Enter your fax"
-                    id="fax"
-                    name="fax"
-                    value="{{ config('settings.fax') }}"
-                />
+        </div>
+<hr>
+        <div class="tile-body">
+            <div class="row">
+                <div class="col-3">
+                    @if (config('settings.ad_pic') != null)
+                        <img src="{{ asset('storage/'.config('settings.ad_pic')) }}" id="adpic" style="width: 80px; height: auto;">
+                    @else
+                        <img src="https://via.placeholder.com/80x80?text=Placeholder+Image" id="adpic" style="width: 80px; height: auto;">
+                    @endif
+                </div>
+                <div class="col-9">
+                    <div class="form-group">
+                        <label class="control-label">ad picture</label>
+                        <input class="form-control" type="file" name="ad_pic" onchange="loadFile(event,'adpic')"/>
+                    </div>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label class="control-label" for="phone_num">Phone number</label>
-                <input
-                    class="form-control"
-                    type="text"
-                    placeholder="Enter your phone number"
-                    id="phone_num"
-                    name="phone_num"
-                    value="{{ config('settings.phone_num') }}"
-                />
-            </div>
-
-            <div class="tile-footer">
+        </div>
+        
+       
+        <div class="tile-footer">
             <div class="row d-print-none mt-2">
                 <div class="col-12 text-right">
                     <button class="btn btn-success" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Update Settings</button>
                 </div>
             </div>
         </div>
-
     </form>
 </div>
 @push('scripts')

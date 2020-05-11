@@ -82,6 +82,16 @@ If yes, delete it and then upload the logo using uploadOne() method defined
 
     } 
 
+    elseif ($request->has('ad_pic') && ($request->file('ad_pic') instanceof UploadedFile)) {
+
+        if (config('settings.ad_pic') != null) {
+            $this->deleteOne(config('settings.ad_pic'));
+        }
+        $herosecond = $this->uploadOne($request->file('ad_pic'), 'img');
+        Setting::set('ad_pic', $herosecond);
+
+    } 
+
     else 
     {
 
