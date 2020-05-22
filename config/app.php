@@ -240,6 +240,7 @@ return [
         'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Input' => Illuminate\Support\Facades\Input::class,
+        'Cartt' => App\Facades\Cartt::class,
     ],
 
 ];

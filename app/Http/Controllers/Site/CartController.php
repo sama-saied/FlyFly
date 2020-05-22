@@ -2,31 +2,48 @@
 
 namespace App\Http\Controllers\Site;
 
-use  Cart;
+use  App\Models\Cartt;
+use Illuminate\Support\Facades\Auth;
+use App\Contracts\CartContract;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class CartController extends Controller
 {
-    public function getCart()
+
+    protected $CartRepository;
+
+
+    public function delete($id,$ud)
     {
-        return view('site.pages.cart');
+    
+        $cart = Cartt::where('id',$id);
+
+        $cart->delete();
+
+        $carts = Cartt::all();
+        $bool = Cartt::isEmpty($ud);
+        return view('site.pages.CartDisplay', compact('carts','bool'));
     }
 
-    public function removeItem($id)
+public function ClearCart($id)
 {
-    Cart::remove($id);
+    $carts = Cartt::all();
+foreach($carts as $cart)
+{
+if($cart->user_id == $id)
+    $cart->delete();
+}
+$carts = Cartt::all();
+$bool = Cartt::isEmpty($id);
+return view('site.pages.CartDisplay', compact('carts','bool'));
+}
 
-    if (Cart::isEmpty()) {
-        return redirect('/');
+public function getContent($id)
+    {
+       $carts = Cartt::all();
+       $bool = Cartt::isEmpty($id);
+       return view('site.pages.CartDisplay', compact('carts','bool'));
     }
-    return redirect()->back()->with('message', 'Item removed from cart successfully.');
-}
 
-public function clearCart()
-{
-    Cart::clear();
-
-    return redirect('/');
-}
 }

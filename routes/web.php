@@ -19,6 +19,12 @@ use PharIo\Manifest\Url;
 Route::get('/', 'Homee@show');
 Route::view('/admin', 'admin.dashboard.index');
 
+Route::get('/CartDisplay/{id}','Site\CartController@getContent')->name('newcart');
+Route::get('/delete/{id}/{ud}', 'Site\CartController@delete')->name('cart.delete');
+Route::get('/ClearCart/{id}', 'Site\CartController@ClearCart')->name('cart.clear');
+
+
+
 Route::get('/firstproduct', 'Homee@firstproduct')->name('firstproductlink');
 Route::get('/secondproduct', 'Homee@secondproduct')->name('secondproductlink');
 Route::get('/adlink', 'Homee@adliink')->name('adlink');
@@ -75,26 +81,9 @@ Route::post('/product/{slug}', 'Site\ProductController@show')->name('product.sho
 
 Route::post('/comment/{id}', 'CommentController@store')->name('comments.store');
 
-// search routes
-//Route::get('search', 'Site\SearchController@index')->name('search.index');
+
 Route::get('search-results', 'Site\SearchController@search')->name('search.result');
 
 Route::get('profile', 'ProfileController@index');
 Route::post('profile/{id}', 'ProfileController@update')->name('profile.edit');
 
-
-/*Route::post('/cartt/{id}', 'CarttController@store')->name('cartt.store');
-Route::get('/cart', 'CarttController@getCart')->name('checkout.cartt');
-*/
-
-
-/*Route::get('AddToCart/{slug}','Site\ProductController@getAddToCart')->name('product.addToCart');
-
-
-Route::get('/add-to-cart/{product}', 'CartController@add')->name('cart.add')->middleware('auth');
-Route::get('/cartt', 'CartController@index')->name('cart.index')->middleware('auth');
-Route::get('/cart/item/{id}/remove', 'CartController@removeItem')->name('checkout.cart.remove')->middleware('auth');
-//Route::get('/cart/checkout', 'CartController@checkout')->name('cart.checkout')->middleware('auth');
-Route::get('/cart/apply-coupon', 'CartController@applyCoupon')->name('cart.coupon')->middleware('auth');
-
-*/

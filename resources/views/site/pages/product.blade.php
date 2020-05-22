@@ -92,7 +92,6 @@
                          @endif
                         
                     <form action="{{ route('product.add.cart') }}" method="POST" role="form" id="addToCart">
-                   <!-- <form action="{/{route('cartt.store' ,  $product->id) }}" method="POST" role="form" id="addToCart">-->
                                         @csrf
                                         <div class="row">
                                             <div class="col-sm-12">
@@ -115,6 +114,8 @@
                                                                                 data-price="{{ $attributeValue->price }}"
                                                                                 value="{{ $attributeValue->value }}"> {{ ucwords($attributeValue->value . ' +'. $attributeValue->price) }}
                                                                             </option>
+                                                                            <input type="hidden" name="key" value="{{$attribute->name}}">
+                                                                            <input type="hidden" name="value" value="{{$attributeValue->name}}">
                                                                         @endif
                                                                     @endforeach
                                                                 </select>

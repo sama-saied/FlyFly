@@ -17,6 +17,7 @@
 			</div>
 				<div class="col-xl-4 col-lg-5">
 					<div class="user-panel">
+					@guest
 					<div class="up-item">
 							<div class="shopping-card">
 								<i class="flaticon-bag"></i>
@@ -24,12 +25,18 @@
 							</div>
 							<a href="{{ route('checkout.cart') }}">Shopping Cart</a>
 						</div>
-					@guest
 						<div class="up-item">
 							<i class="flaticon-profile"></i>
 							<a href="{{ route('login') }}">Sign In</a> or <a href="{{ route('register') }}">Create Account</a>
 						</div>
 						@else
+						<div class="up-item">
+							<div class="shopping-card">
+								<i class="flaticon-bag"></i>
+								<span>{{ $carttCount }}</span>
+							</div>
+							<a href="{{ route('newcart',auth()->user()->id) }}">Shopping Cart</a>
+						</div>
 						<div class="up-item">
 							<i class="flaticon-profile"></i>
 								<a id="navbarDropdown"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

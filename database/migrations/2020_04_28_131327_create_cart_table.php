@@ -21,12 +21,12 @@ class CreateCartTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
            // $table->string('session_id');
 
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('product_name');
-            $table->unsignedDouble('product_price');
-            $table->unsignedDouble('product_sale_price');
-            $table->unsignedInteger('quantity');
+          
+            $table->string('name');
+            $table->unsignedDouble('price');
+            $table->unsignedInteger('qty');
+            $table->string('img');
+            $table->longText('attr');
             $table->timestamps();
         });
     }

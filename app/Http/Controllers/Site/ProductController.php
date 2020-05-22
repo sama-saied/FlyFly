@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Contracts\ProductContract;
 use App\Http\Controllers\Controller;
 use App\Contracts\AttributeContract;
-use Cart;
+use App\Models\Cartt;
 //use App\Models\Cart;
 use App\Models\Product;
 use Session;
@@ -21,13 +21,7 @@ class ProductController extends Controller
     $this->attributeRepository = $attributeRepository;
 }
 
-   /* public function show($slug)
-    {
-        $product = $this->productRepository->findProductBySlug($slug);
-
-        dd($product);
-    }
-*/
+  
     public function show($slug)
 {
    
@@ -51,8 +45,9 @@ public function addToCart(Request $request)
     $product = $this->productRepository->findProductById($request->input('productId'));
     $options =  $request->except('_token', 'productId', 'price', 'qty','productImg');
     
-    Cart::add(uniqid(), $product->name, $request->input('price'), 
-    $request->input('qty'),$request->input('productImg') ,$options);
+    Cartt::add($request->input('productId'), $product->name, $request->input('price'), 
+    $request->input('qty'),$request->input('productImg')//,$request->input('key')
+ );
 
     return redirect()->back()->with('message', 'Item added to cart successfully.');
 }
@@ -78,20 +73,6 @@ public function index(Request $request)
 
     }*/
 
-    public function getAddToCart(Product $product )
-    {
-        if(session()->has('cart'))
-        {
-            $cart = new Cart(session()->get('cart'));
-        }
-        else
-        {
-            $cart = new Cart();
-        }
-        $cart->add($product);
-        dd($cart);
-       // return redirect()->route('product.show');
-
-    }
+   
 
 }
