@@ -19,8 +19,15 @@ use PharIo\Manifest\Url;
 Route::get('/', 'Homee@show');
 Route::view('/admin', 'admin.dashboard.index');
 
+Route::get('/CartDisplay/{id}','Site\CartController@getContent')->name('newcart');
+Route::get('/delete/{id}/{ud}', 'Site\CartController@delete')->name('cart.delete');
+Route::get('/ClearCart/{id}', 'Site\CartController@ClearCart')->name('cart.clear');
+
+
+
 Route::get('/firstproduct', 'Homee@firstproduct')->name('firstproductlink');
 Route::get('/secondproduct', 'Homee@secondproduct')->name('secondproductlink');
+Route::get('/adlink', 'Homee@adliink')->name('adlink');
 
 
 
@@ -74,8 +81,7 @@ Route::post('/product/{slug}', 'Site\ProductController@show')->name('product.sho
 
 Route::post('/comment/{id}', 'CommentController@store')->name('comments.store');
 
-// search routes
-//Route::get('search', 'Site\SearchController@index')->name('search.index');
+
 Route::get('search-results', 'Site\SearchController@search')->name('search.result');
 
 Route::get('profile', 'ProfileController@index');
@@ -102,3 +108,4 @@ Route::get('/view_admin', 'Admin\AdminController@view')->name('admin.view');
 Route::get('/add_admin', 'Admin\AdminController@add')->name('admin.add_admin.add_admin');
 Route::get('/delete_admin/{id}', 'Admin\AdminController@delete')->name('admin.delete');
 Route::post('/create_admin', 'Admin\AdminController@create')->name('admin.store');
+
