@@ -86,7 +86,7 @@
                                     <div class="col-md-6">
                                         
                                     <input type="text" placeholder="Country" class="form-control @error('country') is-invalid @enderror"
-                                     name="country" value="{{ auth()->user()->country }}" enabled>
+                                     name="country" value="{{ $user->country }}" enabled>
                                     </div>
                                     </div>
                                     <button type="submit" class="site-btn submit-order-btn"> Edit </button>

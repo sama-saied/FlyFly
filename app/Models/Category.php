@@ -57,12 +57,24 @@ public function products()
 
 public function getSearchResult(): SearchResult
 {
+     if($this->parent_id == 1)
+     {
+         
+        $url = route('category.showw', $this->name);
+        return new SearchResult(
+            $this,
+            $this->name,
+            $url
+        );
+     }
+     else{
     $url = route('category.show', $this->name);
     return new SearchResult(
         $this,
         $this->name,
         $url
     );
+     }
 }
 
 }

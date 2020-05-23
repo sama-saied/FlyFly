@@ -10,13 +10,14 @@ class Admin extends Authenticatable
 {
     use Notifiable;
 
+    protected $guard = 'admin';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','role'
     ];
 
     /**
@@ -37,9 +38,19 @@ class Admin extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getFullNameAttribute()
+{
+    return $this->name;
+}
+
     public function profile()
 {
     return $this->hasOne(Profile::class);
+}
+
+public function settings()
+{
+    return $this->belongsToMany(Setting::class, 'admin_settings', 'setting_id', 'admin_id');
 }
 
 }

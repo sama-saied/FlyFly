@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Contracts\UserContract;
 use App\Http\Controllers\BaseController;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
 class ProfileController extends Controller
 {
 
@@ -43,8 +45,7 @@ public function update(Request $request)
           'first_name' => 'required|max:255|unique:users,first_name,'.$user->id,
           'last_name' => 'required|max:255|unique:users,last_name,'.$user->id,
           'email' => 'required|email|max:255|unique:users,email,'.$user->id,
-          
-       
+          'password' => 'required|string|min:8|unique:users,password,'.$user->id, 
       ]);
   
       /**
@@ -52,14 +53,24 @@ public function update(Request $request)
        * type array
        **/
       
-      $input = $request->only('first_name', 'last_name','password','address','city','country','phone_number');
+     // $input = $request->only('first_name', 'last_name', 'password','address','city','country','phone_number');
+
+   
   
-  
+    $user->update([
+      'first_name' => $request['first_name'],
+      'last_name' => $request['last_name'],
+      'password' => Hash::make($request['password']),
+      'address' => $request['address'],
+      'phone_number' => $request['phone_number'],
+      'city' => $request['city'],
+      'country' => $request['country'],
+  ]);
   
       /**
        * Accessing the update method and passing in $input array of data
        **/
-      $user->update($input);
+     // $user->update($input);
   
       /**
        * after everything is done return them pack to /profile/ uri

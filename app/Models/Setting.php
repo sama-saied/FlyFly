@@ -52,4 +52,9 @@ public static function set($key, $value = null)
     return false;
 }
 
+public function admins()
+{
+    return $this->belongsToMany(Admin::class, 'admin_settings','admin_id' , 'setting_id');
+}
+
 }

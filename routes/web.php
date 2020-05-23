@@ -33,8 +33,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/category/{slug}', 'Site\CategoryController@show')->name('category.show');
+Route::get('/categoryy/{slug}', 'Site\CategoryController@showw')->name('category.showw');
 Route::get('/brand/{slug}', 'Site\BrandController@show')->name('brand.show');
-
 
 
 Route::get('/product/{slug}', 'Site\ProductController@show')->name('product.show');
@@ -97,3 +97,8 @@ Route::get('/cart/item/{id}/remove', 'CartController@removeItem')->name('checkou
 Route::get('/cart/apply-coupon', 'CartController@applyCoupon')->name('cart.coupon')->middleware('auth');
 
 */
+
+Route::get('/view_admin', 'Admin\AdminController@view')->name('admin.view');
+Route::get('/add_admin', 'Admin\AdminController@add')->name('admin.add_admin.add_admin');
+Route::get('/delete_admin/{id}', 'Admin\AdminController@delete')->name('admin.delete');
+Route::post('/create_admin', 'Admin\AdminController@create')->name('admin.store');

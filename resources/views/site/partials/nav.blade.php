@@ -46,7 +46,7 @@
                     @foreach($cat->items as $category)
                         @if ($category->items->count() > 0)
                         <li>
-                         <a  href="{{ route('category.show', $category->slug) }}" id="{{ $category->slug }}"
+                         <a  href="{{ route('category.showw', $category->slug) }}" id="{{ $category->slug }}"
                           aria-haspopup="true" aria-expanded="false">{{ $category->name }}</a>
                             <ul class="sub-menu">
                                 <div  aria-labelledby="{{ $category->slug }}">
