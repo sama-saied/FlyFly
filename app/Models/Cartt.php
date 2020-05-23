@@ -48,9 +48,6 @@ class Cartt extends Model
 
     }
 
-    
-   
-
      /**
      * get cart sub total
      * @param bool $formatted

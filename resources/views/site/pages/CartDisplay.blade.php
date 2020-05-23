@@ -4,6 +4,9 @@
 
 @if($bool == true)
 
+{{ $num ?? '' }}
+
+
 @foreach($carts ?? '' as $cart)
 @if($cart->user_id == auth()->user()->id)
 {{$cart->name}}

@@ -11,6 +11,7 @@ use Illuminate\Support\ServiceProvider;
 use Darryldecode\Cart\Facades\CartFacade;
 use Darryldecode\Cart\CartServiceProvider;
 use Darryldecode\Cart\CartCondition;
+use Illuminate\Support\Facades\Auth;
 
 use Cart;
 
@@ -38,13 +39,14 @@ class ViewComposerServiceProvider extends ServiceProvider
         View::composer('site.partials.sidebar', function ($view) {
             $view->with('brands', Brand::orderByRaw('-name ASC')->get());
         });
-
-        View::composer('site.partials.header', function ($view) {
-            $view->with('cartCount', Cart::getContent()->count());
-        });
-
-        View::composer('site.partials.header', function ($view) {
+    
+       View::composer('site.partials.header', 
+      
+         function ($view) { 
+            if(Auth::check()) 
             $view->with('carttCount', Cartt::Counter(auth()->user()->id));
-        });
+            else 
+            $view->with('cartCount', Cart::getContent()->count());
+         });
     }
 }

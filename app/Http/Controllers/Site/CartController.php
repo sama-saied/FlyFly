@@ -29,6 +29,7 @@ class CartController extends Controller
 public function ClearCart($id)
 {
     $carts = Cartt::all();
+    
 foreach($carts as $cart)
 {
 if($cart->user_id == $id)
@@ -43,7 +44,8 @@ public function getContent($id)
     {
        $carts = Cartt::all();
        $bool = Cartt::isEmpty($id);
-       return view('site.pages.CartDisplay', compact('carts','bool'));
+       $num = Cartt::Counter($id);
+       return view('site.pages.CartDisplay', compact('carts','bool','num'));
     }
 
 }
