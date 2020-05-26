@@ -47,83 +47,27 @@ class Cartt extends Model
         $cart->save();
 
     }
-
-     /**
-     * get cart sub total
-     * @param bool $formatted
-     * @return float
-     */
-    public function getSubTotal($formatted = true)
+     
+    public static function getTotal($id)
     {
-        $cart = $this->getContent();
-
-        $sum = $cart->sum(function (ItemCollection $item) {
-            return $item->getPriceSumWithConditions(false);
-        });
-
-        // get the conditions that are meant to be applied
-        // on the subtotal and apply it here before returning the subtotal
-        $conditions = $this
-            ->getConditions()
-            ->filter(function (CartCondition $cond) {
-                return $cond->getTarget() === 'subtotal';
-            });
-
-        // if there is no conditions, lets just return the sum
-        if (!$conditions->count()) return Helpers::formatValue(floatval($sum), $formatted, $this->config);
-
-        // there are conditions, lets apply it
-        $newTotal = 0.00;
-        $process = 0;
-
-        $conditions->each(function (CartCondition $cond) use ($sum, &$newTotal, &$process) {
-
-            // if this is the first iteration, the toBeCalculated
-            // should be the sum as initial point of value.
-            $toBeCalculated = ($process > 0) ? $newTotal : $sum;
-
-            $newTotal = $cond->applyCondition($toBeCalculated);
-
-            $process++;
-        });
-
-        return Helpers::formatValue(floatval($newTotal), $formatted, $this->config);
-    }
-
-    /**
-     * the new total in which conditions are already applied
-     *
-     * @return float
-     */
-    public function getTotal()
-    {
-        $subTotal = $this->getSubTotal(false);
-
-        $newTotal = 0.00;
-
-        $process = 0;
-
-        $conditions = $this
-            ->getConditions()
-            ->filter(function (CartCondition $cond) {
-                return $cond->getTarget() === 'total';
-            });
-
-        // if no conditions were added, just return the sub total
-        if (!$conditions->count()) {
-            return Helpers::formatValue($subTotal, $this->config['format_numbers'], $this->config);
+        $count = 0;
+        $carts = Cartt::all();
+        $pros = Product::all();
+        foreach($carts as $cart)
+        {
+            if($cart->user_id == $id)
+          foreach($pros as $pro){
+              if($pro->id == $cart->product_id)
+                {
+                    if($pro->sale_price)
+                    $count += $pro->sale_price;
+                    else
+                 $count += $pro->price;
+                }
+        }
         }
 
-        $conditions
-            ->each(function (CartCondition $cond) use ($subTotal, &$newTotal, &$process) {
-                $toBeCalculated = ($process > 0) ? $newTotal : $subTotal;
-
-                $newTotal = $cond->applyCondition($toBeCalculated);
-
-                $process++;
-            });
-
-        return Helpers::formatValue($newTotal, $this->config['format_numbers'], $this->config);
+       return $count;
     }
 
     /**
@@ -185,4 +129,12 @@ class Cartt extends Model
        return $count;
     }
 
+
+    public static function getContent($id)
+    {
+        $carts = Cartt::all();
+        $pro = Product::all();
+        $total = Cartt::getTotal($id);
+       return [$carts,$pro,$total];
+    }
 }
