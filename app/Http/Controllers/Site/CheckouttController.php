@@ -27,8 +27,9 @@ class CheckouttController extends Controller
    
     
 
-    public function getOrder($id)
+    public function getOrder()
     {
+        $id = auth()->user()->id;
         if (Cartt::isEmpty($id) == false ){
             return redirect()->back()->with('message', 'Cart Is Empty.');
         }
@@ -38,7 +39,9 @@ class CheckouttController extends Controller
             $carts = Cartt::all();
             $pro = Product::all();
             $total = Cartt::getTotal($id);
-        return view('site.pages.checkouttDisplay',compact('carts','pro','total'));}
+            
+        return view('site.pages.checkouttDisplay',compact('carts','pro','total'));
+        }
     }
 
 

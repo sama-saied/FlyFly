@@ -1,6 +1,6 @@
 @extends('site.app')
 @section('title', 'Make Order')
-@section('content')
+@section('check')
    <!-- Page info -->
 	<div class="page-top-info">
 		<div class="container">
@@ -104,7 +104,7 @@
 				<div class="col-lg-4 order-1 order-lg-2">
 					<div class="checkout-cart">
 						<h3>Your Cart</h3>
-						@foreach($Carts as $cart)
+						@foreach($carts as $cart)
 						<ul class="product-list">
 							<li>
 								<div class="pl-thumb">
