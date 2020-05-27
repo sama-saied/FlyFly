@@ -105,6 +105,7 @@
 					<div class="checkout-cart">
 						<h3>Your Cart</h3>
 						@foreach($carts as $cart)
+						@if($cart->user_id == auth()->user()->id)
 						<ul class="product-list">
 							<li>
 								<div class="pl-thumb">
@@ -124,6 +125,7 @@
                                 @endforeach
 							</li>
 						</ul>
+						@endif
 						@endforeach
                            <article class="card-body">
                                      <dl class="dlist-align">
