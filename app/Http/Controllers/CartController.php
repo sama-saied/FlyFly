@@ -32,8 +32,6 @@ class CartController extends Controller
     {
 
         $cartItems = \Cart::session(auth()->id())->getContent();
-
-
        // return view('cart.index', compact('cartItems'));
         return view('site.pages.cart', compact('cartItems'));
     }
