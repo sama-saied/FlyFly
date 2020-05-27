@@ -41,8 +41,8 @@ class Cartt extends Model
         $cart->price = $price;
         $cart->qty = $quantity;
         $cart->img = $productImg;
-        $cart->key = 'sama';
-        $cart->value = 'sama';
+       // $cart->key = 'sama';
+       // $cart->value = 'sama';
 
         $cart->save();
 
