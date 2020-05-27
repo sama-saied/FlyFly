@@ -4,7 +4,7 @@
 <script src="{{asset('frontdivi/js/jquery-3.2.1.min.js')}}"></script>
 <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>@yield('title') - {{ config('app.name') }}</title>
+    <title>@yield('title') - {{ 'Fly Buy' }}</title>
     @include('site.partials.styles')
 </head>
 <body>
