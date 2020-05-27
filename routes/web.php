@@ -19,9 +19,14 @@ use PharIo\Manifest\Url;
 Route::get('/', 'Homee@show');
 Route::view('/admin', 'admin.dashboard.index');
 
-Route::get('/CartDisplay/{id}','Site\CartController@getContent')->name('newcart');
-Route::get('/delete/{id}/{ud}', 'Site\CartController@delete')->name('cart.delete');
-Route::get('/ClearCart/{id}', 'Site\CartController@ClearCart')->name('cart.clear');
+Route::get('/CartDisplay/{id}','Site\CarttController@getContent')->name('newcart');
+Route::get('/delete/{id}/{ud}', 'Site\CarttController@delete')->name('cart.delete');
+Route::get('/ClearCart/{id}', 'Site\CarttController@ClearCart')->name('cart.clear');
+
+Route::group(['middleware' => ['auth']], function () {
+  Route::get('/checkouttDisplay', 'Site\CheckouttController@getOrder')->name('order.indexx');
+//  Route::post('/checkout/order', 'Site\CheckoutController@placeOrder')->name('checkout.place.order');
+});
 
 
 

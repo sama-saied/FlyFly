@@ -20,6 +20,7 @@
 @yield('cart')
 @yield('pro')
 @yield('rate')
+@yield('check')
 @yield('content')
 @include('site.partials.footer')
 @include('site.partials.scripts')
