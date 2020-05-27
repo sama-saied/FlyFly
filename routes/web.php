@@ -23,10 +23,8 @@ Route::get('/CartDisplay/{id}','Site\CarttController@getContent')->name('newcart
 Route::get('/delete/{id}/{ud}', 'Site\CarttController@delete')->name('cart.delete');
 Route::get('/ClearCart/{id}', 'Site\CarttController@ClearCart')->name('cart.clear');
 
-Route::group(['middleware' => ['auth']], function () {
-  Route::get('/checkouttDisplay', 'Site\CheckouttController@getOrder')->name('order.indexx');
+  Route::get('/checkouttDisplay', 'Site\CheckouttController@getOrder')->name('order.new');
 //  Route::post('/checkout/order', 'Site\CheckoutController@placeOrder')->name('checkout.place.order');
-});
 
 
 

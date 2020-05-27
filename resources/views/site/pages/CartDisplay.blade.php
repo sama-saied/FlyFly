@@ -88,7 +88,7 @@
 				<div class="col-lg-4 card-right">
 			    	<a href=" {{ route('cart.clear', auth()->user()->id) }} " class="site-btn">Clear Cart</a>
 					<a href="/" class="site-btn">Continue shopping</a>
-					<a href=" {{ route('order.indexx', auth()->user()->id) }}" class="site-btn sb-dark">Proceed to checkout</a>
+					<a href=" {{ route('order.new') }}" class="site-btn sb-dark">Proceed to checkout</a>
 				</div>
 			</div>
 		</div>
