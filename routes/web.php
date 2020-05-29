@@ -24,7 +24,7 @@ Route::get('/delete/{id}/{ud}', 'Site\CarttController@delete')->name('cart.delet
 Route::get('/ClearCart/{id}', 'Site\CarttController@ClearCart')->name('cart.clear');
 
 Route::group(['middleware' => ['auth']], function () {
-  Route::post('/checkout/order', 'Site\CheckouttController@placeOrder')->name('checkoutt.place.order');
+  Route::post('/checkoutt/order', 'Site\CheckouttController@placeOrder')->name('checkoutt.place.order');
   Route::get('/getOrder', 'Site\CheckouttController@getOrder')->name('order.new');
  
 });
