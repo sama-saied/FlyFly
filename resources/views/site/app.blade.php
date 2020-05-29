@@ -21,6 +21,7 @@
 @yield('pro')
 @yield('rate')
 @yield('check')
+@yield('search')
 @yield('content')
 @include('site.partials.footer')
 @include('site.partials.scripts')
