@@ -23,10 +23,10 @@ Route::get('/CartDisplay/{id}','Site\CarttController@getContent')->name('newcart
 Route::get('/delete/{id}/{ud}', 'Site\CarttController@delete')->name('cart.delete');
 Route::get('/ClearCart/{id}', 'Site\CarttController@ClearCart')->name('cart.clear');
 
-  Route::get('/checkouttDisplay', 'Site\CheckouttController@getOrder')->name('order.new');
-//  Route::post('/checkout/order', 'Site\CheckoutController@placeOrder')->name('checkout.place.order');
-
-
+Route::group(['middleware' => ['auth']], function () {
+  Route::get('/getOrder', 'Site\CheckouttController@getOrder')->name('order.new');
+  Route::post('/checkout/order', 'Site\CheckouttController@placeOrder')->name('checkoutt.place.order');
+});
 
 Route::get('/firstproduct', 'Homee@firstproduct')->name('firstproductlink');
 Route::get('/secondproduct', 'Homee@secondproduct')->name('secondproductlink');

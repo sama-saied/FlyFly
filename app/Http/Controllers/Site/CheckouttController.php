@@ -50,13 +50,11 @@ class CheckouttController extends Controller
    
     $order = $this->orderRepository->storeOrderDetails($request->all());
 
-    Cartt::clear($id);
+    $id = auth()->user()->id;
 
-
+    Cartt::ClearCart($id);
 
 return view('site.pages.success', compact('order'));
-
-
 }
 
 public function complete(Request $request)

@@ -70,23 +70,8 @@ class Cartt extends Model
        return $count;
     }
 
-    /**
-     * get total quantity of items in the cart
-     *
-     * @return int
-     */
-    public function getTotalQuantity()
-    {
-        $items = $this->getContent();
-
-        if ($items->isEmpty()) return 0;
-
-        $count = $items->sum(function ($item) {
-            return $item['quantity'];
-        });
-
-        return $count;
-    }
+   
+    
 
     /**
      * check if cart is empty
@@ -137,4 +122,16 @@ class Cartt extends Model
         $total = Cartt::getTotal($id);
        return [$carts,$pro,$total];
     }
+
+    public static function ClearCart($id)
+ {
+    $carts = Cartt::all();
+    
+     foreach($carts as $cart)
+    {
+       if($cart->user_id == $id)
+       $cart->delete();
+    }
+     
+ }
 }

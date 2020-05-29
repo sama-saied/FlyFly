@@ -18,7 +18,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 order-2 order-lg-1">
-					<form class="checkout-form" action="{{ route('checkout.place.order') }}" method="POST" role="form">
+					<form class="checkout-form" action="{{ route('checkoutt.place.order') }}" method="POST" role="form">
                 @csrf
 						<div class="cf-title">Order Information</div>
 						<div class="row address-inputs">
