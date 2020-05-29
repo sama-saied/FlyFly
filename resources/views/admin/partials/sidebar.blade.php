@@ -50,8 +50,8 @@
         </li>
         <li>
             <a class="app-menu__item {{ Route::currentRouteName() == 'admin.view' ? 'active' : '' }}" href="{{ route('admin.view') }}">
-                <i class="app-menu__icon fa fa-bar-chart"></i>
-                <span class="app-menu__label">Admins</span>
+                <i class="fa fa-user fa-lg fa-1x"></i>
+                <span class="app-menu__label">{{"--"}}Admins</span>
             </a>
         </li>
     </ul>
