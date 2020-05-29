@@ -113,3 +113,8 @@ Route::get('/add_admin', 'Admin\AdminController@add')->name('admin.add_admin.add
 Route::get('/delete_admin/{id}', 'Admin\AdminController@delete')->name('admin.delete');
 Route::post('/create_admin', 'Admin\AdminController@create')->name('admin.store');
 
+
+Route::get('/k', 'Site\SearchController@k')->name('k');
+
+Route::get('/view_comment', 'Admin\CommentControl@view')->name('comment.view');
+Route::get('/delete_comment/{id}', 'Admin\CommentControl@delete')->name('comment.delete');

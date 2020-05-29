@@ -22,6 +22,9 @@ use App\Repositories\OrderRepository;
 use App\Contracts\AdminContract;
 use App\Repositories\AdminRepository;
 
+use App\Contracts\CommentContract;
+use App\Repositories\CommentRepository;
+
 class RepositoryServiceProvider extends ServiceProvider
 {
     protected $repositories = [
@@ -31,6 +34,7 @@ class RepositoryServiceProvider extends ServiceProvider
         ProductContract::class          =>          ProductRepository::class,
         OrderContract::class            =>          OrderRepository::class,
         AdminContract::class            =>          AdminRepository::class,
+        CommentContract::class          =>          CommentRepository::class,
     ];
     /**
      * Register services.
