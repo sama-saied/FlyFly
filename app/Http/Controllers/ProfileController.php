@@ -42,8 +42,8 @@ public function update(Request $request)
        * Validate request/input 
        **/
       $this->validate($request, [
-          'first_name' => 'required|max:255|unique:users,first_name,'.$user->id,
-          'last_name' => 'required|max:255|unique:users,last_name,'.$user->id,
+          'first_name' => 'required|max:255,'.$user->id,
+          'last_name' => 'required|max:255,'.$user->id,
           'email' => 'required|email|max:255|unique:users,email,'.$user->id,
           'password' => 'required|string|min:8|unique:users,password,'.$user->id, 
       ]);

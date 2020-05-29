@@ -35,14 +35,14 @@ class AdminController extends BaseController
        
        // if(auth()->guard('admin')->role == 'super')
        // if(auth()->user()->first_name == 'Rahf')
-      // if(auth()->admin()->role == 'super')
-      //  {
+       if(auth()->admin()->role == 'super')
+        {
         return view('admin.add_admin.view', compact('admins')); 
-      /*  }
+        }
         else
         {
         return view('admin.add_admin.view2', compact('admins'));
-        }*/
+        }
     }
 public function add()
 {
