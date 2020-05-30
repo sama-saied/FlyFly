@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 //use Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use App\Models\Cart_storage;
 
 class Cartt extends Model 
 {
@@ -30,7 +31,7 @@ class Cartt extends Model
      * @return $this
      * @throws InvalidItemException
      */
-    public static function add($id, $name = null, $price = null, $quantity = null,$productImg = null)
+    public static function add($id, $name = null, $price = null, $quantity = null,$productImg = null , $attr =[])
     {
 
        $cart = new self();
@@ -43,11 +44,15 @@ class Cartt extends Model
         $cart->img = $productImg;
        // $cart->key = 'sama';
        // $cart->value = 'sama';
-
+       $cart->attr =  $attr;
+        //['color' => 'red', 'size' => 'small']; 
+      // $cart->attr = 'nada';
         $cart->save();
-
     }
+
+    
      
+
     public static function getTotal($id)
     {
         $count = 0;
@@ -134,4 +139,10 @@ class Cartt extends Model
     }
      
  }
+
+ public function values()
+    {
+        return $this->hasMany(Cart_storage::class);
+}
+
 }
