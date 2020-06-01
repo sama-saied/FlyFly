@@ -115,7 +115,7 @@
                                                                                 value="{{ $attributeValue->value }}"> {{ ucwords($attributeValue->value . ' +'. $attributeValue->price) }}
                                                                             </option>
                                                                             <input type="hidden" name="key" value="{{$attribute->name}}">
-                                                                            <input type="hidden" name="value" value="{{$attributeValue->name}}">
+                                                                            <input type="hidden" name="value" value="{{$attributeValue->value}}">
                                                                         @endif
                                                                     @endforeach
                                                                 </select>

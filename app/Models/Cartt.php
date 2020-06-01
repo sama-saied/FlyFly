@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Models\Cart_storage;
+use GuzzleHttp\Psr7\Request;
 
 class Cartt extends Model 
 {
@@ -31,7 +32,7 @@ class Cartt extends Model
      * @return $this
      * @throws InvalidItemException
      */
-    public static function add($id, $name = null, $price = null, $quantity = null,$productImg = null , $attr =[])
+    public static function add($id, $name = null, $price = null, $quantity = null,$productImg = null)
     {
 
        $cart = new self();
@@ -42,14 +43,18 @@ class Cartt extends Model
         $cart->price = $price;
         $cart->qty = $quantity;
         $cart->img = $productImg;
-       // $cart->key = 'sama';
-       // $cart->value = 'sama';
-       $cart->attr =  $attr;
-        //['color' => 'red', 'size' => 'small']; 
-      // $cart->attr = 'nada';
+      
         $cart->save();
     }
 
+    public static function addattr($key,$value,$id)
+    {
+        $cartt = new Cart_storage;
+        $cartt->cart_id = $id;
+        $cartt->key_name = $key;
+        $cartt->value = $value;
+        $cartt->save();
+    }
     
      
 
