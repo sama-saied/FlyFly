@@ -1,4 +1,5 @@
-<?php namespace Cartt\Facades;
+<?php 
+namespace Cartt\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
