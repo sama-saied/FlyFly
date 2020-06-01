@@ -48,7 +48,7 @@ class CheckouttController extends Controller
     public function placeOrder(Request $request)
 {
    
-    $order = $this->orderRepository->storeOrderDetails($request->all());
+    $order = $this->orderRepository->storeOrderDettails($request->all());
 
     $id = auth()->user()->id;
 
@@ -69,8 +69,9 @@ public function complete(Request $request)
     $order->payment_status = 1;
     $order->payment_method = 'PayPal -'.$status['salesId'];
     $order->save();
+    $id = auth()->user()->id;
 
-    Cartt::clear();
+    Cartt::ClearCart($id);
     return view('site.pages.success', compact('order'));
 }
 
