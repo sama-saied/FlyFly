@@ -71,7 +71,10 @@ class Cartt extends Model
     }
 
    
-    
+    public static function getnum()
+    {
+        
+    }
 
     /**
      * check if cart is empty
@@ -121,6 +124,13 @@ class Cartt extends Model
         $pro = Product::all();
         $total = Cartt::getTotal($id);
        return [$carts,$pro,$total];
+    }
+
+    public static function getContents()
+    {
+        $carts = Cartt::all();
+        
+       return $carts;
     }
 
     public static function ClearCart($id)

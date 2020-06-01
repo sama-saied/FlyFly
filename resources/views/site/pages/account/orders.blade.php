@@ -15,10 +15,10 @@
                     <table class="table table-hover" >
                         <thead>
                             <tr>
-                                <th scope="col"> order_number</th>
+                                <th scope="col"> order number</th>
                                 <th scope="col">User Name</th>
                                 <th scope="col">Order Price</th>
-                                <th scope="col">Qty.</th>
+                                <th scope="col">Items Number</th>
                                 <th scope="col">Status</th>
                                 
                             </tr>
