@@ -38,7 +38,10 @@ class SearchController extends Controller
         return view('site.pages.search', compact('searchResults', 'searchterm'));
     }
 
-    
+    public function k()
+{
+    return view('test');
+}
 
    
 }

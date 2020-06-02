@@ -18,9 +18,7 @@
 		<div class="container">
 			<div class="row">
             <div class="col-lg-8 order-2 order-lg-1">
-            @if (Session::has('error'))
-                        <p class="alert alert-danger">{{ Session::get('error') }}</p>
-                    @endif
+           
                    
                             <form class="checkout-form" action="{{ route('profile.edit' , $user->id) }}" method="POST" role="form">
                             <center>

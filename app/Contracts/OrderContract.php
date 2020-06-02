@@ -11,4 +11,10 @@ interface OrderContract
     public function findOrderByNumber($orderNumber);
 
     
+    public function findOrderById(int $id);
+
+    public function updateOrder(array $params);
+
+    public function deleteOrder($id);
+    
 }
