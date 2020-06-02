@@ -11,6 +11,7 @@ use Darryldecode\Cart\Facades\CartFacade;
 use  Cart;
 Use  App\Models\Product;
 use  App\Models\Cartt;
+use  App\Models\Cart_storage;
 
 class CheckouttController extends Controller
 {
@@ -39,8 +40,9 @@ class CheckouttController extends Controller
             $carts = Cartt::all();
             $pro = Product::all();
             $total = Cartt::getTotal($id);
+            $attr = Cart_storage::all();
             
-        return view('site.pages.checkouttDisplay',compact('carts','pro','total'));
+        return view('site.pages.checkouttDisplay',compact('carts','pro','total','attr'));
         }
     }
 

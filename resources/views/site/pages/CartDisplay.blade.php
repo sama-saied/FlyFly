@@ -46,7 +46,15 @@
 									
 										<div class="pc-title">
 											<h4>{{ Str::words($cart->name,20) }}</h4>
-											
+											@foreach($attr as $atr )
+											    @if($atr->cart_id == $cart->id)
+                                                        <dl class="dlist-inline small">
+                                                            <dt>{{ ucwords($atr->key_name) }}: </dt>
+                                                            <dd>{{ ucwords($atr->value) }}</dd>
+														</dl>
+												@endif
+														
+                                            @endforeach
 											
 										</div>
 									</td>

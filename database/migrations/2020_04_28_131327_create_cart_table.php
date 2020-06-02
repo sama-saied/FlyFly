@@ -26,7 +26,6 @@ class CreateCartTable extends Migration
             $table->unsignedDouble('price');
             $table->unsignedInteger('qty');
             $table->string('img');
-          //  $table->longText('attr');
             $table->timestamps();
         });
     }
