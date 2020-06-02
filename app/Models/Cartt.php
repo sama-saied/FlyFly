@@ -49,6 +49,7 @@ class Cartt extends Model
 
     public static function addattr($key,$value,$id)
     {
+       // $id = $id + 1;
         $cartt = new Cart_storage;
         $cartt->cart_id = $id;
         $cartt->key_name = $key;
@@ -80,11 +81,6 @@ class Cartt extends Model
        return $count;
     }
 
-   
-    public static function getnum()
-    {
-        
-    }
 
     /**
      * check if cart is empty

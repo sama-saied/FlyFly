@@ -55,7 +55,7 @@
                                             <td>{{ $item->quantity }}</td>
                                             <td>{{ config('settings.currency_symbol') }}{{ round($item->price, 2) }}</td>
                                         </tr>
-                                    @endforeach
+                                     @endforeach
                                 </tbody>
                             </table>
                         </div>

@@ -45,13 +45,16 @@ public function addToCart(Request $request)
 {
     $product = $this->productRepository->findProductById($request->input('productId'));
     $options =  $request->except('_token', 'productId', 'price', 'qty','productImg');
-
+    
     Cartt::add($request->input('productId'), $product->name, $request->input('price'), 
     $request->input('qty'),$request->input('productImg'));
 
+    $id = Cartt::getContents()->last();
+    $i = $id->id;
    if($request->input('key'))
    {
-       Cartt::addattr($request->input('key'),$request->input('value'),0);
+     
+       Cartt::addattr($request->input('key'),$request->input('value'),$i);
    }
 
     return redirect()->back()->with('message', 'Item added to cart successfully.');
