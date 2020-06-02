@@ -66,7 +66,7 @@
                             </div>
 							<div class="col-md-6">
 							
-								<input type="text" placeholder="Zip code" class="form-control @error('post_code') is-invalid @enderror" name="post_code">
+								<input type="text" placeholder="Zip code" class="form-control @error('post_code') is-invalid @enderror" name="post_code" required>
 								@error('post_code')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

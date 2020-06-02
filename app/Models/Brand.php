@@ -42,10 +42,12 @@ public function products()
 public function getSearchResult(): SearchResult
 {
     $url = route('brand.show', $this->name);
+    $image = route('k', $this->name);
     return new SearchResult(
         $this,
         $this->name,
-        $url
+        $url,
+        $image
     );
 }
 
