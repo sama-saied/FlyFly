@@ -70,7 +70,7 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('checkout/payment/complete', 'Site\CheckoutController@complete')->name('checkout.payment.complete');
 
 Route::get('account/orders', 'Site\AccountController@getOrders')->name('account.orders');
-
+Route::get('orderr/{id}', 'Site\AccountController@delete')->name('order.delete');
 //Route::get('account/profile', 'Site\AccountController@profile')->name('account.profile');
 //Route::post('account/profile', 'Site\AccountController@update_avatar');
 
@@ -90,6 +90,7 @@ Route::get('search-results', 'Site\SearchController@search')->name('search.resul
 
 Route::get('profile', 'ProfileController@index');
 Route::post('profile/{id}', 'ProfileController@update')->name('profile.edit');
+
 
 
 /*Route::post('/cartt/{id}', 'CarttController@store')->name('cartt.store');

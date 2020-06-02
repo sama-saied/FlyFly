@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Contracts\OrderContract;
 use App\Http\Controllers\BaseController;
+use Illuminate\Http\Request;
+use App\Models\Order;
+
 class OrderController extends BaseController
 {
     protected $orderRepository;
@@ -28,4 +31,26 @@ public function show($orderNumber)
     return view('admin.orders.show', compact('order'));
 }
 
+
+
+public function edit($id)
+{
+    $order = $this->orderRepository->findOrderById($id);
+    //$order=Order::where('id', $id)->first();
+    $this->setPageTitle(' Status', 'Edit Status ');
+    return view('admin.orders.edit', compact('order'));
+}
+
+public function update(Request $request)
+{
+   
+    $params = $request->except('_token');
+
+    $order = $this->orderRepository->updateOrder($params);
+
+    if (!$order) {
+        return $this->responseRedirectBack('Error occurred while updating order status.', 'error', true, true);
+    }
+    return $this->responseRedirect('admin.orders.index', 'Order Status updated successfully' ,'success',false, false);
+}
 }

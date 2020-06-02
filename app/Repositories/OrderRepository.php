@@ -21,7 +21,7 @@ class OrderRepository extends BaseRepository implements OrderContract
     $order = Order::create([
         'order_number'      =>  'ORD-'.strtoupper(uniqid()),
         'user_id'           => auth()->user()->id,
-        'status'            =>  'completed',
+        'status'            =>  'pending',
         'grand_total'       =>  Cartt::getTotal(auth()->user()->id),
         'item_count'        =>  Cartt::Counter(auth()->user()->id),
         'payment_status'    =>  1,
@@ -68,7 +68,7 @@ class OrderRepository extends BaseRepository implements OrderContract
     $order = Order::create([
         'order_number'      =>  'ORD-'.strtoupper(uniqid()),
         'user_id'           => auth()->user()->id,
-        'status'            =>  'completed',
+        'status'            =>  'pending',
         'grand_total'       =>  Cart::getSubTotal(),
         'item_count'        =>  Cart::getTotalQuantity(),
         'payment_status'    =>  1,
@@ -103,11 +103,14 @@ class OrderRepository extends BaseRepository implements OrderContract
             
             $product->quantity = $product->quantity - $item->quantity ;
             $product->save();
+
         }
     }
 
     return $order;
 }
+
+
 
 public function listOrders(string $order = 'id', string $sort = 'desc', array $columns = ['*'])
 {
@@ -119,7 +122,38 @@ public function findOrderByNumber($orderNumber)
     return Order::where('order_number', $orderNumber)->first();
 }
 
+public function findOrderById(int $id)
+{
+    try {
+        return $this->findOneOrFail($id);
 
+    } catch (ModelNotFoundException $e) {
+
+        throw new ModelNotFoundException($e);
+    }
+}
+
+   public function updateOrder(array $params)
+    {
+        $order = $this->findOrderById($params['id']);
+
+        $collection = collect($params)->except('_token');
+        $payment_status = $collection->has('payment_status') ? 1 : 0;
+        $merge = $collection->merge(compact('payment_status'));
+
+        $order->update($merge->all());
+  
+        return $order;
+    }
+
+    public function deleteOrder($id)
+    {
+        $order = $this->findOrderById($id);
+
+        $order->delete();
+
+        return $order;
+    }
 
 
 

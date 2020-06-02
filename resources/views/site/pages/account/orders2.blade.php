@@ -21,7 +21,6 @@
                                 <th scope="col">Order Price</th>
                                 <th scope="col">Items Number</th>
                                 <th scope="col">Status</th>
-                                <th style="width:100px; min-width:100px;" class="text-center text-danger"><i class="fa fa-bolt"> </i></th> 
                             </tr>
                           
                         </thead>
@@ -33,11 +32,6 @@
                                     <td>{{ config('settings.currency_symbol') }}{{ round($order->grand_total, 2) }}</td>
                                     <td>{{ $order->item_count }}</td>
                                     <td><span class="badge badge-success">{{ strtoupper($order->status) }}</span></td>
-                                    <td>
-                                        @if($order->status == 'pending')
-                                    <a href="{{ route('order.delete', $order->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                                    @endif
-                                    </td>
                                 </tr>
                             @empty
                                 <div class="col-sm-12">
