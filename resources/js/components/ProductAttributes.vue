@@ -35,13 +35,7 @@
                         <input class="form-control" type="number" id="quantity" v-model="currentQty"/>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="control-label" for="price">Price</label>
-                        <input class="form-control" type="text" id="price" v-model="currentPrice"/>
-                        <small class="text-danger">This price will be added to the main price of product on frontend.</small>
-                    </div>
-                </div>
+               
                 <div class="col-md-12">
                     <button class="btn btn-sm btn-primary" @click="addProductAttribute()">
                         <i class="fa fa-plus"></i> Add
@@ -57,8 +51,7 @@
                         <thead>
                         <tr class="text-center">
                             <th>Value</th>
-                            <th>Qty</th>
-                            <th>Price</th>
+                            <th>Qty</th>    
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -66,7 +59,7 @@
                         <tr v-for="pa in productAttributes" v-bind:key="pa">
                             <td style="width: 25%" class="text-center">{{ pa.value}}</td>
                             <td style="width: 25%" class="text-center">{{ pa.quantity}}</td>
-                            <td style="width: 25%" class="text-center">{{ pa.price}}</td>
+                           
                             <td style="width: 25%" class="text-center">
                                 <button class="btn btn-sm btn-danger" @click="deleteProductAttribute(pa)">
                                     <i class="fa fa-trash"></i>
@@ -97,7 +90,6 @@
                 currentAttributeId: '',
                 currentValue: '',
                 currentQty: '',
-                currentPrice: '',
             }
         },
         created: function() {
@@ -139,7 +131,6 @@
                 this.valueSelected = true;
                 this.currentValue = value.value;
                 this.currentQty = value.quantity;
-                this.currentPrice = value.price;
             },
             addProductAttribute() {
                 if (this.currentQty === null || this.currentPrice === null) {
@@ -152,7 +143,6 @@
                         attribute_id: this.currentAttributeId,
                         value:  this.currentValue,
                         quantity: this.currentQty,
-                        price: this.currentPrice,
                         product_id: this.productid,
                     };
 
@@ -164,7 +154,6 @@
                         });
                         _this.currentValue = '';
                         _this.currentQty = '';
-                        _this.currentPrice = '';
                         _this.valueSelected = false;
                     }).catch(function (error) {
                         console.log(error);

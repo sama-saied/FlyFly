@@ -15,17 +15,6 @@
                         v-model="value"
                     />
                 </div>
-                <div class="form-group">
-                    <label class="control-label" for="price">Price</label>
-                    <input
-                        class="form-control"
-                        type="number"
-                        placeholder="Enter attribute value price"
-                        id="price"
-                        name="price"
-                        v-model="price"
-                    />
-                </div>
             </div>
             <div class="tile-footer">
                 <div class="row d-print-none mt-2">
@@ -52,7 +41,6 @@
                         <tr class="text-center">
                             <th>#</th>
                             <th>Value</th>
-                            <th>Price</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -60,7 +48,6 @@
                       <tr v-for="value in values"  v-bind:key = "value">
                             <td style="width: 25%" class="text-center">{{ value.id}}</td>
                             <td style="width: 25%" class="text-center">{{ value.value}}</td>
-                            <td style="width: 25%" class="text-center">{{ value.price}}</td>
                             <td style="width: 25%" class="text-center">
                                 <button class="btn btn-sm btn-primary" @click.stop="editAttributeValue(value)">
                                     <i class="fa fa-edit"></i>
@@ -86,7 +73,6 @@
             return {
                 values: [],
                 value: '',
-                price: '',
                 currentId: '',
                 addValue: true,
                 key: 0,
@@ -118,7 +104,7 @@
                     axios.post('/admin/attributes/add-values', {
                         id: attributeId,
                         value: _this.value,
-                        price: _this.price,
+                       
                     }).then (function(response){
                         _this.values.push(response.data);
                         _this.resetValue();
@@ -133,7 +119,7 @@
             editAttributeValue(value) {
                 this.addValue = false;
                 this.value = value.value;
-                this.price = value.price;
+               
                 this.currentId = value.id;
                 this.key = this.values.indexOf(value);
             },
@@ -148,7 +134,7 @@
                     axios.post('/admin/attributes/update-values', {
                         id: attributeId,
                         value: _this.value,
-                        price: _this.price,
+                      
                         valueId: _this.currentId
                     }).then (function(response){
                         _this.values.splice(_this.key, 1);
@@ -196,7 +182,7 @@
             },
             resetValue() {
                 this.value = '';
-                this.price = '';
+               
             },
             reset() {
                 this.addValue = true;
