@@ -1,4 +1,5 @@
 <template>
+ <component-to-re-render :key="componentKey" >
     <div>
         <div class="tile">
             <h3 class="tile-title">Attributes</h3>
