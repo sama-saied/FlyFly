@@ -31,7 +31,7 @@
                                 @endif
                                 <div class="col-md-10">
                                     <label class="control-label">Brand Logo</label>
-                                    <input class="form-control @error('logo') is-invalid @enderror" type="file" id="logo" name="logo"/>
+                                    <input class="form-control @error('logo') is-invalid @enderror" type="file" id="logo" name="logo" required/>
                                     @error('logo') {{ $message }} @enderror
                                 </div>
                             </div>

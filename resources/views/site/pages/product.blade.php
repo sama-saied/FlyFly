@@ -112,7 +112,7 @@
                                                                         @if ($attributeValue->attribute_id == $attribute->id)
                                                                             <option
                                                                                 data-price="{{ $attributeValue->price }}"
-                                                                                value="{{ $attributeValue->value }}"> {{ ucwords($attributeValue->value . ' +'. $attributeValue->price) }}
+                                                                                value="{{ $attributeValue->value }}"> {{ ucwords($attributeValue->value) }}
                                                                             </option>
                                                                             <input type="hidden" name="key" value="{{$attribute->name}}">
                                                                             <input type="hidden" name="value" value="{{$attributeValue->value}}">

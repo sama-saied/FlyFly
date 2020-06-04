@@ -40,7 +40,7 @@
                         <thead>
                         <tr class="text-center">
                             <th>#</th>
-                            <th>Value new </th>
+                            <th>Value</th>
                             <th>Action</th>
                         </tr>
                         </thead>
