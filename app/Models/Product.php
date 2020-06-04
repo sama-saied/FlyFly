@@ -103,13 +103,17 @@ public function categories()
         return $this->hasMany(Comment::class);
     }
 
+
+
     public function getSearchResult(): SearchResult
     {
         $url = route('product.show', $this->name);
+        $image = route('k', $this->name);
         return new SearchResult(
             $this,
             $this->name,
-            $url
+            $url,
+            $image
         );
     }
 }

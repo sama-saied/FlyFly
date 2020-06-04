@@ -20,7 +20,6 @@ class AttributeValueController extends Controller
     {
         $attributeId = $request->input('id');
         $attribute = $this->attributeRepository->findAttributeById($attributeId);
-
         $values = $attribute->values;
 
         return response()->json($values);
@@ -31,7 +30,6 @@ class AttributeValueController extends Controller
         $value = new AttributeValue();
         $value->attribute_id = $request->input('id');
         $value->value = $request->input('value');
-       // $value->price = $request->input('price');
         $value->save();
 
         return response()->json($value);
@@ -42,7 +40,6 @@ class AttributeValueController extends Controller
         $attributeValue = AttributeValue::findOrFail($request->input('valueId'));
         $attributeValue->attribute_id = $request->input('id');
         $attributeValue->value = $request->input('value');
-        //$attributeValue->price = $request->input('price');
         $attributeValue->save();
 
         return response()->json($attributeValue);
