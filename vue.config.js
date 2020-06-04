@@ -1,3 +1,1 @@
-module.exports = {
-    publicPath:' '
-    }
+export const publicPath = ' ';

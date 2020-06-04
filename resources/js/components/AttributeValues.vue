@@ -1,8 +1,7 @@
 <template>
- <component-to-re-render :key="componentKey" >
     <div id="">
         <div class="tile">
-            <h3 class="tile-title">Attribute Values</h3>
+            <h3 class="tile-title">Attribute Values same</h3>
             <hr>
             <div class="tile-body">
                 <div class="form-group">
@@ -77,6 +76,7 @@
                 currentId: '',
                 addValue: true,
                 key: 0,
+                
             }
         },
         created: function() {

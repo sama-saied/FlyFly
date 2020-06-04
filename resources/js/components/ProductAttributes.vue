@@ -1,5 +1,4 @@
 <template>
- <component-to-re-render :key="componentKey" >
     <div>
         <div class="tile">
             <h3 class="tile-title">Attributes</h3>
@@ -98,6 +97,7 @@
             this.loadProductAttributes(this.productid);
         },
         methods: {
+            
             loadAttributes() {
                 let _this = this;
                 axios.get('/admin/products/attributes/load').then (function(response){
