@@ -7,8 +7,9 @@ use App\Contracts\ProductContract;
 use App\Http\Controllers\Controller;
 use App\Contracts\AttributeContract;
 use App\Models\Cartt;
-//use App\Models\Cart;
+use Cart;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 use Session;
 use App\Models\Cart_storage;
 
@@ -44,8 +45,10 @@ class ProductController extends Controller
 public function addToCart(Request $request)
 {
     $product = $this->productRepository->findProductById($request->input('productId'));
-    $options =  $request->except('_token', 'productId', 'price', 'qty','productImg');
-    
+    $options =  $request->except('_token', 'productId', 'price', 'qty','productImg','key');
+
+    if(Auth::check())
+ {
     Cartt::add($request->input('productId'), $product->name, $request->input('price'), 
     $request->input('qty'),$request->input('productImg'));
 
@@ -53,9 +56,20 @@ public function addToCart(Request $request)
     $i = $id->id;
    if($request->input('key'))
    {
-     
-       Cartt::addattr($request->input('key'),$request->input('value'),$i);
+
+       foreach($options as $key => $value )
+       {
+       Cartt::addattr($key,$value,$i);
+       }
    }
+ }
+    else
+    {
+    Cart::add(uniqid(), $product->name, $request->input('price'), $request->input('qty')
+    ,$request->input('productImg'), $options);
+    }
+
+   
 
     return redirect()->back()->with('message', 'Item added to cart successfully.');
 }

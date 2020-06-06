@@ -37,11 +37,13 @@
 							<tbody>
 							@foreach(\Cart::getContent() as $item)
 								<tr>
-									<td class="product-col">
-									
-                                       <a href="{{ asset('storage/'.$item->productImg) }}" data-fancybox="">
-                                          <img class="product-big-img" src="{{ asset('storage/'.$item->productImg) }}" alt="">
-                                       </a>
+								<td class="product-col">
+									<div class="product-pic-zoom">
+								
+									<a href="{{ asset('storage/'.$item->productImg) }}" data-fancybox="">
+										<img src="{{ asset('storage/'.$item->productImg) }}" alt="">
+									</a>
+									</div>
 									
 										<div class="pc-title">
 											<h4>{{ Str::words($item->name,20) }}</h4>
