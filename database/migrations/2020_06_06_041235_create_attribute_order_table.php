@@ -15,10 +15,11 @@ class CreateAttributeOrderTable extends Migration
     {
         Schema::create('attribute_order', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('order_id');
-            $table->foreign('order_id')->references('id')->on('orders');
+            $table->unsignedBigInteger('order_item_id');
+            $table->foreign('order_item_id')->references('id')->on('order_items');
             $table->string('key_name');
             $table->text('value');
+            $table->timestamps();
         });
     }
 

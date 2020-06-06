@@ -14,7 +14,7 @@ class Attributes_Order extends Controller
        // $orderAttribute = attribute_order::create($request->data);
         //OR
         $orderAttribute = new attribute_order;
-        $orderAttribute->order_id = $request->order_id;
+        $orderAttribute->order_item_id = $request->order_item_id;
         $orderAttribute->key_name = $request->key_name;
         $orderAttribute->value = $request->value;
 

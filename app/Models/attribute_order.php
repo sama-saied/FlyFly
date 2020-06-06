@@ -17,12 +17,12 @@ class attribute_order extends Model
 
    
     protected $fillable = [
-        'order_id', 'key_name', 'value'
+        'order_item_id', 'key_name', 'value'
     ];
 
-    public function order()
+    public function orderItem()
     {
-        return $this->belongsTo(Order::class);
+        return $this->belongsTo(OrderItem::class);
     }
 
 }
