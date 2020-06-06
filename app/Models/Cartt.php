@@ -122,7 +122,7 @@ class Cartt extends Model
        }
        return $count;
     }
-
+ 
 
     public static function getContent($id)
     {
@@ -137,6 +137,12 @@ class Cartt extends Model
         $carts = Cartt::all();
         
        return $carts;
+    }
+
+    public static function getattr()
+    {
+        $attr = Cart_storage::all();
+        return $attr;
     }
 
     public static function ClearCart($id)
