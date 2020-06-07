@@ -4,6 +4,7 @@ namespace App\Repositories;
 use Cart;
 use App\Models\Order;
 use App\Models\Cartt;
+use App\Models\attribute_order;
 use App\Models\Product;
 use App\Models\OrderItem;
 use App\Contracts\OrderContract;
@@ -55,6 +56,18 @@ class OrderRepository extends BaseRepository implements OrderContract
             ]);
 
             $order->items()->save($orderItem);
+            
+
+            $i = Cartt::getContentt()->last();
+            $id = $i->id;
+
+            $attrs = Cartt::getattr();
+        
+            foreach($attrs as $attr)
+            {
+                if($item->id==$attr->cart_id)
+               attribute_order::add($id,$attr->value,$attr->key_name);
+            }
             
             $product->quantity = $product->quantity - $item->qty ;
             $product->save();

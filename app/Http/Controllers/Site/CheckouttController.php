@@ -43,7 +43,7 @@ class CheckouttController extends Controller
             $attr = Cart_storage::all();
             
         return view('site.pages.checkouttDisplay',compact('carts','pro','total','attr'));
-        }
+        } 
     }
 
 

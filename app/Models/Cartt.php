@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Models\Cart_storage;
+use App\Models\OrderItem;
 use GuzzleHttp\Psr7\Request;
 
 class Cartt extends Model 
@@ -145,14 +146,28 @@ class Cartt extends Model
         return $attr;
     }
 
+    public static function getContentt()
+    {
+        $items = OrderItem::all();
+        return $items;
+    }
+
     public static function ClearCart($id)
  {
     $carts = Cartt::all();
+    $attrs = Cart_storage::all();
     
      foreach($carts as $cart)
     {
        if($cart->user_id == $id)
        $cart->delete();
+
+       foreach($attrs as $attr)
+    {
+        if($attr->cart_id == $cart->id)
+          $attr->delete();
+
+    }
     }
      
  }

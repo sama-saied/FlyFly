@@ -39,21 +39,27 @@
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Qty</th>
-                                    <th>Product</th>
-                                  
+                                    <th>Product</th>      
                                     <th>Qty</th>
                                     <th>Subtotal</th>
+                                    <th>attriutes</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($order->items as $item)
                                         <tr>
-                                            <td>{{ $item->id }}</td>
                                             <td>{{ $item->product->name }}</td>
-                                           
                                             <td>{{ $item->quantity }}</td>
                                             <td>{{ config('settings.currency_symbol') }}{{ round($item->price, 2) }}</td>
+                                            <td>
+                                                @foreach($attrs as $atr)
+                                                @if($atr->order_item_id == $item->id)
+                                                {{$atr->key_name}}: 
+                                                {{$atr->value}}
+                                                <br>
+                                                @endif
+                                                @endforeach
+                                            </td>
                                         </tr>
                                      @endforeach
                                 </tbody>

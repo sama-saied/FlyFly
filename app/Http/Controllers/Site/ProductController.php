@@ -49,6 +49,8 @@ public function addToCart(Request $request)
 
     if(Auth::check())
  {
+     Cartt::check();
+     
     Cartt::add($request->input('productId'), $product->name, $request->input('price'), 
     $request->input('qty'),$request->input('productImg'));
 

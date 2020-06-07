@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Contracts\OrderContract;
 use App\Http\Controllers\BaseController;
+use App\Models\attribute_order;
 use Illuminate\Http\Request;
 use App\Models\Order;
 
@@ -28,7 +29,8 @@ public function show($orderNumber)
     $order = $this->orderRepository->findOrderByNumber($orderNumber);
 
     $this->setPageTitle('Order Details', $orderNumber);
-    return view('admin.orders.show', compact('order'));
+    $attrs = attribute_order::all();
+    return view('admin.orders.show', compact('order','attrs'));
 }
 
 
