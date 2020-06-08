@@ -152,6 +152,48 @@ class Cartt extends Model
         return $items;
     }
 
+  
+    public static function upda($qty,$id)
+    {
+        $carts = Cartt::all();
+        $ud = Auth::user()->id;
+        foreach($carts as $cart)
+        {
+            if($cart->user_id == $ud && $cart->product_id == $id)
+            {
+                $cart->qty = $qty;
+                $cart->save();
+            }
+        }
+    }
+/**
+     * check if cart is empty
+     *
+     * @return bool
+     */
+    public static function check($id,$k)
+    {
+        $carts = Cartt::all();
+        $ud = Auth::user()->id;
+        $y = 0;
+        foreach($carts as $cart)
+        {
+            if($cart->user_id == $ud && $cart->product_id == $id)
+            {
+                $y = 1;
+            }
+        }
+
+        if($k)
+        $s = true;
+        elseif($y < 1 && !$k)
+        $s = true;
+        else
+        $s = false;
+
+    return $s;
+    }
+
     public static function ClearCart($id)
  {
     $carts = Cartt::all();

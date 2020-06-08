@@ -49,8 +49,8 @@ public function addToCart(Request $request)
 
     if(Auth::check())
  {
-     Cartt::check();
-     
+    if(Cartt::check($request->input('productId'),$request->input('key')))
+ {
     Cartt::add($request->input('productId'), $product->name, $request->input('price'), 
     $request->input('qty'),$request->input('productImg'));
 
@@ -65,6 +65,9 @@ public function addToCart(Request $request)
        }
    }
  }
+ else {
+   Cartt::upda($request->input('qty'),$request->input('productId')); }
+}
     else
     {
     Cart::add(uniqid(), $product->name, $request->input('price'), $request->input('qty')
