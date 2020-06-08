@@ -161,7 +161,8 @@ class Cartt extends Model
         {
             if($cart->user_id == $ud && $cart->product_id == $id)
             {
-                $cart->qty = $qty;
+                $c = $cart->qty;
+                $cart->qty = $c + $qty;
                 $cart->save();
             }
         }
