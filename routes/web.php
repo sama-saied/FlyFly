@@ -15,8 +15,10 @@ use PharIo\Manifest\Url;
 |
 */
 
-
 Route::get('/', 'Homee@show');
+
+Route::get('/main', 'HomeController@index')->middleware('verified');
+
 Route::view('/admin', 'admin.dashboard.index');
 
 Route::get('/CartDisplay/{id}','Site\CarttController@getContent')->name('newcart');
@@ -35,13 +37,9 @@ Route::get('/adlink', 'Homee@adliink')->name('adlink');
 
 
 
-Auth::routes();
-
 require 'admin.php';
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes(['verify' => true]);
 
 Route::get('/category/{slug}', 'Site\CategoryController@show')->name('category.show');
 Route::get('/categoryy/{slug}', 'Site\CategoryController@showw')->name('category.showw');
@@ -71,9 +69,6 @@ Route::get('checkout/payment/complete', 'Site\CheckoutController@complete')->nam
 
 Route::get('account/orders', 'Site\AccountController@getOrders')->name('account.orders');
 Route::get('orderr/{id}', 'Site\AccountController@delete')->name('order.delete');
-//Route::get('account/profile', 'Site\AccountController@profile')->name('account.profile');
-//Route::post('account/profile', 'Site\AccountController@update_avatar');
-
 
 
 Route::get('display', 'Site\RatingController@products')->name('products.rate');
@@ -91,23 +86,6 @@ Route::get('search-results', 'Site\SearchController@search')->name('search.resul
 Route::get('profile', 'ProfileController@index');
 Route::post('profile/{id}', 'ProfileController@update')->name('profile.edit');
 
-
-
-/*Route::post('/cartt/{id}', 'CarttController@store')->name('cartt.store');
-Route::get('/cart', 'CarttController@getCart')->name('checkout.cartt');
-*/
-
-
-/*Route::get('AddToCart/{slug}','Site\ProductController@getAddToCart')->name('product.addToCart');
-
-
-Route::get('/add-to-cart/{product}', 'CartController@add')->name('cart.add')->middleware('auth');
-Route::get('/cartt', 'CartController@index')->name('cart.index')->middleware('auth');
-Route::get('/cart/item/{id}/remove', 'CartController@removeItem')->name('checkout.cart.remove')->middleware('auth');
-//Route::get('/cart/checkout', 'CartController@checkout')->name('cart.checkout')->middleware('auth');
-Route::get('/cart/apply-coupon', 'CartController@applyCoupon')->name('cart.coupon')->middleware('auth');
-
-*/
 
 Route::get('/view_admin', 'Admin\AdminController@view')->name('admin.view');
 Route::get('/add_admin', 'Admin\AdminController@add')->name('admin.add_admin.add_admin');
