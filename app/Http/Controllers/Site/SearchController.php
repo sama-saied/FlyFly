@@ -43,10 +43,10 @@ class SearchController extends Controller
     
 }
 
-    public function k()
+   /* public function k()
 {
     return view('test');
 }
-
+*/
    
 }

@@ -48,10 +48,6 @@ class AccountController extends Controller
     $order = $this->orderRepository->deleteOrder($id);
     return back();
 
-   /* if (!$order) {
-        return $this->responseRedirectBack('Error occurred while deleting order.', 'error', true, true);
-    }
-    return $this->responseRedirect('order deleted successfully' ,'success',false, false);*/
 }
 
 }

@@ -36,28 +36,9 @@
                             @error('parent_id') {{ $message }} @enderror
                         </div>
                        
-                        <div class="form-group">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" id="menu" name="menu"
-                                    {{ $targetCategory->menu == 1 ? 'checked' : '' }}
-                                    />Show in Menu
-                                </label>
-                            </div>
-                        </div>
+                      
                         
-                        <div class="form-group">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input class="form-check-input"
-                                           type="checkbox"
-                                           id="status"
-                                           name="status"
-                                           {{ $targetCategory->status == 1 ? 'checked' : '' }}
-                                        />Status
-                                </label>
-                            </div>
-                        </div>
+                       
                         <div class="form-group">
                             <div class="form-check">
                                 <label class="form-check-label">

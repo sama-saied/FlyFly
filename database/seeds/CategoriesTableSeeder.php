@@ -14,9 +14,7 @@ class CategoriesTableSeeder extends Seeder
     {
         Category::create([
             'name'          =>  'All-Categories',
-            'parent_id'     =>  null,
-            'menu'          =>  1,
-            'status'        =>  1,
+            'parent_id'     =>  0,         
             'featured'      =>  0,
 
         ]);

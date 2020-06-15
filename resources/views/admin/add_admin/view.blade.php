@@ -4,7 +4,7 @@
 
 <div class="app-title">  
     <div>
-        <h1><i class="fa fa-tags"></i> {{ $pageTitle }}</h1>
+        <h1><i class="fa fa-user fa-lg fa-1x"></i> {{ $pageTitle }}</h1>
         <p>{{ $subTitle }}</p>
     </div>   
     <a href="{{ route('admin.add_admin.add_admin') }}" class="btn btn-primary pull-right">Add Admin</a>

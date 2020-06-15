@@ -3,7 +3,7 @@
 @section('content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-tags"></i> {{ $pageTitle }}</h1>
+            <h1><i class="app-menu__icon fa fa-th"></i> {{ $pageTitle }}</h1>
             <p>{{ $subTitle }}</p>
         </div>
         <a href="{{ route('admin.attributes.create') }}" class="btn btn-primary pull-right">Add Attribute</a>

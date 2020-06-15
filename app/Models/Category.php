@@ -20,13 +20,12 @@ class Category extends Model implements Searchable
 
 
     protected $fillable = [
-        'name', 'slug','parent_id', 'menu', 'image' , 'status','featured',
+        'name', 'slug','parent_id','image' ,  'featured',
     ];
 
     protected $casts = [
         'parent_id' =>  'integer',
-        'menu'      =>  'boolean',
-        'status'    =>  'boolean',
+    
         'featured'  =>  'boolean'
     ];
 
@@ -50,9 +49,14 @@ public function children()
 /**
  * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
  */
-public function products()
+/*public function products()
 {
     return $this->belongsToMany(Product::class, 'product_categories', 'category_id', 'product_id');
+}*/
+
+public function products()
+{
+    return $this->hasMany(Product::class);
 }
 
 public function getSearchResult(): SearchResult

@@ -42,8 +42,6 @@ public function ClearCart($id)
     
 foreach($carts as $cart)
 {
-if($cart->user_id == $id)
-    $cart->delete();
 
     foreach($attrs as $attr)
     {
@@ -51,6 +49,11 @@ if($cart->user_id == $id)
           $attr->delete();
 
     }
+    
+if($cart->user_id == $id)
+    $cart->delete();
+
+    
 }
 $carts = Cartt::all();
 $bool = Cartt::isEmpty($id);

@@ -7,7 +7,7 @@
 @section('content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-tags"></i> {{ $pageTitle }}</h1>
+            <h1><i class="app-menu__icon fa fa-briefcase"></i> {{ $pageTitle }}</h1>
             <p>{{ $subTitle }}</p>
         </div>
         <a href="{{ route('admin.products.create') }}" class="btn btn-primary pull-right">Add Product</a>
@@ -23,9 +23,9 @@
                             <th> # </th>
                             <th> Name </th>
                             <th class="text-center"> Brand </th>
-                            <th class="text-center"> Categories </th>
+                            <th class="text-center"> Category </th>
                             <th class="text-center"> Price </th>
-                            <th class="text-center"> Status </th>
+ 
                             <th style="width:100px; min-width:100px;" class="text-center text-danger"><i class="fa fa-bolt"> </i></th>
                         </tr>
                         </thead>
@@ -35,19 +35,10 @@
                                     <td>{{ $product->id }}</td>
                                     <td>{{ $product->name }}</td>
                                     <td>{{ $product->brand->name }}</td>
-                                    <td>
-                                        @foreach($product->categories as $category)
-                                            <span class="badge badge-info">{{ $category->name }}</span>
-                                        @endforeach
-                                    </td>
+                                    <td>{{ $product->category->name }}</td>
+                                   
                                     <td>{{ config('settings.currency_symbol') }}{{ $product->price }}</td>
-                                    <td class="text-center">
-                                        @if ($product->status == 1)
-                                            <span class="badge badge-success">Active</span>
-                                        @else
-                                            <span class="badge badge-danger">Not Active</span>
-                                        @endif
-                                    </td>
+                                    
                                     <td class="text-center">
                                         <div class="btn-group" role="group" aria-label="Second group">
                                             <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>

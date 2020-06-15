@@ -109,13 +109,14 @@ Route::get('/cart/apply-coupon', 'CartController@applyCoupon')->name('cart.coupo
 
 */
 
+Route::group(['middleware' => ['auth:admin']], function () {
+
 Route::get('/view_admin', 'Admin\AdminController@view')->name('admin.view');
 Route::get('/add_admin', 'Admin\AdminController@add')->name('admin.add_admin.add_admin');
 Route::get('/delete_admin/{id}', 'Admin\AdminController@delete')->name('admin.delete');
 Route::post('/create_admin', 'Admin\AdminController@create')->name('admin.store');
 
 
-Route::get('/k', 'Site\SearchController@k')->name('k');
-
 Route::get('/view_comment', 'Admin\CommentControl@view')->name('comment.view');
 Route::get('/delete_comment/{id}', 'Admin\CommentControl@delete')->name('comment.delete');
+});

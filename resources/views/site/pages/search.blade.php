@@ -1,4 +1,5 @@
 @extends('site.app')
+@section('title', 'Search')
 @section('search')
 <!-- Page info -->
 <div class="page-top-info">

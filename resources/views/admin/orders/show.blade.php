@@ -29,8 +29,8 @@
                         <div class="col-4">
                             <b>Order ID:</b> {{ $order->order_number }}<br>
                             <b>Amount:</b> {{ config('settings.currency_symbol') }}{{ round($order->grand_total, 2) }}<br>
-                            <b>Payment Method:</b> {{ $order->payment_method }}<br>
-                            <b>Payment Status:</b> {{ $order->payment_status == 1 ? 'Completed' : 'Not Completed' }}<br>
+                           
+                           
                             <b>Order Status:</b> {{ $order->status }}<br>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                                     <th>Product</th>      
                                     <th>Qty</th>
                                     <th>Subtotal</th>
-                                    <th>attriutes</th>
+                                    <th>attributes</th>
                                 </tr>
                                 </thead>
                                 <tbody>

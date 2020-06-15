@@ -16,15 +16,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-lg-3">
-            <div class="widget-small info coloured-icon">
-                <i class="icon fa fa-thumbs-o-up fa-3x"></i>
-                <div class="info">
-                    <h4>Likes</h4>
-                    <p><b>25</b></p>
-                </div>
-            </div>
-        </div>
+       
         <div class="col-md-6 col-lg-3">
             <div class="widget-small danger coloured-icon">
                 <i class="icon fa fa-briefcase fa-3x " ></i>
@@ -45,7 +37,8 @@
         </div>
         <div class="col-md-6 col-lg-3">
             <div class="widget-small warning coloured-icon">
-                <i class="icon fa fa-briefcase fa-3x"></i>
+                <!--<i class="icon fa fa-briefcase fa-3x"></i>-->
+                <i class="icon fa fa-info-circle fa-3x"></i>
                 <div class="info">
                     <h4>Brands</h4>
                     <p><b>{{$brands = App\Models\Brand::count()}}</b></p>
@@ -53,7 +46,7 @@
             </div>
         </div>
         <div class="col-md-6 col-lg-3">
-            <div class="widget-small warning coloured-icon">
+            <div class="widget-small info coloured-icon">
                 <i class= "icon fa fa-bar-chart fa-3x"></i>
                 <div class="info">
                     <h4>Orders</h4>
@@ -61,15 +54,16 @@
                 </div>
             </div>
         </div>
-       
         <div class="col-md-6 col-lg-3">
-            <div class="widget-small danger coloured-icon">
-                <i class="icon fa fa-star fa-3x"></i>
-                <div class="info">
-                    <h4>Stars</h4>
-                    <p><b>500</b></p>
+            <div class="widget-small primary coloured-icon" >
+                <i class= "icon fa fa-comments fa-3x" ></i>
+                <div class="info" >
+                    <h4>Comments</h4>
+                    <p><b>{{$comments = App\Models\Comment::count()}}</b></p>
                 </div>
             </div>
         </div>
+       
+       
     </div>
 @endsection

@@ -20,6 +20,8 @@ class CategoryController extends Controller
         $category = $this->categoryRepository->findBySlug($slug);
      //   dd($category);
         return view('site.pages.category', compact('category'));
+   
+    
     }
     public function showw($slug)
     {

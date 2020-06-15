@@ -3,7 +3,7 @@
 @section('content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-briefcase"></i> {{ $pageTitle }}</h1>
+            <h1><i class="fa fa-info-circle"></i> {{ $pageTitle }}</h1>
             <p>{{ $subTitle }}</p>
         </div>
         <a href="{{ route('admin.brands.create') }}" class="btn btn-primary pull-right">Add Brand</a>

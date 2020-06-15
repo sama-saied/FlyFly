@@ -68,18 +68,18 @@ class ProductRepository extends BaseRepository implements ProductContract
 
             $featured = $collection->has('featured') ? 1 : 0;
 
-            $status = $collection->has('status') ? 1 : 0;
+   
 
-            $merge = $collection->merge(compact('status', 'featured'));
+            $merge = $collection->merge(compact('featured'));
 
 
             $product = new Product($merge->all());
 
             $product->save();
 
-            if ($collection->has('categories')) {
+           /* if ($collection->has('categories')) {
                 $product->categories()->sync($params['categories']);
-            }
+            }*/
             return $product;
 
         } catch (QueryException $exception) {
@@ -99,16 +99,16 @@ class ProductRepository extends BaseRepository implements ProductContract
 
         $featured = $collection->has('featured') ? 1 : 0;
 
-        $status = $collection->has('status') ? 1 : 0;
+         
 
-        $merge = $collection->merge(compact('status', 'featured'));
+        $merge = $collection->merge(compact('featured'));
 
 
         $product->update($merge->all());
 
-        if ($collection->has('categories')) {
+       /* if ($collection->has('categories')) {
             $product->categories()->sync($params['categories']);
-        }
+        }*/
 
         return $product;
     }

@@ -7,7 +7,7 @@
 =@section('content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-shopping-bag"></i> {{ $pageTitle }} - {{ $subTitle }}</h1>
+            <h1><i class="app-menu__icon fa fa-briefcase"></i> {{ $pageTitle }} - {{ $subTitle }}</h1>
         </div>
     </div>
     @include('admin.partials.flash')
@@ -67,20 +67,48 @@
                                             </div>
                                         </div>
                                     </div>
+                               
+
+                                
+                                   
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label" for="category_id">Category</label>
+                                            <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror">
+                                                <option value="0">Select a category</option>
+                                                @foreach($categories as $category)
+                                                @if($category->parent_id > 1 )
+                                                    @if ($product->category_id == $category->id)
+                                                    
+                                                        <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                                                        
+                                                    @else
+                                                    
+                                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                    @endif
+                                                    @endif
+                                                @endforeach
+                                            </select>
+                                            <div class="invalid-feedback active">
+                                                <i class="fa fa-exclamation-circle fa-fw"></i> @error('category_id') <span>{{ $message }}</span> @enderror
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="row">
+
+                                <!--<div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="control-label" for="categories">Categories</label>
                                             <select name="categories[]" id="categories" class="form-control" multiple>
-                                                @foreach($categories as $category)
-                                                    @php $check = in_array($category->id, $product->categories->pluck('id')->toArray()) ? 'selected' : ''@endphp
-                                                    <option value="{{ $category->id }}" {{ $check }}>{{ $category->name }}</option>
-                                                @endforeach
+                                                foreach(/*$categories as $category*/)
+                                                    php $check = in_array($category->id, $product->categories->pluck('id')->toArray()) ? 'selected' : ''@endphp
+                                                    <option value="{/{ $category->id }}" {/{ $check }}>{/{ $category->name }}</option>
+                                                endforeach
                                             </select>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -142,18 +170,7 @@
                                     <label class="control-label" for="shipping">Shipping & Returns</label>
                                     <textarea name="shipping" id="shipping" rows="8" class="form-control">{{ old('shipping', $product->shipping) }}</textarea>
                                 </div>
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <label class="form-check-label">
-                                            <input class="form-check-input"
-                                                   type="checkbox"
-                                                   id="status"
-                                                   name="status"
-                                                   {{ $product->status == 1 ? 'checked' : '' }}
-                                                />Status
-                                        </label>
-                                    </div>
-                                </div>
+                               
                                 <div class="form-group">
                                     <div class="form-check">
                                         <label class="form-check-label">

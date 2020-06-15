@@ -72,9 +72,9 @@ class Cartt extends Model
               if($pro->id == $cart->product_id)
                 {
                     if($pro->sale_price)
-                    $count += $pro->sale_price;
+                    $count += $pro->sale_price * $cart->qty;
                     else
-                 $count += $pro->price;
+                 $count += $pro->price * $cart->qty;
                 }
         }
         }
@@ -125,6 +125,26 @@ class Cartt extends Model
     }
  
 
+    public static function numbber($id)
+    {
+       $carts = Cartt::all();
+       $qt=0;
+       $ud = auth()->user()->id;
+
+       foreach($carts as $cart)
+       {
+           if($cart->user_id == $ud)
+          {
+              if($cart->product_id == $id)
+              {
+                  $qt += $cart->qty; 
+              }
+          }
+       }
+       return $qt;
+    }
+
+
     public static function getContent($id)
     {
         $carts = Cartt::all();
@@ -161,7 +181,7 @@ class Cartt extends Model
         {
             if($cart->user_id == $ud && $cart->product_id == $id)
             {
-                $cart->qty = $qty;
+                $cart->qty = $cart->qty + $qty;
                 $cart->save();
             }
         }
@@ -198,19 +218,22 @@ class Cartt extends Model
  {
     $carts = Cartt::all();
     $attrs = Cart_storage::all();
+
+    
     
      foreach($carts as $cart)
     {
-       if($cart->user_id == $id)
-       $cart->delete();
-
-       foreach($attrs as $attr)
+        foreach($attrs as $attr)
     {
         if($attr->cart_id == $cart->id)
           $attr->delete();
 
     }
-    }
+
+       if($cart->user_id == $id)
+       $cart->delete();
+   
+}
      
  }
 

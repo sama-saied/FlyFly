@@ -27,8 +27,8 @@ class Product extends Model implements Searchable
      * @var array
      */
     protected $fillable = [
-        'brand_id',  'name',  'slug','description', 'quantity',
-         'price', 'sale_price' , 'status','featured','shipping'
+        'brand_id','category_id',  'name',  'slug','description', 'quantity',
+         'price', 'sale_price' ,'featured','shipping'
     ];
 
     /**
@@ -37,7 +37,7 @@ class Product extends Model implements Searchable
     protected $casts = [
         'quantity'  =>  'integer',
         'brand_id'  =>  'integer',
-        'status'    =>  'boolean',
+        'category_id'=>  'integer',
         'featured'  =>  'boolean'
 
     ];
@@ -79,10 +79,16 @@ public function attributes()
 /**
  * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
  */
-public function categories()
+/*public function categories()
 {
     return $this->belongsToMany(Category::class, 'product_categories', 'product_id', 'category_id');
-}
+}*/
+
+public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -108,12 +114,12 @@ public function categories()
     public function getSearchResult(): SearchResult
     {
         $url = route('product.show', $this->name);
-        $image = route('k', $this->name);
+     //   $image = route('k', $this->name);
         return new SearchResult(
             $this,
             $this->name,
-            $url,
-            $image
+            $url
+          //  $image
         );
     }
 }

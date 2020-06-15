@@ -25,8 +25,8 @@ class OrderRepository extends BaseRepository implements OrderContract
         'status'            =>  'pending',
         'grand_total'       =>  Cartt::getTotal(auth()->user()->id),
         'item_count'        =>  Cartt::Counter(auth()->user()->id),
-        'payment_status'    =>  1,
-        'payment_method'    =>  null,
+       // 'payment_status'    =>  1,
+       // 'payment_method'    =>  null,
         'first_name'        =>  $params['first_name'],
         'last_name'         =>  $params['last_name'],
         'address'           =>  $params['address'],
@@ -84,8 +84,8 @@ class OrderRepository extends BaseRepository implements OrderContract
         'status'            =>  'pending',
         'grand_total'       =>  Cart::getSubTotal(),
         'item_count'        =>  Cart::getTotalQuantity(),
-        'payment_status'    =>  1,
-        'payment_method'    =>  null,
+       // 'payment_status'    =>  1,
+      //  'payment_method'    =>  null,
         'first_name'        =>  $params['first_name'],
         'last_name'         =>  $params['last_name'],
         'address'           =>  $params['address'],
@@ -114,6 +114,7 @@ class OrderRepository extends BaseRepository implements OrderContract
 
             $order->items()->save($orderItem);
             
+           
             $product->quantity = $product->quantity - $item->quantity ;
             $product->save();
 
@@ -151,8 +152,8 @@ public function findOrderById(int $id)
         $order = $this->findOrderById($params['id']);
 
         $collection = collect($params)->except('_token');
-        $payment_status = $collection->has('payment_status') ? 1 : 0;
-        $merge = $collection->merge(compact('payment_status'));
+        $status = $collection->has('status') ? 1 : 0;
+        $merge = $collection->merge(compact('status'));
 
         $order->update($merge->all());
   
@@ -161,11 +162,53 @@ public function findOrderById(int $id)
 
     public function deleteOrder($id)
     {
+
         $order = $this->findOrderById($id);
+        $items = OrderItem::all();
 
-        $order->delete();
+        $attr_order = attribute_order::all();
 
-        return $order;
+        foreach($items as $item)
+{
+     
+    if($item->order_id == $id)
+    {
+        $product = Product::where('id', $item->product_id)->first();
+        $product->quantity = $product->quantity + $item->quantity ;
+        $product->save();
+    }  
+    
+    
+
+    if($item->order_id == $id)
+     {
+    foreach($attr_order as $attr)
+    {
+        if($attr->order_item_id == $item->id)
+  
+        {
+             $attr->delete();
+      }
+      }
+     }
+}
+$order->delete();
+return $order;
+    
+     /*   foreach ($items as $item)
+        {
+           
+
+            if($item->order_id == $id)
+            {
+            $product = Product::where('id', $item->product_id)->first();
+            $product->quantity = $product->quantity + $item->quantity ;
+            $product->save();
+            }
+        }*/
+       
+
+        
     }
 
 

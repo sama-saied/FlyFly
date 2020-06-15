@@ -20,7 +20,8 @@
 					@guest
 					<div class="up-item">
 							<div class="shopping-card">
-								<i class="flaticon-bag"></i>
+								<!--<i class="flaticon-bag"></i>-->
+								<i class="fa fa-shopping-cart"></i>
 								<span>{{ $cartCount }}</span>
 							</div>
 							<a href="{{ route('checkout.cart') }}">Shopping Cart</a>
@@ -32,7 +33,8 @@
 						@else
 						<div class="up-item">
 							<div class="shopping-card">
-								<i class="flaticon-bag"></i>
+								<!--<i class="flaticon-bag"></i>-->
+								<i class="fa fa-shopping-cart"></i>
 								<span>{{ $carttCount }}</span>
 							</div>
 							<a href="{{ route('newcart',auth()->user()->id) }}">Shopping Cart</a>

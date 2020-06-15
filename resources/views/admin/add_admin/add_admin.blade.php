@@ -3,7 +3,7 @@
 @section('content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-tags"></i> {{ $pageTitle }} - {{ $subTitle }}</h1>
+            <h1><i class="fa fa-user fa-lg fa-1x"></i> {{ $pageTitle }} - {{ $subTitle }}</h1>
         </div>
     </div>
     @include('admin.partials.flash')

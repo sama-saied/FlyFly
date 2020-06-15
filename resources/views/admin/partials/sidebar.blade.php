@@ -30,8 +30,9 @@
 
         <li>
             <a class="app-menu__item {{ Route::currentRouteName() == 'admin.brands.index' ? 'active' : '' }}" href="{{ route('admin.brands.index') }}">
-                <i class="app-menu__icon fa fa-briefcase"></i>
-                <span class="app-menu__label">Brands</span>
+                <!--<i class="app-menu__icon fa fa-briefcase"></i>-->
+                <i class="fa fa-info-circle"></i>
+            <span class="app-menu__label">{{"."}} Brands</span>
             </a>
         </li>
 
@@ -50,15 +51,15 @@
         </li>
         <li>
             <a class="app-menu__item {{ Route::currentRouteName() == 'admin.view' ? 'active' : '' }}" href="{{ route('admin.view') }}">
-                <i class="fa fa-user fa-lg fa-1x"></i>
-                <span class="app-menu__label">{{"--"}}Admins</span>
+                <i class="icon fa fa-user fa-lg fa-1x"></i>
+                <span class="app-menu__label">{{"."}}Admins</span>
             </a>
         </li>
 
         <li>
             <a class="app-menu__item {{ Route::currentRouteName() == 'comment.view' ? 'active' : '' }}" href="{{ route('comment.view') }}">
-                <i class="app-menu__icon fa fa-bar-chart"></i>
-                <span class="app-menu__label">{{"--"}}Users Comments</span>
+                <i class="icon fa fa-comments"></i>
+                <span class="app-menu__label">{{"."}} Users Comments</span>
             </a>
         </li>
     </ul>

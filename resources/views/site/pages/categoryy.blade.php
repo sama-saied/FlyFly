@@ -1,19 +1,13 @@
 @extends('site.app')
+@section('title', 'Not Available')
 @section('content')
-
-@include('site.partials.herosection')
-
+   
+    <section class="section-content bg padding-y border-top">
+        <div class="container">
+            <div class="row">
+                <main class="col-sm-12">
+				<p class="alert alert-success"> Sorry, {{$categoryy->name}} Category is a parent category . it is not available page </p></main>
+            </div>
+        </div>
+    </section>
 @stop
-
-@push('scripts')
-
-<script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){		
-			event.preventDefault();
-			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-		});
-	});
-</script>
-
-@endpush
