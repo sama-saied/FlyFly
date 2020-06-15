@@ -44,6 +44,7 @@
             <li><a href="/">Home</a></li>
                 @foreach($categories as $cat)
                     @foreach($cat->items as $category)
+
                     @if ($category->items->count() > 0)
                     <li>
                      <a  href="{{ route('category.show', $category->slug) }}" id="{{ $category->slug }}"
@@ -57,6 +58,9 @@
                         </ul>
                     </li>
                     @else
+
+                       
+
                             <li>
                                 <ul class="sub-menu">
                                 <a href="{{ route('category.show', $category->slug) }}">{{ $category->name }}</a>

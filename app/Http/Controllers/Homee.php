@@ -7,11 +7,18 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Setting;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
 class Homee extends Controller
 {
+  
+ /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function show()
 {
 

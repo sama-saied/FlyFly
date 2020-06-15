@@ -1905,6 +1905,24 @@ ol {
 }
 
 /* --------------
+  main
+------------------*/
+.mainne {
+	
+	font-size: 14px;
+	font-weight: 600;
+	color: #2c2c2c;
+	
+	padding: 15px 0 10px;
+	margin-left: 20px;
+	margin-top: 70px;
+	margin-bottom: 70px;
+	margin-right: 20px;
+	background: #f7f5f5;
+
+
+}
+/* --------------
   comments
 ------------------*/
 .comment-top-info {
