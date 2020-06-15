@@ -30,7 +30,7 @@
 		</div>
 	</section>
 	<!-- Hero section end -->
-
+	<div class="mainne">
 	<!-- letest product section -->
 	<section class="top-letest-product-section">
 		<div class="container">
@@ -80,8 +80,13 @@
 	</div>
 	</section>
 	<!-- letest product section end -->
+	</div>
+	<div class="mainee">
 
 @include('site.partials.herosection')
+</div>
+
+<div class="mainne">
 	<!-- letest product section -->
 	<section class="top-letest-product-section">
 		<div class="container">
@@ -129,7 +134,7 @@
 	</div>
 	</section>
 	<!-- letest product section end -->
-
+</div>
 
 <!-- Banner section -->
 <section class="banner-section">
@@ -143,7 +148,6 @@
 		</div>
 	</section>
 	<!-- Banner section end  -->
-	
 </body>
 
 @stop

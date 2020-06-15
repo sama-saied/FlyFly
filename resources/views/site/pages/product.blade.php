@@ -114,11 +114,10 @@
                                                                                 data-price="{{ $attributeValue->price }}"
                                                                                 value="{{ $attributeValue->value }}"> {{ ucwords($attributeValue->value) }}
                                                                             </option>
-                                                                            <input type="hidden" name="key" value="{{$attribute->name}}">
-                                                                            
                                                                         @endif
                                                                     @endforeach
                                                                 </select>
+                                                                <input type="hidden" name="key" value="{{$attribute->name}}">
 															</dd>
 															@else
 														<dt>            </td></tr></dt>

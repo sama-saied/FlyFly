@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::get('/firstproduct', 'Homee@firstproduct')->name('firstproductlink');
 Route::get('/secondproduct', 'Homee@secondproduct')->name('secondproductlink');
-Route::get('/adlink', 'Homee@adliink')->name('adlink');
+Route::get('/adlink', 'Homee@adlink')->name('adlink');
 
 
 
