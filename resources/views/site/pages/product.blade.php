@@ -132,7 +132,7 @@
 					                        	<dl class="dlist-inline">
                                                     <dt>Quantity: </dt>
                                                     <dd>
-                                                        <input class="quantity" type="number" min="1" value="1" max="{{ $attributeValue->quantity }}" name="qty" style="width:70px;">
+                                                        <input class="quantity" type="number" min="1" value="1" max="{{ $product->quantity }}" name="qty" style="width:70px;">
                                                         <input type="hidden" name="productImg" value="{{ $product->images->first()->full }}">
                                                         <input type="hidden" name="productId" value="{{ $product->id }}">
                                                         <input type="hidden" name="price" id="finalPrice" value="{{ $product->sale_price != '' ? $product->sale_price : $product->price }}">

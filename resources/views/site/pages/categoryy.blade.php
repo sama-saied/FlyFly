@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <main class="col-sm-12">
-				<p class="alert alert-success"> Sorry, {{$categoryy->name}} Category is a parent category . it is not available page </p></main>
+				<p class="alert alert-success"> Sorry, {{$categoryy->name}} Category page is not available yet. </p></main>
             </div>
         </div>
     </section>
