@@ -71,7 +71,10 @@
 <footer class="section-footer">
     <div class="container">
 	<div class="footer-logo text-center">
-				<a href="/"><img src="{{ asset('storage/'.config('settings.site_favicon')) }}" /></a>
+				<!--<a href="/"><img src="{/{ asset('storage/'.config('settings.site_favicon')) }}" /></a>-->
+				<a href="{{ url('/') }}" class="logo">
+					<img src="{{ asset('frontdivi/img/logowhite.png') }}" alt="logo">
+				</a>
 			</div>
         <section class="footer-top padding-top">
             <div class="row">
