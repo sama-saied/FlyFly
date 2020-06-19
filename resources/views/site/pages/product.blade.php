@@ -40,7 +40,7 @@
 				<div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
 				@foreach($product->images as $image)
 						<div class="product-thumbs-track">
-							<div class="pt active" ><img src="{{ asset('storage/'.$image->full) }}" alt=""></div>
+							<div class="pt" data-imgbigurl="{{ asset('storage/'.$image->full) }}"><img src="{{ asset('storage/'.$image->full) }}" alt=""></div>
 						</div>
 				@endforeach
 					</div>
