@@ -8,6 +8,12 @@ use App\Http\Controllers\Controller;
 
 class CartController extends Controller
 {
+
+    public function __construct()
+    {
+     $this->middleware('auth');
+    }
+    
     public function getCart()
     {
         return view('site.pages.cart');
