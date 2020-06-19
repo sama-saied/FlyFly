@@ -113,11 +113,11 @@ public function category()
 
     public function getSearchResult(): SearchResult
     {
-        $url = route('product.show', $this->name);
+        $url = route('product.show', $this->slug);
      //   $image = route('k', $this->name);
         return new SearchResult(
             $this,
-            $this->name,
+            $this->slug,
             $url
           //  $image
         );

@@ -41,11 +41,11 @@ public function products()
 
 public function getSearchResult(): SearchResult
 {
-    $url = route('brand.show', $this->name);
+    $url = route('brand.show', $this->slug);
    // $image = route('k', $this->name);
     return new SearchResult(
         $this,
-        $this->name,
+        $this->slug,
         $url
       //  $image
     );

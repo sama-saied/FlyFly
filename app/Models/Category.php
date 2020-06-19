@@ -64,18 +64,18 @@ public function getSearchResult(): SearchResult
      if($this->parent_id == 1)
      {
          
-        $url = route('category.showw', $this->name);
+        $url = route('category.showw', $this->slug);
         return new SearchResult(
             $this,
-            $this->name,
+            $this->slug,
             $url
         );
      }
      else{
-    $url = route('category.show', $this->name);
+    $url = route('category.show', $this->slug);
     return new SearchResult(
         $this,
-        $this->name,
+        $this->slug,
         $url
     );
      }
