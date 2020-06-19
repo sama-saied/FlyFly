@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Product;
+use App\Models\ProductAttribute;
 use App\Traits\UploadAble;
 use Illuminate\Http\UploadedFile;
 use App\Contracts\ProductContract;
@@ -120,6 +121,16 @@ class ProductRepository extends BaseRepository implements ProductContract
     public function deleteProduct($id)
     {
         $product = $this->findProductById($id);
+        $pro_attr = ProductAttribute::all();
+
+        foreach($pro_attr as $attr)
+        {
+            if($attr->product_id == $id)
+            {
+                $attr->delete();
+            }
+
+        }
 
         $product->delete();
 

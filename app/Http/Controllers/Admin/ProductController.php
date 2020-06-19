@@ -77,7 +77,7 @@ public function update(StoreProductFormRequest $request)
     if (!$product) {
         return $this->responseRedirectBack('Error occurred while updating product.', 'error', true, true);
     }
-    return $this->responseRedirect('admin.products.index', 'Product updated successfully' ,'success',false, false);
+    return $this->responseRedirect('admin.products.edit', 'Product updated successfully' ,'success',false, false);
 }
 
 public function delete($id)
