@@ -31,7 +31,7 @@
                                     @endif
 									<div class="pi-links">
 										<a href="{{ route('product.show', $product->slug) }}" class="add-card"><i class="flaticon-bag"></i><span>SHOP NOW</span></a>
-										
+										<br>
 									</div>
                                 </div>
                                 <div class="pi-text">
@@ -40,12 +40,13 @@
                                 <div class="tag-sale">ON SALE</div>
                                 <div class="price-wrap h5">
                                         <span class="price"> {{ $product->sale_price }} {{ config('settings.currency_symbol')}} </span>
-									</div>
+									
 									<del class="price-old"> {{ $product->price }} {{ config('settings.currency_symbol')}}</del>
-                                @else
+									</div> <br>
+							 @else
                                     <div class="price-wrap h5">
                                     <p> {{ $product->price }} {{ config('settings.currency_symbol')}} </p>
-                                    </div>
+                                    </div> <br>
                                 @endif
 									
 								</div>

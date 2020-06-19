@@ -59,7 +59,7 @@ public function adlink()
     $key = 'adv_link';
     $li=setting::get($key);
     
-    return redirect()->away($li);    
+    return redirect()->away($li);     
 }
 
 }

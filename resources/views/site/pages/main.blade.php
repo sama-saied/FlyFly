@@ -64,8 +64,9 @@
 						<div class="tag-sale">ON SALE</div>
                                 <div class="price-wrap h5">
                                         <span class="price"> {{ $product->sale_price }} {{ config('settings.currency_symbol')}} </span>
-									</div>
+									
 									<del class="price-old"> {{ $product->price }} {{ config('settings.currency_symbol')}}</del>
+									</div>
 									@else
                                     <div class="price-wrap h5">
                                     <p> {{ $product->price }} {{ config('settings.currency_symbol')}} </p>
@@ -80,13 +81,12 @@
 	</div>
 	</section>
 	<!-- letest product section end -->
-	</div>
-	<div class="mainee">
+	
+	
 
 @include('site.partials.herosection')
-</div>
 
-<div class="mainne">
+
 	<!-- letest product section -->
 	<section class="top-letest-product-section">
 		<div class="container">
@@ -134,20 +134,20 @@
 	</div>
 	</section>
 	<!-- letest product section end -->
-</div>
+
 
 <!-- Banner section -->
 <section class="banner-section">
 		<div class="container">
 			<div class="banner set-bg" data-setbg="{{asset('storage/'.$ad)}}">
 				<div class="tag-new">NEW</div>
-				<span>New Arrivals</span>
-				<h2>STRIPED SHIRTS</h2>
+				
 				<a href="{{ route('adlink') }}" class="site-btn">SHOP NOW</a>
 			</div>
 		</div>
 	</section>
 	<!-- Banner section end  -->
+	</div>
 </body>
 
 @stop

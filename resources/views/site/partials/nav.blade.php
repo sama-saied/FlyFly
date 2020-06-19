@@ -44,23 +44,19 @@
             <li><a href="/">Home</a></li>
                 @foreach($categories as $cat)
                     @foreach($cat->items as $category)
-
-                    @if ($category->items->count() > 0)
-                    <li>
-                     <a  href="{{ route('category.show', $category->slug) }}" id="{{ $category->slug }}"
-                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ $category->name }}</a>
-                        <ul class="sub-menu">
-                            <div  aria-labelledby="{{ $category->slug }}">
-                                @foreach($category->items as $item)
-                                    <a href="{{ route('category.show', $item->slug) }}">{{ $item->name }}</a>
-                                @endforeach
-                            </div>
-                        </ul>
-                    </li>
-                    @else
-
-                       
-
+                        @if ($category->items->count() > 0)
+                        <li>
+                         <a  href="{{ route('category.show', $category->slug) }}" id="{{ $category->slug }}"
+                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ $category->name }}</a>
+                            <ul class="sub-menu">
+                                <div  aria-labelledby="{{ $category->slug }}">
+                                    @foreach($category->items as $item)
+                                     <li>   <a href="{{ route('category.show', $item->slug) }}">{{ $item->name }}</a></li>
+                                    @endforeach
+                                </div>
+                            </ul>
+                        </li>
+                        @else
                             <li>
                                 <ul class="sub-menu">
                                 <a href="{{ route('category.show', $category->slug) }}">{{ $category->name }}</a>
