@@ -41,9 +41,10 @@
                                 <div class="tag-sale">ON SALE</div>
                                 <div class="price-wrap h5">
 								<span class="price"> {{ $product->sale_price }} {{ config('settings.currency_symbol')}} </span>
-									</div>
+									
 									<del class="price-old"> {{ $product->price }} {{ config('settings.currency_symbol')}}</del>
-                                @else
+									</div>
+							    @else
                                     <div class="price-wrap h5">
                                     <p> {{ $product->price }} {{ config('settings.currency_symbol')}} </p>
                                     </div>
