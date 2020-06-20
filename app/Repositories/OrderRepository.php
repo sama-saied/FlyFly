@@ -150,10 +150,11 @@ public function findOrderById(int $id)
    public function updateOrder(array $params)
     {
         $order = $this->findOrderById($params['id']);
-
+  
         $collection = collect($params)->except('_token');
-        $status = $collection->has('status') ? 1 : 0;
-        $merge = $collection->merge(compact('status'));
+        $payment_status = $collection->has('payment_status') ? 1 : 0;
+       // $status = $collection->has('status') ? 1 : 0;
+        $merge = $collection->merge(compact('payment_status'));
 
         $order->update($merge->all());
   

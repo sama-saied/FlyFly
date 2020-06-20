@@ -23,7 +23,7 @@ class CreateOrdersTable extends Migration
             $table->decimal('grand_total', 20, 6);
             $table->unsignedInteger('item_count');
 
-          //  $table->boolean('payment_status')->default(1);
+            $table->boolean('payment_status')->default(1);
           //  $table->string('payment_method')->nullable();
 
             $table->string('first_name');
