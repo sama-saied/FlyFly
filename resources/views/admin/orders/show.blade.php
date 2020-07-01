@@ -32,6 +32,7 @@
                            
                            
                             <b>Order Status:</b> {{ $order->status }}<br>
+                           <b>Payment Status:</b> {{ $order->payment_status == 1 ? 'Completed' : 'Not Completed' }}<br>
                         </div>
                     </div>
                     <div class="row">

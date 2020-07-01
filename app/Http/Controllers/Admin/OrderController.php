@@ -53,6 +53,13 @@ public function update(Request $request)
     if (!$order) {
         return $this->responseRedirectBack('Error occurred while updating order status.', 'error', true, true);
     }
+
+    if($order->status == 'completed')
+        {
+            $order->payment_status = 1;
+            $order->save();
+            return $this->responseRedirect('admin.orders.index', 'Order Status updated successfully' ,'success',false, false);
+        }
     return $this->responseRedirect('admin.orders.index', 'Order Status updated successfully' ,'success',false, false);
 }
 }

@@ -18,7 +18,7 @@
                             <th> Placed By </th>
                             <th class="text-center"> Total Amount </th>
                             <th class="text-center"> Items Qty </th>
-                            
+                            <th class="text-center"> Payment Status </th>
                             <th class="text-center"> Status </th>
                             <th style="width:100px; min-width:100px;" class="text-center text-danger"><i class="fa fa-bolt"> </i></th>
                         </tr>
@@ -30,7 +30,13 @@
                                 <td>{{ $order->user->fullName }}</td>
                                 <td class="text-center">{{ config('settings.currency_symbol') }}{{ $order->grand_total }}</td>
                                 <td class="text-center">{{ $order->item_count }}</td>
-                              
+                                <td class="text-center">
+                                    @if ($order->payment_status == 1)
+                                        <span class="badge badge-success">Completed</span>
+                                    @else
+                                        <span class="badge badge-danger">Not Completed</span>
+                                    @endif
+                                </td>
                                 <td class="text-center">
                                     <span class="badge badge-success">{{ $order->status }}</span>
                                 </td>

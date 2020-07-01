@@ -25,7 +25,7 @@ class OrderRepository extends BaseRepository implements OrderContract
         'status'            =>  'pending',
         'grand_total'       =>  Cartt::getTotal(auth()->user()->id),
         'item_count'        =>  Cartt::Counter(auth()->user()->id),
-       // 'payment_status'    =>  1,
+        'payment_status'    =>  0,
        // 'payment_method'    =>  null,
         'first_name'        =>  $params['first_name'],
         'last_name'         =>  $params['last_name'],
