@@ -18,7 +18,26 @@ class SettingController extends BaseController
 public function index()
 {
     $this->setPageTitle('Settings', 'Manage Settings');
-    return view('admin.settings.index');
+
+    //return view('admin.settings.index');
+
+    
+        
+ 
+       // $a = auth()->guard('admin')->role ;
+      //  if($a == 'super')
+       
+       
+       // if(auth()->guard('admin')->role == 'super')
+       // if(auth()->user()->first_name == 'Rahf')
+       if(auth()->admin()->role == 'super Admin')
+        {
+        return view('admin.settings.index'); 
+        }
+        else
+        {
+        return view('admin.settings.index2');
+        }
 }
 
 
