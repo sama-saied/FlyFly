@@ -18,7 +18,7 @@
 	<section class="product-section" id="site">
 		<div class="container">
 			<div class="back-link">
-				<a href="{{ url()->previous() }}"> &lt;&lt; Back to Category</a>
+				<a href="{{ url()->previous() }}"> &lt;&lt; Back </a>
 			</div>
 			<div class="row">
 				<div class="col-lg-6">
